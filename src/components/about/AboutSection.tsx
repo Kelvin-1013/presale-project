@@ -11,12 +11,9 @@ const AboutSection = () => {
         item => {
             return (
                 <AnimatedInfoCard key={item.id} title={item.title} description={item.description} link={item.link} />
-
             )
         }
     )
-
-
     return (
         <div className='w-full text-center bg-cA text-cC'>
             <motion.div className='max-w-[1240px] mx-auto px-4 py-16 overflow-hidden'>
