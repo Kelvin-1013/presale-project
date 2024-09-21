@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.outline {
+  background-color: transparent!important;
+}
+@layer components {
+
+.arrowUp { @apply w-[2.4rem] h-[2.4rem] self-center m-auto
+}
+.scrollToTop-btn { 
+  @apply
+  flex
+  content-center
+  items-center
+  align-middle
+  text-center
+  fixed
+  bottom-[60px]
+  right-[60px]
+  w-[60px]
+  h-[60px]
+  text-[16px]
+  leading-10
+  rounded-full
+  text-white
+  cursor-pointer
+  bg-[#e83838]
+}
+}
+
+
+body {
+  background: #e8963a;
+  -webkit-tap-highlight-color:  rgba(232, 150, 58, 0);
+}
+
+
+#root {
+  -webkit-tap-highlight-color:  rgba(232, 150, 58, 0);
+}
+
+
+
+@layer base {
+  * {
+    @apply font-[Kanit]
+  }
+
+  li {
+    @apply p-2
+  }
+
+}
+
+
+@keyframes fade-in {
+    from {opacity: 0; transform: scale(.7,.7)}
+    to {opacity: 1;}
+  }
+  .fade-in-element {
+  animation: fade-in 1.4s;
+  }
+

@@ -1,0 +1,17 @@
+node_modules
+cache
+.vscode
+artifacts
+.env
+.vs/
+.yarn
+**/*/.anchor
+**/*/.DS_Store
+**/*/target
+**/*/tests/fixtures
+**/*.rs.bk
+**/*/test-ledger
+**/*/yarn.lock
+
+/target
+.next
