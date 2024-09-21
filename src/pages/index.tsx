@@ -19,11 +19,11 @@ function Home() {
       <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="theme-color" content="#000000" />
-      <meta name="description" content="Build your BONK!" />
+      <meta name="description" content="Join the $TMONK Troop!!" />
       <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.buildabonk.com/" />
         <meta property="og:title" content="BuildABonk" />
-        <meta property="og:description" content="Build your BONK!." />
+        <meta property="og:description" content="Join the $TMONK Troop!." />
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
       <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
