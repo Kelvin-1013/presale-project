@@ -8,6 +8,7 @@ import Head from 'next/head';
 import AboutSection from '../components/about/AboutSection';
 import { useRouter } from 'next/router';
 import DigiCertSeal from '../components/DigiCertSeal';
+import Roadmap from '../components/roadmap';
 
 function Home() {
 
@@ -39,6 +40,7 @@ function Home() {
           <Navbar activePage='Home' />
           <DigiCertSeal />
           <AboutSection />
+          <Roadmap />
           <FaqSection />
           <Footer />
           <ScrollToTop />
