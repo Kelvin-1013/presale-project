@@ -45,13 +45,15 @@ const BasicNavbar = (props) => {
     <div className='w-full h-[90px] bg-cA z-30'>
       <div className='max-w-[1300px] mx-auto px-2 sm:px-4 flex justify-between items-center h-full'>
         <div className='flex items-center'>
-          <AnimatedLogo onClick={() => router.push('/')} className={'hidden sm:flex ml-5 sm:ml-0'} />
+          <AnimatedLogo onClick={() => router.push('/')} text={`Save planet!`} className={'hidden sm:flex ml-5 sm:ml-0'} />
           <AnimatedOnViewTitleMd onClick={() => router.push('/')} text={`Save planet!`} delay={0.3} className={' hidden xs:flex text-cB text-lg pl-2  md:text-5xl lg:text-6xl hover:text-cC cursor-pointer'} />
         </div>
         <div className='hidden md:flex'>
           <ul className='flex text-md lg:text-4xl text-cC items-center'>
             <AnimatedLi className={`${props.activePage === 'Home' ? 'hover:text-cB cursor-pointer border-b-2' : 'hover:text-cB cursor-pointer'} `} text='Home' onClick={() => { router.push('/'); goToTop(); }} />
             <AnimatedLi className={`${props.activePage === 'Discover' ? 'hover:text-cB cursor-pointer border-b-2' : 'hover:text-cB cursor-pointer'} `} text='Discover' onClick={() => { router.push(DISCOVER_LINK); goToTop(); }} />
+            <AnimatedLi className={`${props.activePage === 'Create' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2' : 'hover:text-cB cursor-pointer pr-4  '} `} text='Create' onClick={() => { router.push(CREATE_LINK); goToTop(); }} />
+            <AnimatedLi className={`${props.activePage === 'Create' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2' : 'hover:text-cB cursor-pointer pr-4  '} `} text='Create' onClick={() => { router.push(CREATE_LINK); goToTop(); }} />
             <AnimatedLi className={`${props.activePage === 'Create' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2' : 'hover:text-cB cursor-pointer pr-4  '} `} text='Create' onClick={() => { router.push(CREATE_LINK); goToTop(); }} />
             <WalletMultiButtonDynamic />
           </ul>

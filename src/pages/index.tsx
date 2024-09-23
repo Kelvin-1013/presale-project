@@ -22,8 +22,8 @@ function Home() {
         <meta name="theme-color" content="#000000" />
         <meta name="description" content="Join the $TMONK Troop!!" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.buildabonk.com/" />
-        <meta property="og:title" content="Save planet!" />
+        <meta property="og:url" content="https://www.tmonk.net/" />
+        <meta property="og:title" content="Save.The.Planet!" />
         <meta property="og:description" content="Join the $TMONK Troop!." />
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
