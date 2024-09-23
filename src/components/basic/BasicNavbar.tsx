@@ -46,7 +46,7 @@ const BasicNavbar = (props) => {
       <div className='max-w-[1300px] mx-auto px-2 sm:px-4 flex justify-between items-center h-full'>
         <div className='flex items-center'>
           <AnimatedLogo onClick={() => router.push('/')} className={'hidden sm:flex ml-5 sm:ml-0'} />
-          <AnimatedOnViewTitleMd onClick={() => router.push('/')} text={`$Tmonk for the future of the planet`} delay={0.3} className={' hidden xs:flex text-cB text-lg pl-2  md:text-5xl lg:text-6xl hover:text-cC cursor-pointer'} />
+          <AnimatedOnViewTitleMd onClick={() => router.push('/')} text={`Save planet!`} delay={0.3} className={' hidden xs:flex text-cB text-lg pl-2  md:text-5xl lg:text-6xl hover:text-cC cursor-pointer'} />
         </div>
         <div className='hidden md:flex'>
           <ul className='flex text-md lg:text-4xl text-cC items-center'>
