@@ -91,6 +91,7 @@
     opacity: 1;
     visibility: visible;
     transform: translateY(10px);
+    z-index: 99;
 }
 
 .wallet-adapter-dropdown-list-item {
