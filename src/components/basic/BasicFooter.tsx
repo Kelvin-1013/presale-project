@@ -8,7 +8,7 @@ const GITHUB_LINK = 'https://github.com/TowerTransition'
 const TREE_LINK = 'https://linktr.ee/'
 const INSTAGRAM_LINK = 'https://www.instagram.com/tmonk777/'
 const DISCORD_LINK = 'https://discord.gg/2aNj737F'
-const TELEGRAM_LINK = 'https://discord.gg/2aNj737F'
+const TELEGRAM_LINK = 'https://t.me/+gcK4YOe5sXZjZWY5'
 
 const BasicFooter = () => {
   const router = useRouter()
