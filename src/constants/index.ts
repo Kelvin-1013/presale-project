@@ -8,7 +8,7 @@ export const PRESALE_SEED = "PRESALE_SEED";
 export const NETWORK = "devnet";
 
 import {
-  phase1,
+    phase1,
     phase2,
     phase3,
     web

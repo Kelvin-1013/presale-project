@@ -22,15 +22,15 @@ export default function usePresale() {
                 2 * LAMPORTS_PER_SOL,
             );
             try{
-                const txId = await airdropSignature;     
-                console.log(`Airdrop Transaction Id: ${txId}`);        
+                const txId = await airdropSignature;
+                console.log(`Airdrop Transaction Id: ${txId}`);
                 console.log(`https://explorer.solana.com/tx/${txId}?cluster=devnet`)
                 return false
             }
             catch(err){
                 console.log(err);
                 return false
-            }    
+            }
         }
 
     const { connection } = useConnection();
@@ -140,7 +140,7 @@ export default function usePresale() {
                     })
                     .rpc()
                 toast.success('Successfully created a presale.')
-                
+
             } catch (error) {
                 console.log(error)
                 toast.error(error.toString())
@@ -168,7 +168,7 @@ export default function usePresale() {
                     })
                     .rpc()
                 toast.success('Successfully edited a presale.')
-                
+
             } catch (error) {
                 console.log(error)
                 toast.error(error.toString())

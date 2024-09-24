@@ -52,9 +52,10 @@ const BasicNavbar = (props) => {
           <ul className='flex text-md lg:text-4xl text-cC items-center'>
             <AnimatedLi className={`${props.activePage === 'Home' ? 'hover:text-cB cursor-pointer border-b-2' : 'hover:text-cB cursor-pointer'} `} text='Home' onClick={() => { router.push('/'); goToTop(); }} />
             <AnimatedLi className={`${props.activePage === 'Discover' ? 'hover:text-cB cursor-pointer border-b-2' : 'hover:text-cB cursor-pointer'} `} text='Discover' onClick={() => { router.push(DISCOVER_LINK); goToTop(); }} />
-            <AnimatedLi className={`${props.activePage === 'Create' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2' : 'hover:text-cB cursor-pointer pr-4  '} `} text='Create' onClick={() => { router.push(CREATE_LINK); goToTop(); }} />
-            <AnimatedLi className={`${props.activePage === 'Create' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2' : 'hover:text-cB cursor-pointer pr-4  '} `} text='Create' onClick={() => { router.push(CREATE_LINK); goToTop(); }} />
-            <AnimatedLi className={`${props.activePage === 'Create' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2' : 'hover:text-cB cursor-pointer pr-4  '} `} text='Create' onClick={() => { router.push(CREATE_LINK); goToTop(); }} />
+            <AnimatedLi className={`${props.activePage === 'create' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2' : 'hover:text-cB cursor-pointer pr-4  '} `} text='Create' onClick={() => { router.push(CREATE_LINK); goToTop(); }} />
+            <AnimatedLi className={`${props.activePage === 'Whitepaper' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2' : 'hover:text-cB cursor-pointer pr-4  '} `} text='Whitepaper' onClick={() => { router.push(CREATE_LINK); goToTop(); }} />
+            <AnimatedLi className={`${props.activePage === 'Tokenomics' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2' : 'hover:text-cB cursor-pointer pr-4  '} `} text='Tokenomics' onClick={() => { router.push(CREATE_LINK); goToTop(); }} />
+            <AnimatedLi className={`${props.activePage === 'Roadmap' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2' : 'hover:text-cB cursor-pointer pr-4  '} `} text='Roadmap' onClick={() => { router.push(CREATE_LINK); goToTop(); }} />
             <WalletMultiButtonDynamic />
           </ul>
         </div>
