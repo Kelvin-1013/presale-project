@@ -6,8 +6,7 @@ import ScrollToTopButton from '../other/ScrollToTopButton';
 
 
 function BasicPage(props) {
-  return ( 
-    
+  return (
       <AnimatedPage>
         <div>
             <Navbar activePage={props.activePage}/>
