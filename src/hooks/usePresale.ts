@@ -16,23 +16,6 @@ export default function usePresale() {
         setTransactionPending(pending);
     }
 
-    const getSolanaAirdrop = async () => {
-            const airdropSignature = connection.requestAirdrop(
-                publicKey,
-                2 * LAMPORTS_PER_SOL,
-            );
-            try{
-                const txId = await airdropSignature;     
-                console.log(`Airdrop Transaction Id: ${txId}`);        
-                console.log(`https://explorer.solana.com/tx/${txId}?cluster=devnet`)
-                return false
-            }
-            catch(err){
-                console.log(err);
-                return false
-            }    
-        }
-
     const { connection } = useConnection();
     const { publicKey } = useWallet();
     const anchorWallet = useAnchorWallet();
@@ -44,6 +27,23 @@ export default function usePresale() {
     const [allPresales, setAllPresales] = useState([]);
     const [loading, setLoading] = useState(false);
     const [transactionPending, setTransactionPending] = useState(false);
+
+    const getSolanaAirdrop = async () => {
+        const airdropSignature = connection.requestAirdrop(
+            publicKey,
+            2 * LAMPORTS_PER_SOL,
+        );
+        try{
+            const txId = await airdropSignature;
+            console.log(`Airdrop Transaction Id: ${txId}`);
+            console.log(`https://explorer.solana.com/tx/${txId}?cluster=devnet`)
+            return false
+        }
+        catch(err){
+            console.log(err);
+            return false
+        }
+    }
 
     const program = useMemo(() => {
         if (anchorWallet) {
@@ -140,7 +140,7 @@ export default function usePresale() {
                     })
                     .rpc()
                 toast.success('Successfully created a presale.')
-                
+
             } catch (error) {
                 console.log(error)
                 toast.error(error.toString())
@@ -168,7 +168,7 @@ export default function usePresale() {
                     })
                     .rpc()
                 toast.success('Successfully edited a presale.')
-                
+
             } catch (error) {
                 console.log(error)
                 toast.error(error.toString())
