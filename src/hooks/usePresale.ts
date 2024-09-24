@@ -17,7 +17,7 @@ export default function usePresale() {
     }
 
     const { connection } = useConnection();
-    const { publicKey } = useWallet();
+    const { wallet, connect, connected, publicKey } = useWallet();
     const anchorWallet = useAnchorWallet();
 
     const [walletConnected, setWalletConnected] = useState(false);

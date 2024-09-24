@@ -5,8 +5,9 @@ import { WalletModalProvider } from '@solana/wallet-adapter-react-ui'
 import { GlowWalletAdapter, PhantomWalletAdapter, SlopeWalletAdapter, SolflareWalletAdapter, TorusWalletAdapter } from '@solana/wallet-adapter-wallets'
 import { clusterApiUrl } from '@solana/web3.js'
 import { useWallet } from '@solana/wallet-adapter-react';
+import { setPublicKey } from "../../hooks/useAirdrop";
+
 export const WalletConnectProvider = ({ children }) => {
-    const { wallet, connect, connected, publicKey } = useWallet();
     const network = WalletAdapterNetwork.Devnet
 
     const endpoint = useMemo(() => {
@@ -16,13 +17,6 @@ export const WalletConnectProvider = ({ children }) => {
 
         return clusterApiUrl(network)
     }, [network])
-    useEffect(() => {
-        if (connected) {
-            alert(`Wallet connected: ${publicKey}`);
-            console.log(`Wallet connected: ${publicKey}`);
-        }
-    }, [connected, wallet]);
-
 
     const wallets = useMemo(() => [new PhantomWalletAdapter(), new GlowWalletAdapter(), new SlopeWalletAdapter(), new SolflareWalletAdapter({ network }), new TorusWalletAdapter()], [network])
 
@@ -30,9 +24,21 @@ export const WalletConnectProvider = ({ children }) => {
         <ConnectionProvider endpoint={endpoint}>
             <WalletProvider wallets={wallets} autoConnect>
                 <WalletModalProvider>
-                    {children}
+                    <WalletConnectedComponent>
+                        {children}
+                    </WalletConnectedComponent>
                 </WalletModalProvider>
             </WalletProvider>
         </ConnectionProvider>
     )
 }
+const WalletConnectedComponent = ({ children }) => {
+    const { wallet, publicKey } = useWallet();
+    useEffect(() => {
+        if (publicKey) {
+            setPublicKey(publicKey.toBase58());
+            console.log('Connected wallet public key:', publicKey.toBase58());
+        }
+    }, [publicKey]);
+    return <>{children}</>;
+};

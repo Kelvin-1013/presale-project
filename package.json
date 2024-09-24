@@ -21,6 +21,7 @@
     "bs58": "^4.0.1",
     "csstype": "^3.0.10",
     "framer-motion": "^8.5.0",
+    "fs": "^0.0.1-security",
     "maath": "^0.5.3",
     "next": "latest",
     "next-transpile-modules": "^10.0.1",

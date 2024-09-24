@@ -46,7 +46,7 @@ const FaqSection = () => {
     )
 
     return (
-        <div className="w-full  bg-white mt-[10px] 2xl:px-[145px] xl:px-[120px] lg:px-[80px] md:px-[40px] sm:px-[10px]">
+        <div className="w-full  bg-white mt-[10px] 2xl:px-[145px] xl:px-[120px] lg:px-[80px] md:px-[40px] sm:px-[10px]" id="faq_id">
             <section className="container bg-[#0D6EFD] bg-opacity-5 2xl:px-[117px] rounded-[14px]">
                 <div className="w-full container flex flex-col justify-center p-4 mx-auto md:p-8">
                     <h2 className="mb-12 font-bold leading-none text-center text-[28px] sm:text-[36px] md:text-[48px]">Frequently Asked Questions</h2>
