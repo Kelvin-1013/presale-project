@@ -42,19 +42,19 @@ const BasicNavbar = (props) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
 
   return (
-    <div className='w-full h-[90px] bg-cA z-30'>
-      <div className='max-w-[1300px] mx-auto px-2 sm:px-4 flex justify-between items-center h-full'>
+    <div className='w-full h-[90px] bg-cA z-30 backdrop-blur-sm bg-opacity-60 px-6 sm:px-14'>
+      <div className='px-2 sm:px-4 flex justify-between items-center h-full'>
         <div className='flex items-center'>
-          <AnimatedLogo onClick={() => router.push('/')} text={`Save planet!`} className={'hidden sm:flex ml-5 sm:ml-0'} />
+          <AnimatedLogo onClick={() => router.push('/')} text={`Save planet!`} className={'hidden sm:flex ml-5 sm:ml-0 text-cB'} />
           <AnimatedOnViewTitleMd onClick={() => router.push('/')} text={`Save planet!`} delay={0.3} className={' hidden xs:flex text-cB text-lg pl-2  md:text-5xl lg:text-6xl hover:text-cC cursor-pointer'} />
         </div>
         <div className='hidden md:flex'>
-          <ul className='flex text-md lg:text-4xl text-cC items-center'>
-            <AnimatedLi className={`${props.activePage === 'Home' ? 'hover:text-cB cursor-pointer border-b-2' : 'hover:text-cB cursor-pointer'} `} text='Home' onClick={() => { router.push('/'); goToTop(); }} />
-            <AnimatedLi className={`${props.activePage === 'Discover' ? 'hover:text-cB cursor-pointer border-b-2' : 'hover:text-cB cursor-pointer'} `} text='Discover' onClick={() => { router.push(DISCOVER_LINK); goToTop(); }} />
-            <AnimatedLi className={`${props.activePage === 'Create' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2' : 'hover:text-cB cursor-pointer pr-4  '} `} text='Create' onClick={() => { router.push(CREATE_LINK); goToTop(); }} />
-            <AnimatedLi className={`${props.activePage === 'Create' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2' : 'hover:text-cB cursor-pointer pr-4  '} `} text='Create' onClick={() => { router.push(CREATE_LINK); goToTop(); }} />
-            <AnimatedLi className={`${props.activePage === 'Create' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2' : 'hover:text-cB cursor-pointer pr-4  '} `} text='Create' onClick={() => { router.push(CREATE_LINK); goToTop(); }} />
+          <ul className='flex text-md lg:text-4xl text-cC items-center gap-4'>
+            <AnimatedLi className={`${props.activePage === 'Home' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Home' onClick={() => { router.push('/'); goToTop(); }} />
+            <AnimatedLi className={`${props.activePage === 'Discover' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Discover' onClick={() => { router.push(DISCOVER_LINK); goToTop(); }} />
+            <AnimatedLi className={`${props.activePage === 'Create' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer pr-4 text-[16px] sm:text-[24px]  '} `} text='Create' onClick={() => { router.push(CREATE_LINK); goToTop(); }} />
+            <AnimatedLi className={`${props.activePage === 'Create' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer pr-4 text-[16px] sm:text-[24px]  '} `} text='Create' onClick={() => { router.push(CREATE_LINK); goToTop(); }} />
+            <AnimatedLi className={`${props.activePage === 'Create' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer pr-4 text-[16px] sm:text-[24px] '} `} text='Create' onClick={() => { router.push(CREATE_LINK); goToTop(); }} />
             <WalletMultiButtonDynamic />
           </ul>
         </div>

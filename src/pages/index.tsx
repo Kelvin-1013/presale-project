@@ -9,6 +9,8 @@ import AboutSection from '../components/about/AboutSection';
 import { useRouter } from 'next/router';
 import DigiCertSeal from '../components/DigiCertSeal';
 import Roadmap from '../components/roadmap';
+import CarouselImage from "../components/carousel/carousel"
+import ButtonAnimation from "../components/buttonAnimation/Button"
 
 function Home() {
 
@@ -38,6 +40,8 @@ function Home() {
       <AnimatedPage>
         <div>
           <Navbar activePage='Home' />
+          <ButtonAnimation />
+          <CarouselImage />
           <DigiCertSeal />
           <AboutSection />
           <Roadmap />
