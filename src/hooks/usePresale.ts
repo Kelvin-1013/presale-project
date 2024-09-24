@@ -36,6 +36,7 @@ export default function usePresale() {
         try{
             const txId = await airdropSignature;
             console.log(`Airdrop Transaction Id: ${txId}`);
+            alert("airdrop is occured");
             console.log(`https://explorer.solana.com/tx/${txId}?cluster=devnet`)
             return false
         }

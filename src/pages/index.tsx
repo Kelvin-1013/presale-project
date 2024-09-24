@@ -43,7 +43,7 @@ function Home() {
           <ButtonAnimation />
           <CarouselImage />
           <DigiCertSeal />
-          <AboutSection />
+          {/* <AboutSection /> */}
           <Roadmap />
           <FaqSection />
           <Footer />
