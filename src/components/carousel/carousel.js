@@ -33,7 +33,7 @@ const CarouselImage = () => {
     return (
         <>
             <div className="w-full overflow-hidden pt-1 relative">
-                {/* <div className="z-10 absolute left-5 top-[71%] -translate-y-1/2 px-10 font-bold text-5xl text-white md:top-[68%] lg:top-[65%] xl:top-[62%]">
+                <div className="z-10 absolute left-5 top-[65%] -translate-y-1/2 px-10 font-bold text-5xl text-white md:text-2xl lg:text-3xl xl:text-5xl sm:text-lg ">
                     For the clean planet! <br />
                     <button
                         className="relative z-10 left-5 bottom-full px-4 py-2 text-white font-semibold text-lg bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg shadow-lg transition-transform transform hover:scale-105 mt-10 md:mt-8 lg:mt-6 xl:mt-4"
@@ -41,7 +41,7 @@ const CarouselImage = () => {
                     >
                         Join our community!
                     </button>
-                </div> */}
+                </div>
                 <Carousel
                     axis="horizontal"
                     width="100%"
