@@ -4,6 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.text-shadow-md {
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5), 
+               -2px -2px 0 rgba(0, 0, 0, 0.5);
+}
 .outline {
   background-color: transparent!important;
 }

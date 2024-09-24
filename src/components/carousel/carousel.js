@@ -32,15 +32,17 @@ const CarouselImage = () => {
 
     return (
         <>
-            <div className="w-full overflow-hidden pt-1 relative">
-                <div className="z-10 absolute left-5 top-[65%] -translate-y-1/2 px-10 font-bold text-5xl text-white md:text-2xl lg:text-3xl xl:text-5xl sm:text-lg">
-                    For the clean planet! <br />
+            <div className="z-10 w-full overflow-hidden pt-1 relative">
+                <div className="z-10 absolute xs:left-0 left-5 top-1/2 lg:translate-y-20 xl:translate-y-10 sm:translate-y-1/4 xs:translate-y-1/4 px-10 font-bold text-white text-9xl xl:text-7xl lg:text-5xl md:text-4xl sm:text-3xl xs:text-lg text-shadow-md flex flex-col items-start">
+                    <div className="">For Clean planet!</div>
+                    <div className="text-xs hidden md:flex">  <br /></div>
                     <button
-                        className="relative z-10 left-5 bottom-full px-4 py-4 text-white font-semibold text-lg bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg transition-transform transform hover:scale-105 mt-10 md:mt-8 lg:mt-6 xl:mt-4 hover:shadow-xl hover:shadow-blue-500/50"
+                        className="relative z-10  left-5 xs:left-0 xs:py-1 bottom-full px-4 py-2 -translate-y-1/2 text-white font-semibold text-7xl xl:text-5xl lg:text-3xl md:text-xl sm:text-lg xs:text-base bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg transition-transform transform hover:scale-105 mt-4 md:mt-8 lg:mt-6 xl:mt-4 hover:shadow-xl hover:shadow-blue-500/50"
                         onClick={handleJoinCommunity}
                     >
                         Join our community!
                     </button>
+                    <div className="absolute inset-0  from-transparent to-gray-900 opacity-50"></div>
                 </div>
                 <Carousel
                     axis="horizontal"
@@ -59,11 +61,11 @@ const CarouselImage = () => {
                     ))}
                 </Carousel>
 
-                <div className="flex gap-3 flex-row justify-center items-center -z-30">
+                <div className="flex gap-3 flex-row justify-center items-start -z-30 -translate-y-4">
                     {[0,1,2].map((item) => (
                         <div
                             key={item}
-                            className={`h-1 w-4 cursor-pointer rounded-md ${currentIndex === item ? "bg-[#4e2031]" : "bg-[#78510d]"}`}
+                            className={`h-1 w-4 cursor-pointer rounded-md ${currentIndex === item ? "bg-[#ceff5b]" : "bg-[#58780d]"}`}
                             onClick={() => handleIndicatorClick(item)}
                         ></div>
                     ))}

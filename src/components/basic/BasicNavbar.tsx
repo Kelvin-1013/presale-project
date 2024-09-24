@@ -41,15 +41,13 @@ const BasicNavbar = (props) => {
             <WalletMultiButtonDynamic />
           </ul>
         </div>
-        {/* Hamburger menu */}
+
         <motion.div className='md:hidden flex' animate={isOpen ? "open" : "closed"}>
           <WalletMultiButtonDynamic />
           <AnimatedMenuToggle toggle={() => { handleNav(); toggleOpen(); }} />
         </motion.div>
-
-        {/* Mobile Menu */}
         <LayoutGroup>
-          <motion.div className={nav ? `w-full bg-cA text-cC absolute top-[90px] left-0 flex justify-center text-center border-b-4` : `w-full bg-cA text-cC absolute top-[90px] left-0 flex justify-center text-center`} layout >
+          <motion.div className={nav ? `w-full z-999 bg-cA text-cC absolute top-[90px] left-0 flex justify-center text-center border-b-4` : `w-full bg-cA text-cC absolute top-20 z-999 left-0 flex justify-center text-center`} layout >
             {nav &&
               <motion.ul>
                 <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl border-b-2'} text='Home' onClick={() => { router.push('/'); goToTop(); }} />
