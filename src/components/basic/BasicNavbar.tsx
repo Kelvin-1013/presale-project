@@ -32,8 +32,8 @@ const BasicNavbar = (props) => {
           <ul className='flex text-md lg:text-4xl text-cC items-center gap-4'>
             <AnimatedLi className={`${props.activePage === 'Home' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Home' onClick={() => { router.push('/'); goToTop(); }} />
             <AnimatedLi className={`${props.activePage === 'Whitepapaer' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Whitepapaer' onClick={() => { window.open('/whitepaper.pdf', '_blank'); goToTop(); }} />
-            <AnimatedLi className={`${props.activePage === 'AboutUs' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer pr-4 text-[16px] sm:text-[24px]  '} `} text='AboutUs' onClick={() => { router.push(CREATE_LINK); goToTop(); }} />
-            <AnimatedLi className={`${props.activePage === 'Create' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer pr-4 text-[16px] sm:text-[24px]  '} `} text='AboutUs' onClick={() => { router.push(CREATE_LINK); goToTop(); }} />
+            <AnimatedLi className={`${props.activePage === 'AboutUs' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer pr-4 text-[16px] sm:text-[24px]  '} `} text='AboutUs' onClick={() => { router.push('/'); goToTop(); }} />
+            <AnimatedLi className={`${props.activePage === 'Create' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer pr-4 text-[16px] sm:text-[24px]  '} `} text='Tokenomics' onClick={() => { router.push('/'); goToTop(); }} />
             <AnimatedLi
               className={`${props.activePage === 'BuyOnServic' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer pr-4 text-[16px] sm:text-[24px] '} `}
               text='BuyOnService'
