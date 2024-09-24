@@ -13,18 +13,6 @@ import WalletMultiButtonDynamic from '../wallet/WalletMultiButtonDynamic';
 const DISCOVER_LINK = '/discover';
 const CREATE_LINK = '/create';
 
-
-
-
-// const goToPosition = (position) => {
-//   document.documentElement.scrollTo({
-//     top: position,
-//     behavior: "smooth"
-//   });
-// };
-
-
-
 const BasicNavbar = (props) => {
   const [nav, setNav] = useState(false)
   const handleNav = () => {
