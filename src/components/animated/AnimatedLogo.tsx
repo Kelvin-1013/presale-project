@@ -18,7 +18,7 @@ const logoAnimation = {
 const AnimatedLogoMd = (props) => {
   return (
     <motion.img variants={logoAnimation} initial='initial' animate='animate' exit='exit'
-      className={`h-[60px] sm:h-[80px] pr-2 sm:px-3 cursor-pointer ${props.className}`}
+      className={`h-[60px] sm:h-[80px] pr-1 sm:px-3 cursor-pointer ${props.className}`}
       src={'/images/BonkLogo.png'} alt='' onClick={props.onClick}
     />
   );

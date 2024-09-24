@@ -22,17 +22,16 @@ const BasicNavbar = (props) => {
 
   return (
     <div className='w-full h-[90px] bg-cA z-50 backdrop-blur-sm bg-opacity-60 px-6 sm:px-14'>
-      <div className='px-2 sm:px-4 flex justify-between items-center h-full'>
+      <div className='px-1 sm:px-4 flex justify-between items-center h-full'>
         <div className='flex items-center'>
           <AnimatedLogo onClick={() => router.push('/')} text={`Save planet!`} className={'hidden sm:flex ml-5 sm:ml-0 text-cB'} />
-          <AnimatedOnViewTitleMd onClick={() => router.push('/')} text={`Save planet!`} delay={0.3} className={' hidden xs:flex text-cB text-lg pl-2  md:text-5xl lg:text-6xl hover:text-cC cursor-pointer'} />
+          <AnimatedOnViewTitleMd onClick={() => router.push('/')} text={`Save planet!`} delay={0.3} className={' hidden lg:flex text-cB text-lg pl-2  md:text-5xl lg:text-6xl hover:text-cC cursor-pointer'} />
         </div>
         <div className='hidden md:flex'>
-
           <ul className='flex text-md lg:text-4xl text-cC items-center gap-4'>
             <AnimatedLi className={`${props.activePage === 'Home' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Home' onClick={() => { router.push('/'); goToTop(); }} />
-            <AnimatedLi className={`${props.activePage === 'Whitepapaer' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Whitepapaer' onClick={() => { window.open('/whitepaper.pdf', '_blank'); goToTop(); }} />
-            <AnimatedLi className={`${props.activePage === 'AboutUs' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer pr-4 text-[16px] sm:text-[24px]  '} `} text='AboutUs' onClick={() => { router.push('/'); goToTop(); }} />
+            <AnimatedLi className={`${props.activePage === 'Whitepapaer' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Whitepapaer' onClick={() => { window.open('https://publuu.com/flip-book/664981/1481321', '_blank'); goToTop(); }} />
+            {/* <AnimatedLi className={`${props.activePage === 'AboutUs' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer pr-4 text-[16px] sm:text-[24px]  '} `} text='AboutUs' onClick={() => { router.push('/'); goToTop(); }} /> */}
             <AnimatedLi className={`${props.activePage === 'Tokenomics' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer pr-4 text-[16px] sm:text-[24px]  '} `} text='Tokenomics' onClick={() => { router.push('/'); goToTop(); }} />
             <AnimatedLi
               className={`${props.activePage === 'BuyOnServic' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer pr-4 text-[16px] sm:text-[24px] '} `}
