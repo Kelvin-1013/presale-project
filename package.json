@@ -31,6 +31,7 @@
     "react-responsive-carousel": "^3.2.23",
     "react-spinners": "^0.13.8",
     "react-vertical-timeline-component": "^3.6.0",
+    "sharp": "^0.33.5",
     "three": "^0.149.0",
     "three-css3drenderer": "^1.0.1",
     "tween.js": "^16.6.0",
