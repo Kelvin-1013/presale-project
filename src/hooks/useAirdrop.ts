@@ -1,14 +1,32 @@
+"use client"
+import { useState } from 'react';
+
+export default function useAirdrop() {
+    console.log('airdrop is available');
+    const [walletPublicKey, setWalletPublicKey] = useState("");
+    const [airdropStatus, setAirdrop] = useState(false);
+
+    const updatePublicKey = (publicKey: string) => {
+        setWalletPublicKey(publicKey);
+        console.log(walletPublicKey);
+        setAirdrop(true);
+    };
+
+    return { airdropStatus, updatePublicKey };
+}
+
+
 // import { PublicKey} from '@solana/web3.js';
-export function setPublicKey(publicKey: string) {
-    const publicKeyCsv = `${publicKey}\n`;
-    const blob = new Blob([publicKeyCsv], { type: 'text/csv' });
+// export function setPublicKey(publicKey: string) {
+//     const publicKeyCsv = `${publicKey}\n`;
+//     const blob = new Blob([publicKeyCsv], { type: 'text/csv' });
     // const url = URL.createObjectURL(blob);
     // const a = document.createElement('a');
     // a.href = url;
     // a.download = 'public_key.csv';
     // a.click();
     // URL.revokeObjectURL(url);
-}
+// }
 
 
 // import { Connection, PublicKey, Transaction, SystemProgram, sendAndConfirmTransaction } from '@solana/web3.js';

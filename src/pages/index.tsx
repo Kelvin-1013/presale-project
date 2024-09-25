@@ -38,7 +38,7 @@ function Home() {
 
       </ Head>
       <AnimatedPage>
-        <div>
+        <div className='min-w-[374px]'>
           <Navbar activePage='Home' />
           <ButtonAnimation />
           <CarouselImage />
