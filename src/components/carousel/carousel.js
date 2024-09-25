@@ -32,12 +32,12 @@ const CarouselImage = () => {
 
     return (
         <>
-            <div className="z-10 w-full overflow-hidden pt-1 relative">
+            <div className="-z-50 w-full overflow-hidden pt-1 relative">
                 <div className="z-10 absolute xs:left-0 left-5 top-1/2 lg:translate-y-20 xl:translate-y-10 sm:translate-y-1/4 xs:translate-y-1/4 px-10 font-bold text-white text-9xl xl:text-7xl lg:text-5xl md:text-4xl sm:text-3xl xs:text-lg text-shadow-md flex flex-col items-start">
                     <div className="">For Clean planet!</div>
                     <div className="text-xs hidden md:flex">  <br /><br /></div>
                     <button
-                        className="relative z-10  left-5 xs:left-0 xs:py-1 bottom-full px-4 py-2 -translate-y-1/2 text-white font-semibold text-7xl xl:text-5xl lg:text-3xl md:text-xl sm:text-lg xs:text-base bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg transition-transform transform hover:scale-105 mt-4 md:mt-8 lg:mt-6 xl:mt-4 hover:shadow-xl hover:shadow-blue-500/50"
+                        className="relative   left-5 xs:left-0 xs:py-1 bottom-full px-4 py-2 -translate-y-1/2 text-white font-semibold text-7xl xl:text-5xl lg:text-3xl md:text-xl sm:text-lg xs:text-base bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg transition-transform transform hover:scale-105 mt-4 md:mt-8 lg:mt-6 xl:mt-4 hover:shadow-xl hover:shadow-blue-500/50"
                         onClick={handleJoinCommunity}
                     >
                         Join our community!
@@ -47,7 +47,7 @@ const CarouselImage = () => {
                 <Carousel
                     axis="horizontal"
                     width="100%"
-                    interval={1500}
+                    interval={2000}
                     autoPlay={true}
                     showStatus={false}
                     showArrows={true}
@@ -61,7 +61,7 @@ const CarouselImage = () => {
                     ))}
                 </Carousel>
 
-                <div className="flex gap-3 flex-row justify-center items-start -z-30 -translate-y-4">
+                <div className="flex gap-3 flex-row justify-center items-start -z-30-translate-y-4">
                     {[0,1,2].map((item) => (
                         <div
                             key={item}

@@ -4,11 +4,9 @@ import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react
 import { WalletModalProvider } from '@solana/wallet-adapter-react-ui'
 import { GlowWalletAdapter, PhantomWalletAdapter, SlopeWalletAdapter, SolflareWalletAdapter, TorusWalletAdapter } from '@solana/wallet-adapter-wallets'
 import { clusterApiUrl } from '@solana/web3.js'
-import { useAnchorWallet, useConnection, useWallet } from '@solana/wallet-adapter-react';
-
+import { useWallet } from '@solana/wallet-adapter-react';
 export const WalletConnectProvider = ({ children }) => {
-
-    // The network can be set to 'devnet', 'testnet', or 'mainnet-beta'.
+    const { wallet, connect, connected, publicKey } = useWallet();
     const network = WalletAdapterNetwork.Devnet
 
     const endpoint = useMemo(() => {
@@ -18,6 +16,12 @@ export const WalletConnectProvider = ({ children }) => {
 
         return clusterApiUrl(network)
     }, [network])
+    useEffect(() => {
+        if (connected) {
+            alert(`Wallet connected: ${publicKey}`);
+            console.log(`Wallet connected: ${publicKey}`);
+        }
+    }, [connected, wallet]);
 
 
     const wallets = useMemo(() => [new PhantomWalletAdapter(), new GlowWalletAdapter(), new SlopeWalletAdapter(), new SolflareWalletAdapter({ network }), new TorusWalletAdapter()], [network])
