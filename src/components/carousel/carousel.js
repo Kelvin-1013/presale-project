@@ -25,9 +25,8 @@ const CarouselImage = () => {
     ];
 
     const handleJoinCommunity = () => {
-        if(typeof window !== "undefined") {
-            window.open('https://discord.gg/2aNj737F',"_blank");
-        }
+        window.open('https://discord.com/invite/2aNj737F',"_blank");
+        // window.open('https://discord.gg/2aNj737F',"_blank");
     };
 
     return (
@@ -47,8 +46,9 @@ const CarouselImage = () => {
                 <Carousel
                     axis="horizontal"
                     width="100%"
-                    interval={2000}
+                    interval={3000}
                     autoPlay={true}
+                    infiniteLoop={true} // This property may be available in some libraries
                     showStatus={false}
                     showArrows={true}
                     ref={carousel}

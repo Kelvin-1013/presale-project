@@ -31,7 +31,28 @@ const BasicNavbar = (props) => {
           <ul className='flex text-md lg:text-4xl text-cC items-center gap-4'>
             <AnimatedLi className={`${props.activePage === 'Home' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Home' onClick={() => { router.push('/'); goToTop(); }} />
             <AnimatedLi className={`${props.activePage === 'Whitepapaer' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Whitepapaer' onClick={() => { window.open('https://publuu.com/flip-book/664981/1481321', '_blank'); goToTop(); }} />
-            <AnimatedLi className={`${props.activePage === 'Tokenomics' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer pr-4 text-[16px] sm:text-[24px]  '} `} text='Tokenomics' onClick={() => { router.push('/'); goToTop(); }} />
+            {/* <AnimatedLi className={`${props.activePage === 'Tokenomics' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer pr-4 text-[16px] sm:text-[24px]  '} `} text='Tokenomics' onClick={() => { router.push('/tokenomics'); goToTop(); }} /> */}
+            {/* <AnimatedLi className={`${props.activePage === 'Tokenomics' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer pr-4 text-[16px] sm:text-[24px]  '} `} text='Tokenomics' onClick={() => { router.push('/tokenomics'); goToTop(); }} /> */}
+            <AnimatedLi
+              className={`${props.activePage === 'roadmap' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `}
+              text='roadmap'
+              onClick={() => {
+                const roadmapSection = document.getElementById('roadmap-section');
+                if (roadmapSection) {
+                  roadmapSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            />
+            <AnimatedLi
+              className={`${props.activePage === 'FAQ' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `}
+              text='FAQ'
+              onClick={() => {
+                const roadmapSection = document.getElementById('faq_id');
+                if (roadmapSection) {
+                  roadmapSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            />
             <AnimatedLi
               className={`${props.activePage === 'BuyOnServic' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer pr-4 text-[16px] sm:text-[24px] '} `}
               text='BuyOnService'
@@ -50,8 +71,9 @@ const BasicNavbar = (props) => {
             {nav &&
               <motion.ul className="flex space-x-4"> {/* Added flex and spacing for horizontal layout */}
                 <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl flex items-center'} text='• Home' onClick={() => { router.push('/'); goToTop(); }} />
-                <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl flex items-center'} text='• Discover' onClick={() => { router.push(DISCOVER_LINK); goToTop(); }} />
-                <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl flex items-center'} text='• Create' onClick={() => { router.push(CREATE_LINK); goToTop(); }} />
+                <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl flex items-center'} text='• whitepaper' onClick={() => { window.open('https://publuu.com/flip-book/664981/1481321'); goToTop(); }} />
+                {/* <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl flex items-center'} text='• Tokenomics' onClick={() => { router.push(CREATE_LINK); goToTop(); }} /> */}
+                <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl flex items-center'} text='• create' onClick={() => { router.push(CREATE_LINK); goToTop(); }} />
               </motion.ul>
             }
           </motion.div>
