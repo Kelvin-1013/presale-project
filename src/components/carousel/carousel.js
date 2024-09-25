@@ -2,6 +2,7 @@ import React,{useRef,useState,useEffect} from "react";
 import Card from "./card";
 import {Carousel} from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Image from "next/image";
 
 const CarouselImage = () => {
     const carousel = useRef(null);
@@ -24,25 +25,27 @@ const CarouselImage = () => {
         {url: "monkey/3.png",title: "Transforming Our Trading"},
     ];
 
-    const handleJoinCommunity = () => {
+    const handleJoinCommunity = (event) => {
+        event.stopPropagation();
         window.open('https://discord.com/invite/2aNj737F',"_blank");
-        // window.open('https://discord.gg/2aNj737F',"_blank");
     };
 
     return (
         <>
-            <div className="-z-50 w-full overflow-hidden pt-1 relative">
-                <div className="z-10 absolute xs:left-0 left-5 top-1/2 lg:translate-y-20 xl:translate-y-10 sm:translate-y-1/4 xs:translate-y-1/4 px-10 font-bold text-white text-9xl xl:text-7xl lg:text-5xl md:text-4xl sm:text-3xl xs:text-lg text-shadow-md flex flex-col items-start">
+            <div className="relative xl:top-96 lg:top-80 md:top-56 sm:top-52 xs:top-32">
+                <div className="absolute flex flex-col items-start px-10 font-bold text-white xs:left-0 left-5 translate-y-[25%] lg:translate-y-20 xl:translate-y-10 sm:translate-y-1/4 xs:translate-y-1/4 text-9xl xl:text-7xl lg:text-5xl md:text-4xl sm:text-3xl xs:text-lg text-shadow-md">
                     <div className="">For Clean planet!</div>
-                    <div className="text-xs hidden md:flex">  <br /><br /></div>
+                    <div className="hidden text-xs md:flex">  <br /></div>
+                    <div className="hidden text-xs lg:flex">  <br /></div>
                     <button
-                        className="relative   left-5 xs:left-0 xs:py-1 bottom-full px-4 py-2 -translate-y-1/2 text-white font-semibold text-7xl xl:text-5xl lg:text-3xl md:text-xl sm:text-lg xs:text-base bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg transition-transform transform hover:scale-105 mt-4 md:mt-8 lg:mt-6 xl:mt-4 hover:shadow-xl hover:shadow-blue-500/50"
                         onClick={handleJoinCommunity}
+                        className="relative px-4 py-2 mt-4 font-semibold text-white transition-transform transform -translate-y-1/2 rounded-lg left-5 xs:left-0 xs:py-1 bottom-full text-7xl xl:text-5xl lg:text-3xl md:text-xl sm:text-lg xs:text-base bg-gradient-to-r from-blue-500 to-purple-500 hover:scale-105 md:mt-8 lg:mt-6 xl:mt-4 hover:shadow-xl hover:z-10 hover:shadow-blue-500/50"
                     >
                         Join our community!
                     </button>
-                    <div className="absolute inset-0  from-transparent to-gray-900 opacity-50"></div>
                 </div>
+            </div>
+            <div className="relative overflow-hidden -z-10 t-1 zw-full">
                 <Carousel
                     axis="horizontal"
                     width="100%"
@@ -61,7 +64,7 @@ const CarouselImage = () => {
                     ))}
                 </Carousel>
 
-                <div className="flex gap-3 flex-row justify-center items-start -z-30-translate-y-4">
+                <div className="flex flex-row items-start justify-center gap-3 -translate-y-4 -z-30">
                     {[0,1,2].map((item) => (
                         <div
                             key={item}
@@ -70,7 +73,7 @@ const CarouselImage = () => {
                         ></div>
                     ))}
                 </div>
-            </div >
+            </div>
         </>
     );
 };

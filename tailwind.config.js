@@ -8,9 +8,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      textShadow: {
-        'md': '2px 2px 0 rgba(0, 0, 0, 0.5), -2px -2px 0 rgba(0, 0, 0, 0.5)',
-      },
       screens: {
         'xs': '375px',
       },

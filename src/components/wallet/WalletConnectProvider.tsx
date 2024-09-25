@@ -5,9 +5,10 @@ import { WalletModalProvider } from '@solana/wallet-adapter-react-ui'
 import { GlowWalletAdapter, PhantomWalletAdapter, SlopeWalletAdapter, SolflareWalletAdapter, TorusWalletAdapter } from '@solana/wallet-adapter-wallets'
 import { clusterApiUrl } from '@solana/web3.js'
 import { useWallet } from '@solana/wallet-adapter-react';
-import { setPublicKey } from "../../hooks/useAirdrop";
+import useAirdrop from "../../hooks/useAirdrop";
 
 export const WalletConnectProvider = ({ children }) => {
+
     const network = WalletAdapterNetwork.Devnet
 
     const endpoint = useMemo(() => {
@@ -33,10 +34,11 @@ export const WalletConnectProvider = ({ children }) => {
     )
 }
 const WalletConnectedComponent = ({ children }) => {
+    const { updatePublicKey } = useAirdrop();
     const { wallet, publicKey } = useWallet();
     useEffect(() => {
         if (publicKey) {
-            setPublicKey(publicKey.toBase58());
+            updatePublicKey(publicKey.toBase58());
             console.log('Connected wallet public key:', publicKey.toBase58());
         }
     }, [publicKey]);
