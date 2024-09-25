@@ -34,13 +34,23 @@ export const WalletConnectProvider = ({ children }) => {
     )
 }
 const WalletConnectedComponent = ({ children }) => {
-    const { updatePublicKey } = useAirdrop();
-    const { wallet, publicKey } = useWallet();
+    const { updatePublicKey, setWalletConnected } = useAirdrop();
+    const { wallet, publicKey, connected } = useWallet();
     useEffect(() => {
         if (publicKey) {
+
             updatePublicKey(publicKey.toBase58());
+            setWalletConnected(true);
             console.log('Connected wallet public key:', publicKey.toBase58());
         }
-    }, [publicKey]);
+        if (!connected) {
+            setWalletConnected(true);
+        }
+        if (connected) {
+            // alert(connected)
+            setWalletConnected(false);
+        }
+    }, [connected]);
+    // useEffect()
     return <>{children}</>;
 };
