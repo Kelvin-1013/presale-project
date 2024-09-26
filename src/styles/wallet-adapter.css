@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 
 .wallet-adapter-button {
-    background-color: #32a54e;
+    background-color: transparent;
     border: none;
     color: #fff;
     cursor: pointer;
@@ -16,12 +16,11 @@
     border-radius: 4px;
     margin-right: 20px;
     margin-left: 0px;
-
 }
 
 
 .wallet-adapter-button-trigger {
-    background-image: linear-gradient(to right, #34C759, #2E865F);
+    background-color: #e83838;
 }
 
 .wallet-adapter-button:not([disabled]):focus-visible {
@@ -30,6 +29,7 @@
 }
 
 .wallet-adapter-button:not([disabled]):hover {
+    background-color: white;
     color: #e83838;
 }
 
@@ -78,10 +78,10 @@
     right: 0;
     margin: 0;
     list-style: none;
-    background: #2E865F;
+    background: #e83838;
     border-radius: 10px;
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6);
-    opacity: 1;
+    opacity: 0;
     visibility: hidden;
     transition: opacity 200ms ease, transform 200ms ease, visibility 200ms;
     font-family: 'DM Sans', 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -91,7 +91,6 @@
     opacity: 1;
     visibility: visible;
     transform: translateY(10px);
-    z-index: 99;
 }
 
 .wallet-adapter-dropdown-list-item {
@@ -114,6 +113,7 @@
 }
 
 .wallet-adapter-dropdown-list-item:not([disabled]):hover {
+    background-color: white;
     color: #e83838;
 }
 
@@ -153,6 +153,7 @@
     right: 18px;
     padding: 12px;
     cursor: pointer;
+    background: white;
     border: none;
     border-radius: 50%;
 }
@@ -165,7 +166,7 @@
 }
 
 .wallet-adapter-modal-button-close svg {
-    fill: #36eb63;
+    fill: #e83838;
     transition: fill 200ms ease 0s;
 }
 
@@ -206,7 +207,7 @@
     z-index: 1050;
     max-width: 400px;
     border-radius: 10px;
-    background: #34C759;
+    background: #e83838;
     box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.6);
     font-family: 'DM Sans', 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     flex: 1;

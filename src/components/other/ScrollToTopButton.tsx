@@ -1,4 +1,3 @@
-"use client"
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -45,7 +44,7 @@ export const goToTop = () => {
         {scrollPosition > 100 && (
           <motion.button
             onClick={goToTop}
-            className="z-40 px-0 py-0 scrollToTop-btn"
+            className="scrollToTop-btn px-0 py-0 z-40"
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 0.7, transition: { duration: 0.6 } }}
             exit={{ y: 100, opacity: 0, transition: { duration: 0.6 } }}
