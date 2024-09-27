@@ -11,7 +11,7 @@ import WalletMultiButtonDynamic from '../wallet/WalletMultiButtonDynamic';
 
 const DISCOVER_LINK = '/discover';
 const CREATE_LINK = '/create';
-const PRESALE_LINK = '/presale';
+// const PRESALE_LINK = '/presale';
 const nativeColors = [
   '#FF69B4', // Color 1
   '#33CC33', // Color 2
