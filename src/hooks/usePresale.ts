@@ -21,7 +21,7 @@ export default function usePresale() {
     const { wallet, connect, connected, publicKey } = useWallet();
     const anchorWallet = useAnchorWallet();
 
-    const [walletConnected, setWalletConnected] = useState(falsgit ae);
+    const [walletConnected, setWalletConnected] = useState(false);
     const [initializedWallet, setInitializedWallet] = useState(false);
     const [nextPresaleIdentifier, setNextPresaleIdentifier] = useState(0);
     const [myPresales, setMyPresales] = useState([]);
