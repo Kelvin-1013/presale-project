@@ -85,7 +85,8 @@ const BasicNavbar = (props) => {
               <motion.ul className="flex space-x-4 "> {/* Added flex and spacing for horizontal layout */}
                 <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl flex items-center'} text='• Home' onClick={() => { router.push('/'); goToTop(); }} />
                 <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl flex items-center'} text='• whitepaper' onClick={() => { window.open('https://publuu.com/flip-book/664981/1481321'); goToTop(); }} />
-                <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl flex items-center'} text='• presale' onClick={() => { router.push(PRESALE_LINK); goToTop(); }} />
+                <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl flex items-center'} text='• buy' onClick={() => { window.open('https://tools.smithii.io/launches-list/solana', '_blank') }} />
+                {/* <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl flex items-center'} text='• presale' onClick={() => { router.push(PRESALE_LINK); goToTop(); }} /> */}
               </motion.ul>
             }
           </motion.div>
