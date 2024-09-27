@@ -1,6 +1,4 @@
 "use client"
-import { isWebGL2Available } from '@react-three/drei';
-import { is } from '@react-three/fiber/dist/declarations/src/core/utils';
 import { useState, useEffect } from 'react';
 
 export default function useAirdrop() {
