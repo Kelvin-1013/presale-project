@@ -1,3 +1,4 @@
+"use client"
 import * as anchor from '@project-serum/anchor';
 import { BN } from "@project-serum/anchor";
 import { useEffect, useMemo, useState } from 'react';
@@ -17,7 +18,7 @@ export default function usePresale() {
     }
 
     const { connection } = useConnection();
-    const { publicKey } = useWallet();
+    const { wallet, connect, connected, publicKey } = useWallet();
     const anchorWallet = useAnchorWallet();
 
     const [walletConnected, setWalletConnected] = useState(false);

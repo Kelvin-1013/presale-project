@@ -8,10 +8,8 @@ const aboutInfo = [
     {
         id: 1,
         title: "Create",
-        description: 'Create your own presale and get the funding you need!',
+        description: 'create your own presale/token launch and build your own community',
         link: '/create'
     },
-    
-  
 ]
 export default aboutInfo;

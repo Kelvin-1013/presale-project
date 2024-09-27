@@ -2,6 +2,7 @@ import React,{useRef,useState,useEffect} from "react";
 import Card from "./card";
 import {Carousel} from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Image from "next/image";
 
 const CarouselImage = () => {
     const carousel = useRef(null);
@@ -24,30 +25,34 @@ const CarouselImage = () => {
         {url: "monkey/3.png",title: "Transforming Our Trading"},
     ];
 
-    const handleJoinCommunity = () => {
-        if(typeof window !== "undefined") {
-            window.open('https://discord.gg/2aNj737F',"_blank");
-        }
+    const handleJoinCommunity = (event) => {
+        event.stopPropagation();
+        window.open('https://discord.com/invite/2aNj737F',"_blank");
     };
 
     return (
         <>
-            <div className="w-full overflow-hidden pt-1 relative">
-                {/* <div className="z-10 absolute left-5 top-[71%] -translate-y-1/2 px-10 font-bold text-5xl text-white md:top-[68%] lg:top-[65%] xl:top-[62%]">
-                    For the clean planet! <br />
+            <div className="relative xl:top-96 lg:top-80 md:top-56 sm:top-52 xs:top-32">
+                <div className="absolute flex flex-col items-start px-10 font-bold text-white xs:left-0 left-5 translate-y-[25%] lg:translate-y-20 xl:translate-y-10 sm:translate-y-1/4 xs:translate-y-1/4 text-9xl xl:text-7xl lg:text-5xl md:text-4xl sm:text-3xl xs:text-lg text-shadow-md">
+                    <div className="">For Clean planet!</div>
+                    <div className="hidden text-xs md:flex">  <br /></div>
+                    <div className="hidden text-xs lg:flex">  <br /></div>
                     <button
-                        className="relative z-10 left-5 bottom-full px-4 py-2 text-white font-semibold text-lg bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg shadow-lg transition-transform transform hover:scale-105 mt-10 md:mt-8 lg:mt-6 xl:mt-4"
                         onClick={handleJoinCommunity}
+                        className="relative px-4 py-2 mt-4 font-semibold text-white transition-transform transform -translate-y-1/2 rounded-lg left-5 xs:left-0 xs:py-1 bottom-full text-7xl xl:text-5xl lg:text-3xl md:text-xl sm:text-lg xs:text-base bg-gradient-to-r from-blue-500 to-purple-500 hover:scale-105 md:mt-8 lg:mt-6 xl:mt-4 hover:shadow-xl hover:z-10 hover:shadow-blue-500/50"
                     >
                         Join our community!
                     </button>
-                </div> */}
+                </div>
+            </div>
+            <div className="relative overflow-hidden -z-10 t-1 zw-full">
                 <Carousel
                     axis="horizontal"
                     width="100%"
-                    interval={1500}
+                    interval={3000}
                     autoPlay={true}
-                    showStatus={true}
+                    infiniteLoop={true} // This property may be available in some libraries
+                    showStatus={false}
                     showArrows={true}
                     ref={carousel}
                     showIndicators={false}
@@ -59,16 +64,16 @@ const CarouselImage = () => {
                     ))}
                 </Carousel>
 
-                <div className="flex gap-3 flex-row justify-center items-center -z-30">
+                <div className="flex flex-row items-start justify-center gap-3 -translate-y-4 -z-30">
                     {[0,1,2].map((item) => (
                         <div
                             key={item}
-                            className={`h-[14px] w-[14px] cursor-pointer rounded-full ${currentIndex === item ? "bg-[#40ff00]" : "bg-[#0D6EFD]"}`}
+                            className={`h-1 w-4 cursor-pointer rounded-md ${currentIndex === item ? "bg-[#ceff5b]" : "bg-[#58780d]"}`}
                             onClick={() => handleIndicatorClick(item)}
                         ></div>
                     ))}
                 </div>
-            </div >
+            </div>
         </>
     );
 };

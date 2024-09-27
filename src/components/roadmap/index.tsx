@@ -65,7 +65,7 @@ const Experience = () => {
         <h2 className={styles.sectionHeadText}>Roadmap</h2>
       </motion.div>
 
-      <div className="flex flex-col mt-20">
+      <div className="flex flex-col mt-20 " id='roadmap-section'>
         <VerticalTimeline>
           {roadmap.map((roadmapStep, index) => (
             <ExperienceCard key={index} experience={roadmapStep} />
