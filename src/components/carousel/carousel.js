@@ -37,7 +37,7 @@ const CarouselImage = () => {
                     <div className="">For Clean planet!</div>
                     <div className="hidden text-xs md:flex">  <br /></div>
                     <div className="hidden text-xs lg:flex">  <br /></div>
-                    <button
+                    <button style={{transition: 'background-color 0.3s'}}
                         onClick={handleJoinCommunity}
                         className="relative px-4 py-2 mt-4 font-semibold text-white transition-transform transform -translate-y-1/2 rounded-lg left-5 xs:left-0 xs:py-1 bottom-full text-7xl xl:text-5xl lg:text-3xl md:text-xl sm:text-lg xs:text-base bg-gradient-to-r from-blue-500 to-purple-500 hover:scale-105 md:mt-8 lg:mt-6 xl:mt-4 hover:shadow-xl hover:z-10 hover:shadow-blue-500/50"
                     >

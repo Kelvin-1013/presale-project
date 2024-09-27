@@ -1,78 +1,96 @@
-import React, {useState} from 'react';
+"use client"
+import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import AnimatedLi from '../animated/AnimatedLi';
 import { motion, LayoutGroup, useCycle } from 'framer-motion';
 import AnimatedLogo from '../animated/AnimatedLogo';
 import AnimatedMenuToggle from '../animated/AnimatedMenuToggle';
-import {goToTop} from '../../utils/ScrollToTopOnLoad'
+import { goToTop } from '../../utils/ScrollToTopOnLoad'
 import AnimatedOnViewTitleMd from '../animated/AnimatedOnViewTitleMd';
 import WalletMultiButtonDynamic from '../wallet/WalletMultiButtonDynamic';
 
-// add this
-
 const DISCOVER_LINK = '/discover';
 const CREATE_LINK = '/create';
-
-
-
-
-// const goToPosition = (position) => {
-//   document.documentElement.scrollTo({
-//     top: position,
-//     behavior: "smooth"
-//   });
-// };
-
-
+const PRESALE_LINK = '/presale';
+const nativeColors = [
+  '#FF69B4', // Color 1
+  '#33CC33', // Color 2
+  '#66CCCC', // Color 3
+  '#FFCC00', // Color 4
+  '#0099CC', // Color 5
+  '#FF99CC', // Color 6
+  '#CCCCCC', // Color 7
+];
 
 const BasicNavbar = (props) => {
-    const [nav, setNav] = useState(false)
-    const handleNav = () => {
-        setNav(!nav);
-    }
-    // const mobileNavItemClick = (position) => {
-    //   handleNav()
-    //   document.documentElement.scrollTo({
-    //     top: position,
-    //     behavior: "smooth"
-    //   });
-    // };
+  const [nav, setNav] = useState(false)
+  const handleNav = () => {
+    setNav(!nav);
+  }
 
-    const router = useRouter();
-    const [isOpen, toggleOpen] = useCycle(false, true);
+  const router = useRouter();
+  const [isOpen, toggleOpen] = useCycle(false, true);
 
   return (
-    <div className='w-full h-[90px] bg-cA z-30'>
-      <div className='max-w-[1300px] mx-auto px-2 sm:px-4 flex justify-between items-center h-full'>
+    <div className='w-full h-[90px] bg-cA z-[2000] backdrop-blur-sm bg-opacity-60 px-1 sm:px-5 '>
+      <div className='flex items-center justify-between h-full '>
         <div className='flex items-center'>
-          <AnimatedLogo onClick={() => router.push('/')} className={'hidden sm:flex ml-5 sm:ml-0'}/>
-          <AnimatedOnViewTitleMd onClick={() => router.push('/')} text={'BuildABonk!'} delay={0.3} className={' hidden xs:flex text-cB text-lg pl-2  md:text-5xl lg:text-6xl hover:text-cC cursor-pointer'}/>
+          <AnimatedLogo onClick={() => router.push('/')} className={'hidden sm:flex ml-2 sm:ml-0 pt-2 text-cB '} />
+          <AnimatedOnViewTitleMd
+            onClick={() => router.push('/')}
+            text={`Save planet!`}
+            delay={0.3}
+            className={' xl:text-7xl [1490px]:text-4xl lg:text-4xl md:text-1xl sm:text-lg hidden lg:flex text-cB   hover:text-cC cursor-pointer'}
+            style={{
+              textDecoration: 'underline',
+              textDecorationThickness: '2px',
+              transition: 'text-decoration-color 0.5s ease-in-out',
+            }}
+          />
         </div>
         <div className='hidden md:flex'>
-          <ul className='flex text-md lg:text-4xl text-cC items-center'>
-            <AnimatedLi className={`${props.activePage === 'Home' ? 'hover:text-cB cursor-pointer border-b-2' : 'hover:text-cB cursor-pointer'} `} text='Home' onClick={() => {router.push('/'); goToTop();}} />
-            <AnimatedLi className={`${props.activePage === 'Discover' ? 'hover:text-cB cursor-pointer border-b-2' : 'hover:text-cB cursor-pointer'} `} text='Discover' onClick={() => {router.push(DISCOVER_LINK); goToTop();}}/>
-            <AnimatedLi className={`${props.activePage === 'Create' ? 'hover:text-cB cursor-pointer border-b-2 pr-4 lg:pr-4 mr-2' : 'hover:text-cB cursor-pointer pr-4  '} `} text='Create' onClick={() => {router.push(CREATE_LINK); goToTop();}}/>
+          <ul className='flex items-center gap-4 text-md lg:text-4xl text-cC'>
+            <AnimatedLi className={`${props.activePage === 'Home' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Home' onClick={() => { router.push('/'); goToTop(); }} />
+            <AnimatedLi className={`${props.activePage === 'Whitepapaer' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Whitepapaer' onClick={() => { window.open('https://publuu.com/flip-book/664981/1481321', '_blank'); goToTop(); }} />
+            <AnimatedLi
+              className={`${props.activePage === 'roadmap' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `}
+              text='roadmap'
+              onClick={() => {
+                const roadmapSection = document.getElementById('roadmap-section');
+                if (roadmapSection) {
+                  roadmapSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            />
+            <AnimatedLi
+              className={`${props.activePage === 'FAQ' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `}
+              text='FAQ'
+              onClick={() => {
+                const roadmapSection = document.getElementById('faq_id');
+                if (roadmapSection) {
+                  roadmapSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            />
             <WalletMultiButtonDynamic />
           </ul>
         </div>
 
-        {/* Hamburger menu */}
-        <motion.div className='md:hidden flex' animate={isOpen ? "open" : "closed"}>
-            <WalletMultiButtonDynamic />
-            <AnimatedMenuToggle toggle={() => { handleNav(); toggleOpen();}} />
+        <motion.div className='flex md:hidden' animate={isOpen ? "open" : "closed"}>
+          <WalletMultiButtonDynamic />
+          <AnimatedMenuToggle toggle={() => { handleNav(); toggleOpen(); }} />
         </motion.div>
-
-        {/* Mobile Menu */}
         <LayoutGroup>
-        <motion.div className={ nav ? `w-full bg-cA text-cC absolute top-[90px] left-0 flex justify-center text-center z-30 border-b-4` : `w-full bg-cA text-cC absolute top-[90px] left-0 flex justify-center text-center z-30`}  layout >
-        {nav && 
-            <motion.ul>
-              <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl border-b-2'} text='Home' onClick={() => {router.push('/'); goToTop();}} />
-              <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl border-b-2'} text='Discover' onClick={() => {router.push(DISCOVER_LINK); goToTop();}}/>
-              <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl'} text='Create' onClick={() => {router.push(CREATE_LINK); goToTop();}}/>
-            </motion.ul>}
-        </motion.div> 
+          <motion.div className={nav ? `z-10 w-full bg-cA text-cC absolute top-[90px] left-0 flex justify-center text-center border-b-4` : `w-full bg-cA z-10 text-cC absolute top-20  left-0 flex justify-center text-center `} layout>
+            {nav &&
+              <motion.ul className="flex space-x-4 "> {/* Added flex and spacing for horizontal layout */}
+                <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl flex items-center'} text='• Home' onClick={() => { router.push('/'); goToTop(); }} />
+                <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl flex items-center'} text='• whitepaper' onClick={() => { window.open('https://publuu.com/flip-book/664981/1481321'); goToTop(); }} />
+                <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl flex items-center'} text='• buy' onClick={() => { window.open('https://tools.smithii.io/launches-list/solana', '_blank') }} />
+                {/* <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl flex items-center'} text='• presale' onClick={() => { router.push(PRESALE_LINK); goToTop(); }} /> */}
+              </motion.ul>
+            }
+          </motion.div>
         </LayoutGroup>
       </div>
     </div>
