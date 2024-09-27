@@ -1,3 +1,4 @@
+"use client"
 import * as anchor from '@project-serum/anchor';
 import { BN } from "@project-serum/anchor";
 import { useEffect, useMemo, useState } from 'react';

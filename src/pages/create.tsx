@@ -1,4 +1,5 @@
 
+"use client"
 import React, {useState, useMemo, useEffect} from 'react'
 import BasicPage from '../components/basic/BasicPage'
 import CreatePresaleForm from '../components/presales/CreatePresaleForm'
@@ -45,10 +46,10 @@ export default function allPresales() {
       {connected && !initialized &&
         <>
           <div className='max-w-[1240px] mx-auto px-4 py-16 items-center flex flex-col'>
-              <div className=' py-2 px-3 md:p-3 md:px-5  items-center flex flex-col rounded-3xl bg-cB' >
+              <div className='flex flex-col items-center px-3 py-2 md:p-3 md:px-5 rounded-3xl bg-cB' >
                   <div className='w-[80vw]  sm:w-[500px] md:w-[600px] lg:w-[900px] items-center flex-col bg-cA p-4 my-2 al mx-auto rounded-2xl transition-colors duration-300 justify-center text-center'>
                       <AnimatedOnViewTitleMd text={"Initialize Your Wallet"} className={"mx-auto self-center text-cB justify-center flex text-center" }/>
-                      <div className='flex h-30 py-auto px-3 md:px-5 align-end mt-7 mb-3'> 
+                      <div className='flex px-3 mb-3 h-30 py-auto md:px-5 align-end mt-7'> 
                               <AnimatedButton type="submit" text={'Initialize'} className={"mx-auto mb-4"} onClick={clickHandler}/>
                       </div>
                       <ClipLoader color={"#e83838"} loading={loading} size={20} />

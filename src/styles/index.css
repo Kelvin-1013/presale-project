@@ -63,6 +63,19 @@ body {
   animation: pulse 1.5s infinite; /* Adjust duration as needed */
 }
 
+.ul-class {
+  margin-bottom: 0.4rem; /* default margin bottom */
+  margin-top: 0.4rem; /* default margin bottom */
+}
+
+/* when screen is smaller than md, reduce the space between lines to half */
+@media (max-width: theme('screens.md')) {
+  .ul-class {
+    margin-bottom: 0.1rem;
+    margin-top: 0.1rem;
+  }
+}
+
 
 @layer base {
   * {
