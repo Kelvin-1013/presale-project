@@ -4,9 +4,8 @@ import * as web3 from '@solana/web3.js';
 // import toast, { ToastContainer } from "react-toastify";
 import useSendTokens from '../hooks/useSendTokens';
 import 'react-toastify/dist/ReactToastify.css';
-import toast from 'toast';
+// import toast from 'toast';
 
-const TOKEN_ADDRESS = process.env.TOKEN_ADDRESS; // Change this to your token address
 
 const Presale = () => {
   const { publicKey, sendTransaction } = useWallet();
@@ -17,7 +16,13 @@ const Presale = () => {
 
   const handleTransaction = async () => {
     if (!publicKey) {
-      toast.error("Please connect your wallet.");
+      alert("Please connect your wallet.");
+      // toast.error("Please connect your wallet.");
+      return;
+    }
+    const TOKEN_ADDRESS = process.env.NEXT_PUBLIC_TOKEN_ADDRESS; // Change this to your token address
+    if (!TOKEN_ADDRESS) {
+      alert("Token address is not defined.");
       return;
     }
 
@@ -34,10 +39,12 @@ const Presale = () => {
       const signature = await sendTransaction(transaction, connection);
       setTxSig(signature);
       await sendTokens(amount, publicKey);
-      toast.success("Deposit Successful! Your token will appear in your wallet soon.");
+      alert("Deposit Successful! Your token will appear in your wallet soon.");
+      // toast.success("Deposit Successful! Your token will appear in your wallet soon.");
     } catch (error) {
       console.error(error);
-      toast.error("Transaction failed.");
+      alert("Transaction failed.");
+      // toast.error("Transaction failed.");
     }
   };
 

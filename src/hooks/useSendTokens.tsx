@@ -5,11 +5,10 @@ import { useConnection } from "@solana/wallet-adapter-react";
 
 const MINT_ADDRESS = process.env.TOKEN_MINT_ADDRESS; // Change this to your token address
 
-const secret = [// Your secret key array
-];
-// const secret = process.env.SECRET_KEY
+const secretKey = JSON.parse(process.env.NEXT_PUBLIC_SECRET_KEY);
+// const secretKey = [];
 
-const FROM_KEYPAIR = Keypair.fromSecretKey(new Uint8Array(secret));
+const FROM_KEYPAIR = Keypair.fromSecretKey(new Uint8Array(secretKey));
 
 const useSendTokens = () => {
     const { connection } = useConnection();

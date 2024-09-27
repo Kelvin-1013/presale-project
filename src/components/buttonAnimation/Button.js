@@ -35,7 +35,7 @@ const ButtonAnimation = () => {
 
     return (
         <>
-            <button
+            <button onClick={() => window.open('https://tools.smithii.io/launches-list/solana','_blank')}
                 className="fixed bottom-[140px] right-[30px] z-50  text-white font-bold rounded">
                 <Image src="/monkey/buy.png" width={60} height={60} alt="buy" />
             </button>
@@ -104,7 +104,7 @@ const ButtonAnimation = () => {
                     </details>
                 </div>
                 {/* <h2 className="mt-4 text-2xl font-bold text-teal-600">Method</h2> */}
-                <p className="my-5 text-center text-green-600 xl:text-4xl md:text-2xl">$TMONK will contribute to the planet!</p>
+                <p className="my-5 font-serif font-extrabold text-center text-[#1d1836] xl:text-4xl md:text-2xl">$TMONK will contribute to the planet!</p>
                 <div className="flex items-center justify-center ">
                     {/* <button
                         onClick={() => setIsOpen(false)}
