@@ -3,18 +3,34 @@ import Image from "next/image";
 import React,{useState,useEffect} from "react";
 import {motion} from "framer-motion";
 import useAirdrop from "../../hooks/useAirdrop";
+import axios from 'axios';
+import SignupModal from '../auth/SignupModal';
 
 const ButtonAnimation = () => {
     const {publicKey,sendTransaction} = useWallet();
     const [isOpen,setIsOpen] = useState(false);
     const [isAirdropSidebar,setAirdropSidebar] = useState(false);
     const {isWalletConnected} = useAirdrop();
-    const airdropAction = () => {
+    const [isModalOpen,setIsModalOpen] = useState(false);
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+
+    const airdropAction = async () => {
         if(!publicKey) {
             alert("Please connect your wallet");
             return;
         }
-        setAirdropSidebar(true);
+        setIsModalOpen(true);
+        // setAirdropSidebar(true);
+        // try {
+        //     const response = await axios.post('/api/wallet', publicKey);
+        //     alert('walletData is registered.');
+        //     return response.data; // Return the created wallet data
+        // } catch(error) {
+        //     console.error('Error creating wallet:',error);
+        //     throw error; // Rethrow the error for handling in the component
+        // }
     };
 
     useEffect(() => {
@@ -35,6 +51,8 @@ const ButtonAnimation = () => {
 
     return (
         <>
+
+            <SignupModal isOpen={isModalOpen} onRequestClose={closeModal} />
             <button onClick={() => window.open('https://tools.smithii.io/launches-list/solana','_blank')}
                 className="fixed bottom-[140px] right-[30px] z-50  text-white font-bold rounded">
                 <Image src="/monkey/buy.png" width={60} height={60} alt="buy" />
