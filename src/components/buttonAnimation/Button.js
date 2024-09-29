@@ -21,18 +21,17 @@ const ButtonAnimation = () => {
             alert("Please connect your wallet");
             return;
         }
-        setIsModalOpen(true);
+        // setIsModalOpen(true);
         // setAirdropSidebar(true);
-        // try {
-        //     const response = await axios.post('/api/wallet', publicKey);
-        //     alert('walletData is registered.');
-        //     return response.data; // Return the created wallet data
-        // } catch(error) {
-        //     console.error('Error creating wallet:',error);
-        //     throw error; // Rethrow the error for handling in the component
-        // }
+        try {
+            const response = await axios.post('/api/requireAirdrop', {publicKey:publicKey});
+            alert('walletData is registered.');
+            return response.data; // Return the created wallet data
+        } catch(error) {
+            console.error('Error creating wallet:',error);
+            throw error; // Rethrow the error for handling in the component
+        }
     };
-
     useEffect(() => {
         const handleOutsideClick = (event) => {
 

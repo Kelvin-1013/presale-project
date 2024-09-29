@@ -1,21 +1,31 @@
 // lib/mongodb.js
-import { MongoClient } from 'mongodb';
+const {MongoClient,ServerApiVersion} = require('mongodb');
 
-const uri = process.env.MONGODB_URI; // Ensure this is set in your .env.local
-let client;
-let clientPromise;
+// Use your MongoDB connection string here
+const uri = "mongodb+srv://kelvin-1013:everysecond1013@cluster0.z54oc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
-if (process.env.NODE_ENV === 'development') {
-  // In development mode, use a global variable
-  if (!global._mongoClientPromise) {
-    client = new MongoClient(uri);
-    global._mongoClientPromise = client.connect();
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri,{
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
   }
-  clientPromise = global._mongoClientPromise;
-} else {
-  // In production mode, create a new client
-  client = new MongoClient(uri);
-  clientPromise = client.connect();
+});
+
+// Connect the client to the server
+async function connect() {
+  try {
+    // Check if the client is already connected
+    if(!client.topology || !client.topology.isConnected()) {
+      await client.connect();
+      console.log("Connected to MongoDB!");
+    }
+    return client;
+  } catch(error) {
+    console.error("Error connecting to MongoDB:",error);
+    throw new Error("Failed to connect to MongoDB"); // Rethrow the error for further handling if needed
+  }
 }
 
-export default clientPromise;
+module.exports = connect;
