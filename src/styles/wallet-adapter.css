@@ -21,7 +21,8 @@
 
 
 .wallet-adapter-button-trigger {
-    background-image: linear-gradient(to right, #34C759, #2E865F);
+    /* background-image:  #187048; */
+    background-image: linear-gradient(to bottom, #54d173, #187048);
 }
 
 .wallet-adapter-button:not([disabled]):focus-visible {

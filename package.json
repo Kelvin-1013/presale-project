@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.20.7",
+    "@firebase/app": "^0.10.11",
+    "@firebase/auth": "^1.7.9",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",
     "@fortawesome/free-brands-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
@@ -24,6 +26,7 @@
     "framer-motion": "^8.5.0",
     "mongodb": "^6.9.0",
     "next": "latest",
+    "next-auth": "^4.24.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.0",

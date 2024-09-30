@@ -12,11 +12,9 @@ const StarWrapper = (Component, idName) =>
         whileInView='show'
         viewport={{ once: true, amount: 0.25 }}
         className={`${styles.padding} max-w-7xl mx-auto relative z-0`}
+        // className={`${styles.padding} max-w-7xl my-0 w-full relative z-0  bg-gradient-to-r from-green-400 to-lime-500`}
         id={idName}
       >
-        <span className='hash-span'>
-          &nbsp;
-        </span>
 
         <Component />
       </motion.section>

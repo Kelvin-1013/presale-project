@@ -17,7 +17,7 @@ const ExperienceCard = ({ experience }) => {
   return (
     <VerticalTimelineElement
       contentStyle={{
-        background: "#bbf7d0",
+        background: 'linear-gradient(120deg, #fdfbfb 0%, #e3f7b2 100%)',
         color: "#111111",
       }}
       contentArrowStyle={{ borderRight: "7px solid  #232631" }}
@@ -59,20 +59,21 @@ const ExperienceCard = ({ experience }) => {
 
 const Experience = () => {
   return (
-    <>
+    <div className=" w-full mt-0">
+    {/* <div className=" w-full mt-0 bg-gradient-to-r from-green-400 to-lime-500"> */}
       <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}> Fort Knox, but for Bananas</p>
         <h2 className={styles.sectionHeadText}>Roadmap</h2>
       </motion.div>
 
-      <div className="flex flex-col mt-20 " id='roadmap-section'>
+      <div className="flex flex-col mt-2 " id='roadmap-section'>
         <VerticalTimeline>
           {roadmap.map((roadmapStep, index) => (
             <ExperienceCard key={index} experience={roadmapStep} />
           ))}
         </VerticalTimeline>
       </div>
-    </>
+    </div>
   );
 };
 
