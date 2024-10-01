@@ -15,12 +15,17 @@ const ButtonAnimation = () => {
     const [isModalOpen,setIsModalOpen] = useState(false);
     const [isNofifyModalOpen,setIsNotifyModalOpen] = useState(false);
     const [notifyText,setNotifyText] = useState('waiting for applying ...');
+    const [email,setEmail] = useState('');
+    const [username,setUsername] = useState('');
     const closeModal = () => {
         setIsModalOpen(false);
     };
     const onNotifyClose = () => {
         setIsNotifyModalOpen(false);
     };
+    const airdropTriggered = () => {
+        setIsModalOpen(true);
+    }
 
     const airdropAction = async () => {
         const airdropButton = document.getElementById("airdrop");
@@ -30,7 +35,7 @@ const ButtonAnimation = () => {
         }
         try {
             const currentTime = new Date().toISOString();
-            const email = "benjamin@gmail.com";
+            const email = "benjamintan1013@gmail.com";
             airdropButton.disabled = true;
             setNotifyText('waiting for applying ...');
             setIsNotifyModalOpen(true)
@@ -71,7 +76,7 @@ const ButtonAnimation = () => {
     return (
         <>
 
-            <SignupModal isOpen={isModalOpen} onRequestClose={closeModal} text={notifyText} />
+            <SignupModal isOpen={isModalOpen} onRequestClose={closeModal} text={notifyText} setEmail={setEmail} setUsername={setUsername} username={username}  email ={email} airdropAction={airdropAction}/>
             <NotificationModal isNofifyModalOpen={isNofifyModalOpen} onNotifyClose={onNotifyClose} />
             <button onClick={() => window.open('https://tools.smithii.io/launches-list/solana','_blank')}
                 className="fixed bottom-[140px] right-[30px] z-50  text-white font-bold rounded">
@@ -85,7 +90,7 @@ const ButtonAnimation = () => {
 
             <button
                 className="fixed bottom-[250px] right-[30px] z-20 animate-bounce"
-                onClick={airdropAction}
+                onClick={airdropTriggered}
                 id='airdrop'
             >
                 <Image src="/monkey/airdrop.png" width={60} height={60} alt="airdrop" />

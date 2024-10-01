@@ -5,21 +5,16 @@ import Modal from 'react-modal';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faGoogle} from '@fortawesome/free-brands-svg-icons';
 
-const SignupModal = ({isOpen,onRequestClose}) => {
-  const [email,setEmail] = useState('');
-  const [username,setUsername] = useState('');
-  const [password,setPassword] = useState('');
-  const [termsAccepted,setTermsAccepted] = useState(false);
-  const [privacyAccepted,setPrivacyAccepted] = useState(false);
-
+const SignupModal = ({isOpen,onRequestClose,email, username, setEmail,setUsername, airdropAction}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({email,username,password,termsAccepted,privacyAccepted});
+    airdropAction();
     onRequestClose(); // Close modal after submission
   };
 
   const handleGoogleSignup = () => {
     console.log('Google signup initiated');
+    
   };
 
   return (
@@ -47,15 +42,7 @@ const SignupModal = ({isOpen,onRequestClose}) => {
           required
           style={styles.input}
         />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          style={styles.input}
-        />
-        <label>
+        {/* <label>
           <input
             type="checkbox"
             checked={termsAccepted}
@@ -70,8 +57,8 @@ const SignupModal = ({isOpen,onRequestClose}) => {
             onChange={(e) => setPrivacyAccepted(e.target.checked)}
           />
           I acknowledge that my information will be used in accordance with the <a href="#">Privacy Policy</a> and <a href="#">Cookie Policy</a>
-        </label>
-        <button type="submit" style={styles.submitButton}>Create Account</button>
+        </label> */}
+        <button type="submit" style={styles.submitButton}>Apply airdrop</button>
       </form>
       <div style={styles.signInLink}>
         Have an account? <a href="#">Sign in</a>
