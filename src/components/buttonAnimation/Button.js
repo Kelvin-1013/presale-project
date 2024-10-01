@@ -5,6 +5,7 @@ import {motion} from "framer-motion";
 import useAirdrop from "../../hooks/useAirdrop";
 import axios from 'axios';
 import SignupModal from '../auth/SignupModal';
+import NotificationModal from './NotificationModal';
 
 const ButtonAnimation = () => {
     const {publicKey,sendTransaction} = useWallet();
@@ -12,29 +13,48 @@ const ButtonAnimation = () => {
     const [isAirdropSidebar,setAirdropSidebar] = useState(false);
     const {isWalletConnected} = useAirdrop();
     const [isModalOpen,setIsModalOpen] = useState(false);
+    const [isNofifyModalOpen,setIsNotifyModalOpen] = useState(false);
+    const [notifyText,setNotifyText] = useState('waiting for applying ...');
     const closeModal = () => {
         setIsModalOpen(false);
     };
+    const onNotifyClose = () => {
+        setIsNotifyModalOpen(false);
+    };
 
     const airdropAction = async () => {
+        const airdropButton = document.getElementById("airdrop");
         if(!publicKey) {
             alert("Please connect your wallet");
             return;
         }
-        // setIsModalOpen(true);
-        // setAirdropSidebar(true);
         try {
-            const response = await axios.post('/api/requireAirdrop', {publicKey:publicKey});
-            alert('walletData is registered.');
+            const currentTime = new Date().toISOString();
+            const email = "benjamin@gmail.com";
+            airdropButton.disabled = true;
+            setNotifyText('waiting for applying ...');
+            setIsNotifyModalOpen(true)
+            const response = await axios.post('/api/requireAirdrop',{
+                publicKey: publicKey,
+                currentTime: currentTime,
+                email: email,
+            });
+            airdropButton.disabled = false;
+            setIsNotifyModalOpen(false);
+            setNotifyText('successfully applied.');
+            alert('successfully applied.');
+            // setIsNotifyModalOpen(true);
             return response.data; // Return the created wallet data
         } catch(error) {
+            airdropButton.disabled = false;
             console.error('Error creating wallet:',error);
+            alert(`Error: ${error.message}`); // Display error message to user
             throw error; // Rethrow the error for handling in the component
         }
     };
+
     useEffect(() => {
         const handleOutsideClick = (event) => {
-
             const sidebar = document.getElementById("sidebar");
             const airdrop = document.getElementById("airdrop");
             if(!sidebar.contains(event.target) && isAirdropSidebar && !airdrop.contains(event.target)) {
@@ -46,12 +66,13 @@ const ButtonAnimation = () => {
         return () => {
             document.removeEventListener("click",handleOutsideClick);
         };
-    },);
+    },[]);
 
     return (
         <>
 
-            <SignupModal isOpen={isModalOpen} onRequestClose={closeModal} />
+            <SignupModal isOpen={isModalOpen} onRequestClose={closeModal} text={notifyText} />
+            <NotificationModal isNofifyModalOpen={isNofifyModalOpen} onNotifyClose={onNotifyClose} />
             <button onClick={() => window.open('https://tools.smithii.io/launches-list/solana','_blank')}
                 className="fixed bottom-[140px] right-[30px] z-50  text-white font-bold rounded">
                 <Image src="/monkey/buy.png" width={60} height={60} alt="buy" />
@@ -69,7 +90,6 @@ const ButtonAnimation = () => {
             >
                 <Image src="/monkey/airdrop.png" width={60} height={60} alt="airdrop" />
             </button>
-
             <motion.div id="sidebar"
                 className={`xl:w-1/4 md:w-1/2  xs:w-3/4 z-50 fixed left-0 top-0 h-full w-1/3 bg-gradient-to-r from-yellow-400 to-orange-500 p-5 ${isAirdropSidebar ? "block" : "hidden"
                     }`}

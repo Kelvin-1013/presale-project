@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import AnimatedPage from '../components/animated/AnimatedPage';
 import FaqSection from '../components/faq/FaqSection';
 import Footer from '../components/basic/BasicFooter';
@@ -11,10 +11,35 @@ import DigiCertSeal from '../components/DigiCertSeal';
 import Roadmap from '../components/roadmap';
 import CarouselImage from "../components/carousel/carousel"
 import ButtonAnimation from "../components/buttonAnimation/Button"
+import AdminAdrop from '../components/admin/AdminAirdrop'
+
 
 function Home() {
-
   const router = useRouter();
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    const storedIsAdmin = localStorage.getItem('isAdmin');
+    setIsAdmin(storedIsAdmin === 'true'); // convert string to boolean
+  }, []);
+
+  useEffect(() => {
+    // alert(isAdmin);
+  }, [isAdmin]);
+
+  useEffect(() => {
+    window.addEventListener('storage', () => {
+      const storedIsAdmin = localStorage.getItem('isAdmin');
+      setIsAdmin(storedIsAdmin === 'true'); // convert string to boolean
+    });
+
+    return () => {
+      window.removeEventListener('storage', () => {
+        const storedIsAdmin = localStorage.getItem('isAdmin');
+        setIsAdmin(storedIsAdmin === 'true'); // convert string to boolean
+      });
+    };
+  }, []);
 
   return (
     <>
@@ -36,15 +61,25 @@ function Home() {
         <meta name="theme-color" content="#ffffff" />
         <title>$TMONK !</title>
 
-      </ Head>
+      </Head>
       <AnimatedPage>
         <div className='min-w-[374px]'>
-          <Navbar activePage='Home' />
-          <ButtonAnimation />
-          <CarouselImage />
-          <DigiCertSeal />
-          <Roadmap />
-          <FaqSection />
+          <Navbar activePage='Home' isAdmin={isAdmin} />
+          {!isAdmin && (
+            <>
+              <ButtonAnimation />
+              <CarouselImage />
+              <DigiCertSeal />
+              <Roadmap />
+              <FaqSection />
+            </>
+          )}
+          {isAdmin && (
+            <>
+              <AdminAdrop />
+              <AboutSection />
+            </>
+          )}
           <Footer />
           <ScrollToTop />
         </div>

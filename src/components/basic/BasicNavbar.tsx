@@ -32,7 +32,8 @@ const BasicNavbar = (props) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
 
   return (
-    <div className='w-full h-[90px] bg-cA z-[2000] backdrop-blur-sm bg-opacity-60 px-1 sm:px-5 '>
+    // <div className={!props.isAdmin ? 'w-full h-[90px] bg-cA z-[2000] backdrop-blur-sm bg-opacity-60 px-1 sm:px-5' : 'w-full h-[90px] bg-green-500 z-[2000] backdrop-blur-sm bg-opacity-60 px-1 sm:px-5'}>
+    <div className='w-full h-[90px] bg-green-500 z-[2000] backdrop-blur-sm bg-opacity-60 px-1 sm:px-5' >
       <div className='flex items-center justify-between h-full '>
         <div className='flex items-center'>
           <AnimatedLogo onClick={() => router.push('/')} className={'hidden sm:flex ml-2 sm:ml-0 pt-2 text-cB '} />
@@ -49,30 +50,42 @@ const BasicNavbar = (props) => {
           />
         </div>
         <div className='hidden md:flex'>
-          <ul className='flex items-center gap-4 text-md lg:text-4xl text-cC'>
-            <AnimatedLi className={`${props.activePage === 'Home' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Home' onClick={() => { router.push('/'); goToTop(); }} />
-            <AnimatedLi className={`${props.activePage === 'Whitepapaer' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Whitepapaer' onClick={() => { window.open('https://publuu.com/flip-book/664981/1481321', '_blank'); goToTop(); }} />
-            <AnimatedLi
-              className={`${props.activePage === 'roadmap' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `}
-              text='roadmap'
-              onClick={() => {
-                const roadmapSection = document.getElementById('roadmap-section');
-                if (roadmapSection) {
-                  roadmapSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-            />
-            <AnimatedLi
-              className={`${props.activePage === 'FAQ' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `}
-              text='FAQ'
-              onClick={() => {
-                const roadmapSection = document.getElementById('faq_id');
-                if (roadmapSection) {
-                  roadmapSection.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
-            />
-            <WalletMultiButtonDynamic />
+          <ul className='flex items-center gap-4 text-md lg:text-4xl text-cB'>
+            {!props.isAdmin &&
+              (
+                <>
+                  <AnimatedLi className={`${props.activePage === 'Home' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Home' onClick={() => { router.push('/'); goToTop(); }} />
+                  <AnimatedLi className={`${props.activePage === 'Whitepapaer' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Whitepapaer' onClick={() => { window.open('https://publuu.com/flip-book/664981/1481321', '_blank'); goToTop(); }} />
+                  <AnimatedLi
+                    className={`${props.activePage === 'roadmap' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `}
+                    text='roadmap'
+                    onClick={() => {
+                      const roadmapSection = document.getElementById('roadmap-section');
+                      if (roadmapSection) {
+                        roadmapSection.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                  />
+                  <AnimatedLi
+                    className={`${props.activePage === 'FAQ' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `}
+                    text='FAQ'
+                    onClick={() => {
+                      const roadmapSection = document.getElementById('faq_id');
+                      if (roadmapSection) {
+                        roadmapSection.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }}
+                  />
+                  <WalletMultiButtonDynamic />
+                </>)}
+            {props.isAdmin &&
+              (
+                <>
+                  nothing for  admin yet.
+                  {/* <AnimatedLi className={`${props.activePage === 'Home' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Home' onClick={() => { router.push('/'); goToTop(); }} />
+                  <AnimatedLi className={`${props.activePage === 'Whitepapaer' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Whitepapaer' onClick={() => { window.open('https://publuu.com/flip-book/664981/1481321', '_blank'); goToTop(); }} /> */}
+                  <WalletMultiButtonDynamic />
+                </>)}
           </ul>
         </div>
 

@@ -8,17 +8,11 @@ export default function useAirdrop() {
     const [isWalletConnected, setIsConnected] = useState(false);
     const updatePublicKey = (publicKey: string) => {
         setWalletPublicKey(publicKey);
-        // alert(publicKey);
-        // console.log(walletPublicKey);
-        // setIsConnected(true);
         setAirdrop(true);
     };
 
     function  setWalletConnected (isConnected : boolean) {
-        // alert(isConnected);
         setIsConnected(isConnected);
-        // alert(isWalletConnected);
-
     }
     return { airdropStatus, updatePublicKey, isWalletConnected, setWalletConnected };
 }

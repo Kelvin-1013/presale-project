@@ -9,15 +9,15 @@ export default async function handler(req,res) {
     const db = client.db('meme'); // Replace with your database name
 
     if(req.method === 'POST') {
-      const {publicKey,currentTime, email} = req.body;
-      const activity = 1;
+      const {publicKey,currentTime} = req.body;
+
       if(!publicKey) {
         return res.status(400).json({error: 'Public key is required'});
       }
 
       try {
         // Check if the wallet already exists
-        const wallets = db.collection('airdrop');
+        const wallets = db.collection('wallets');
         const existingWallet = await wallets.findOne({publicKey});
 
         if(existingWallet) {
@@ -35,8 +35,6 @@ export default async function handler(req,res) {
           // If wallet does not exist, create a new wallet entry
           const result = await wallets.insertOne({
             publicKey,
-            email: email,
-            activity: activity,
             visitNumber: 1,
             createdTime: currentTime,
             lastVisit: currentTime
