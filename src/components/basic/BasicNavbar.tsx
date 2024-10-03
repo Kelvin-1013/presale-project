@@ -33,7 +33,7 @@ const BasicNavbar = (props) => {
 
   return (
     // <div className={!props.isAdmin ? 'w-full h-[90px] bg-cA z-[2000] backdrop-blur-sm bg-opacity-60 px-1 sm:px-5' : 'w-full h-[90px] bg-green-500 z-[2000] backdrop-blur-sm bg-opacity-60 px-1 sm:px-5'}>
-    <div className='w-full h-[90px] bg-green-500 z-[2000] backdrop-blur-sm bg-opacity-60 px-1 sm:px-5' >
+    <div className=' w-full h-[90px] bg-green-500 z-[2000] backdrop-blur-sm bg-opacity-60 px-1 sm:px-5' >
       <div className='flex items-center justify-between h-full '>
         <div className='flex items-center'>
           <AnimatedLogo onClick={() => router.push('/')} className={'hidden sm:flex ml-2 sm:ml-0 pt-2 text-cB '} />
@@ -50,14 +50,14 @@ const BasicNavbar = (props) => {
           />
         </div>
         <div className='hidden md:flex'>
-          <ul className='flex items-center gap-4 text-md lg:text-4xl text-cB'>
+          <ul className=' text-shadow-white font-handwritten  flex items-center gap-4 md:text-xl xl:text-6xl lg:text-4xl text-cB'>
             {!props.isAdmin &&
               (
                 <>
-                  <AnimatedLi className={`${props.activePage === 'Home' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Home' onClick={() => { router.push('/'); goToTop(); }} />
-                  <AnimatedLi className={`${props.activePage === 'Whitepapaer' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Whitepapaer' onClick={() => { window.open('https://publuu.com/flip-book/664981/1481321', '_blank'); goToTop(); }} />
+                  <AnimatedLi className={`${props.activePage === 'Home' ? 'font-handwritten  hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Home' onClick={() => { router.push('/'); goToTop(); }} />
+                  <AnimatedLi className={`${props.activePage === 'Whitepapaer' ? 'font-handwritten  hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Whitepapaer' onClick={() => { window.open('https://publuu.com/flip-book/664981/1481321', '_blank'); goToTop(); }} />
                   <AnimatedLi
-                    className={`${props.activePage === 'roadmap' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `}
+                    className={`${props.activePage === 'roadmap' ? 'font-handwritten  hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `}
                     text='roadmap'
                     onClick={() => {
                       const roadmapSection = document.getElementById('roadmap-section');
@@ -80,12 +80,12 @@ const BasicNavbar = (props) => {
                 </>)}
             {props.isAdmin &&
               (
-                <>
+                <div className='font-handwritten  text-shadow-white '>
                   nothing for  admin yet.
                   {/* <AnimatedLi className={`${props.activePage === 'Home' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Home' onClick={() => { router.push('/'); goToTop(); }} />
                   <AnimatedLi className={`${props.activePage === 'Whitepapaer' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Whitepapaer' onClick={() => { window.open('https://publuu.com/flip-book/664981/1481321', '_blank'); goToTop(); }} /> */}
                   <WalletMultiButtonDynamic />
-                </>)}
+                </div>)}
           </ul>
         </div>
 
@@ -94,7 +94,7 @@ const BasicNavbar = (props) => {
           <AnimatedMenuToggle toggle={() => { handleNav(); toggleOpen(); }} />
         </motion.div>
         <LayoutGroup>
-          <motion.div className={nav ? `z-10 w-full bg-cA text-cC absolute top-[90px] left-0 flex justify-center text-center border-b-4` : `w-full bg-cA z-10 text-cC absolute top-20  left-0 flex justify-center text-center `} layout>
+          <motion.div className={nav ? `z-10 w-full font-handwritten  text-shadow-white bg-cA text-cC absolute top-[90px] left-0 flex justify-center text-center border-b-4` : `w-full bg-cA z-10 text-cC absolute top-20  left-0 flex justify-center text-center `} layout>
             {nav &&
               <motion.ul className="flex space-x-4 "> {/* Added flex and spacing for horizontal layout */}
                 <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl flex items-center'} text='• Home' onClick={() => { router.push('/'); goToTop(); }} />

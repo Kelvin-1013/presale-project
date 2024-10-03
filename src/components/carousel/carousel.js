@@ -33,8 +33,8 @@ const CarouselImage = () => {
     return (
         <>
             <div className="relative xl:top-96 lg:top-80 md:top-56 sm:top-52 xs:top-32">
-                <div className="absolute flex flex-col items-start px-10 font-bold text-white xs:left-0 left-5 translate-y-[25%] lg:translate-y-20 xl:translate-y-10 sm:translate-y-1/4 xs:translate-y-1/4 text-9xl xl:text-7xl lg:text-5xl md:text-4xl sm:text-3xl xs:text-lg text-shadow-md">
-                    <div className="">For Clean planet!</div>
+                <div className="absolute flex flex-col items-start px-10 font-bold text-gray-200 xs:left-0 left-5 translate-y-[25%] lg:translate-y-20 xl:translate-y-10 sm:translate-y-1/4 xs:translate-y-1/4 text-9xl xl:text-7xl lg:text-5xl md:text-4xl sm:text-3xl xs:text-lg text-shadow-md">
+                    <div className="  font-roboto">For Clean planet!</div>
                     <div className="hidden text-xs md:flex">  <br /></div>
                     <div className="hidden text-xs lg:flex">  <br /></div>
                     <button style={{transition: 'background-color 0.3s'}}
