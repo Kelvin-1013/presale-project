@@ -12,7 +12,7 @@ import Roadmap from '../components/roadmap';
 import CarouselImage from "../components/carousel/carousel"
 import ButtonAnimation from "../components/buttonAnimation/Button"
 import AdminAdrop from '../components/admin/AdminAirdrop'
-
+import Landing from "../components/landing/index";
 
 function Home() {
   const router = useRouter();
@@ -67,6 +67,7 @@ function Home() {
           <Navbar activePage='Home' isAdmin={isAdmin} />
           {!isAdmin && (
             <>
+              <Landing />
               <ButtonAnimation />
               <CarouselImage />
               <DigiCertSeal />

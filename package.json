@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.20.7",
+    "@clerk/nextjs": "^4.29.3",
     "@firebase/app": "^0.10.11",
     "@firebase/auth": "^1.7.9",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",

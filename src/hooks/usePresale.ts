@@ -15,6 +15,9 @@ export default function usePresale() {
     const handleTransactionPending = (pending: boolean) => {
         setTransactionPending(pending);
     }
+    const getPresaleEndTime = () => {
+        return 12032102198;
+    }
 
     const getSolanaAirdrop = async () => {
             const airdropSignature = connection.requestAirdrop(
@@ -180,5 +183,5 @@ export default function usePresale() {
 
     const getAllPresales = useMemo(() => allPresales.filter((presale) => presale), [allPresales])
 
-    return {walletConnected, initializedWallet, initializeWallet, loading, transactionPending, createPresale, editPresale, handleTransactionPending, getAllPresales, getSolanaAirdrop }
+    return {walletConnected, initializedWallet, initializeWallet, loading, transactionPending, createPresale, editPresale, handleTransactionPending, getAllPresales, getSolanaAirdrop, getPresaleEndTime }
 }

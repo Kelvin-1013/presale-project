@@ -33,7 +33,7 @@ const AuthPage = () => {
             if (email === 'benjamintan1013@gmail.com' && password === 'everysecond') {
                 setAdminLoginState(true);
                 router.push('/');
-            } 
+            }
             // }
         } catch (error) {
             setError('An error occurred during login');

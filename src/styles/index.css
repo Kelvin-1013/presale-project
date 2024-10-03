@@ -46,6 +46,7 @@ body {
 
 
 
+
 @layer base {
   * {
     @apply font-[Kanit]
@@ -101,4 +102,15 @@ body {
 
 .animated-heading:hover {
   animation: streamAnimation 0.5s ease-in-out infinite;
+}
+
+
+.landing-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url("/monkey/monkey-bg.png");
+  background-size: cover;
+  background-position: center;
 }
