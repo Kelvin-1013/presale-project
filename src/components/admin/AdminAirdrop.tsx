@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const AdminAirdrop = () => {
+const  AdminAirdrop = () => {
   const [airdropList, setAirdropList] = useState([]);
   const [selectedAirdrops, setSelectedAirdrops] = useState([]);
   const [error, setError] = useState(null);
@@ -40,7 +40,7 @@ const AdminAirdrop = () => {
   };
 
   return (
-    <div className="mx-auto w-full p-4 pt-6 md:p-6 lg:p-12 bg-gray-100">
+    <div className="mx-auto w-full p-4 pt-6 md:p-6 lg:p-12  bg-gray-100">
       {error && (
         <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
           {error}
