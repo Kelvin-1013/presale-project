@@ -35,16 +35,15 @@ const BasicNavbar = (props) => {
   const [isOpen, toggleOpen] = useCycle(false, true);
 
   return (
-    // <div className={!props.isAdmin ? 'w-full h-[90px] bg-cA z-[2000] backdrop-blur-sm bg-opacity-60 px-1 sm:px-5' : 'w-full h-[90px] bg-green-500 z-[2000] backdrop-blur-sm bg-opacity-60 px-1 sm:px-5'}>
-    <div className=' w-full h-[90px] bg-green-500 z-[2000] backdrop-blur-sm bg-opacity-60 px-1 sm:px-5' >
+    <div className=' w-full h-[90px] bg-green-500 z-[2000] backdrop-blur-sm bg-opacity-60 px-1 sm:px-5 md:py-0' >
       <div className='flex items-center justify-between h-full '>
         <div className='flex items-center'>
-          <AnimatedLogo onClick={() => router.push('/')} className={'hidden sm:flex ml-2 sm:ml-0 pt-2 text-cB '} />
+          <AnimatedLogo onClick={() => router.push('/')} className={' ml-2 sm:ml-0 pt-2 text-cB '} />
           <AnimatedOnViewTitleMd
             onClick={() => router.push('/')}
             text={`Save planet!`}
             delay={0.3}
-            className={' xl:text-7xl [1490px]:text-4xl lg:text-4xl md:text-1xl sm:text-lg hidden lg:flex text-cB   hover:text-cC cursor-pointer'}
+            className={' xl:text-5xl lg:text-3xl md:text-1xl sm:text-lg hidden lg:flex text-cB   hover:text-cC cursor-pointer'}
             style={{
               textDecoration: 'underline',
               textDecorationThickness: '2px',
@@ -58,11 +57,11 @@ const BasicNavbar = (props) => {
               (
                 <>
 
-                  <AnimatedLi className={`${props.activePage === 'Home' ? 'font-handwritten  hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Home' onClick={() => { router.push('/'); goToTop(); }} />
+                  <AnimatedLi className={`${props.activePage === 'Whitepapaer' ? 'font-handwritten  hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Whitepapaer' onClick={() => { router.push('/'); goToTop(); }} />
                   <AnimatedLi className={`${props.activePage === 'Whitepapaer' ? 'font-handwritten  hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Whitepapaer' onClick={() => { window.open('https://publuu.com/flip-book/664981/1481321', '_blank'); goToTop(); }} />
                   <AnimatedLi
                     className={`${props.activePage === 'roadmap' ? 'font-handwritten  hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `}
-                    text='roadmap'
+                    text='Roadmap'
                     onClick={() => {
                       const roadmapSection = document.getElementById('roadmap-section');
                       if (roadmapSection) {
@@ -86,8 +85,6 @@ const BasicNavbar = (props) => {
               (
                 <div className='font-handwritten  text-shadow-white '>
                   nothing for  admin yet.
-                  {/* <AnimatedLi className={`${props.activePage === 'Home' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Home' onClick={() => { router.push('/'); goToTop(); }} />
-                  <AnimatedLi className={`${props.activePage === 'Whitepapaer' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Whitepapaer' onClick={() => { window.open('https://publuu.com/flip-book/664981/1481321', '_blank'); goToTop(); }} /> */}
                   <WalletMultiButtonDynamic />
                   <button onClick={() => { SignOut() }} className='items-center'>
                     <Image src="/monkey/airdrop.png" width={40} height={40} alt="airdrop" />
@@ -104,10 +101,10 @@ const BasicNavbar = (props) => {
           <motion.div className={nav ? `z-10 w-full font-handwritten  text-shadow-white bg-cA text-cC absolute top-[90px] left-0 flex justify-center text-center border-b-4` : `w-full bg-cA z-10 text-cC absolute top-20  left-0 flex justify-center text-center `} layout>
             {nav &&
               <motion.ul className="flex space-x-4 "> {/* Added flex and spacing for horizontal layout */}
-                <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl flex items-center'} text='• Home' onClick={() => { router.push('/'); goToTop(); }} />
-                <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl flex items-center'} text='• whitepaper' onClick={() => { window.open('https://publuu.com/flip-book/664981/1481321'); goToTop(); }} />
-                <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl flex items-center'} text='• buy' onClick={() => { window.open('https://tools.smithii.io/launches-list/solana', '_blank') }} />
-                <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl flex items-center'} text='• signout' onClick={() => SignOut()} />
+                <AnimatedLi className={'hover:text-cB  text-[#d431d4d3] cursor-pointer text-2xl flex items-center'} text='Home' onClick={() => { router.push('/'); goToTop(); }} />
+                <AnimatedLi className={'hover:text-cB  text-[#d431d4d3] cursor-pointer text-2xl flex items-center'} text='Whitepaper' onClick={() => { window.open('https://publuu.com/flip-book/664981/1481321'); goToTop(); }} />
+                <AnimatedLi className={'hover:text-cB  text-[#d431d4d3] cursor-pointer text-2xl flex items-center'} text='Buy' onClick={() => { window.open('https://tools.smithii.io/launches-list/solana', '_blank') }} />
+                <AnimatedLi className={'hover:text-cB  text-[#d431d4d3] cursor-pointer text-2xl flex items-center'} text='Signout' onClick={() => SignOut()} />
                 {/* <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl flex items-center'} text='• presale' onClick={() => { router.push(PRESALE_LINK); goToTop(); }} /> */}
               </motion.ul>
             }

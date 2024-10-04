@@ -3,7 +3,7 @@
 .wallet-adapter-button {
     background-color: #32a54e;
     border: none;
-    color: #fff;
+    color: #fa13e7e0;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -111,7 +111,7 @@
     font-size: 14px;
     font-weight: 600;
     height: 37px;
-    color: #fff;
+    color: #fa00d9e1;
 }
 
 .wallet-adapter-dropdown-list-item:not([disabled]):hover {
@@ -171,7 +171,7 @@
 }
 
 .wallet-adapter-modal-button-close:hover svg {
-    fill: #fff;
+    fill: #dc05e4;
 }
 
 .wallet-adapter-modal-overlay {
@@ -268,7 +268,7 @@
     display: flex;
     align-items: center;
     background-color: transparent;
-    color: #fff;
+    color: #b800b8;
 }
 
 .wallet-adapter-modal-list-more svg {
@@ -300,5 +300,5 @@
     font-size: 18px;
     border: none;
     border-radius: 8px;
-    color: #fff;
+    color: #cd01d4e3;
 }
