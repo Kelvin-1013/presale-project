@@ -9,6 +9,7 @@ import { goToTop } from '../../utils/ScrollToTopOnLoad'
 import AnimatedOnViewTitleMd from '../animated/AnimatedOnViewTitleMd';
 import WalletMultiButtonDynamic from '../wallet/WalletMultiButtonDynamic';
 import { OrganizationSwitcher, SignedIn, UserButton } from "@clerk/nextjs";
+import Image from 'next/image';
 
 const DISCOVER_LINK = '/discover';
 const CREATE_LINK = '/create';
@@ -28,7 +29,9 @@ const BasicNavbar = (props) => {
   const handleNav = () => {
     setNav(!nav);
   }
-
+  const SignOut = () => {
+    localStorage.setItem('admin', JSON.stringify(false));
+  }
   const router = useRouter();
   const [isOpen, toggleOpen] = useCycle(false, true);
 
@@ -116,6 +119,9 @@ const BasicNavbar = (props) => {
                   {/* <AnimatedLi className={`${props.activePage === 'Home' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Home' onClick={() => { router.push('/'); goToTop(); }} />
                   <AnimatedLi className={`${props.activePage === 'Whitepapaer' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Whitepapaer' onClick={() => { window.open('https://publuu.com/flip-book/664981/1481321', '_blank'); goToTop(); }} /> */}
                   <WalletMultiButtonDynamic />
+                  <button onClick={() => { SignOut() }} className='items-center'>
+                    <Image src="/monkey/airdrop.png" width={40} height={40} alt="airdrop" />
+                  </button>
                 </div>)}
           </ul>
         </div>
@@ -131,6 +137,7 @@ const BasicNavbar = (props) => {
                 <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl flex items-center'} text='• Home' onClick={() => { router.push('/'); goToTop(); }} />
                 <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl flex items-center'} text='• whitepaper' onClick={() => { window.open('https://publuu.com/flip-book/664981/1481321'); goToTop(); }} />
                 <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl flex items-center'} text='• buy' onClick={() => { window.open('https://tools.smithii.io/launches-list/solana', '_blank') }} />
+                <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl flex items-center'} text='• signout' onClick={() => SignOut()} />
                 {/* <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl flex items-center'} text='• presale' onClick={() => { router.push(PRESALE_LINK); goToTop(); }} /> */}
               </motion.ul>
             }
