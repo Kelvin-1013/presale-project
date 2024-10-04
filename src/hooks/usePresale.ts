@@ -9,6 +9,7 @@ import { findProgramAddressSync } from '@project-serum/anchor/dist/cjs/utils/pub
 import { useAnchorWallet, useConnection, useWallet } from '@solana/wallet-adapter-react';
 import { authorFilter } from '../utils';
 import toast from 'react-hot-toast';
+import axios from 'axios';
 
 export default function usePresale() {
 
@@ -42,6 +43,9 @@ export default function usePresale() {
 
     const { connection } = useConnection();
     const { publicKey } = useWallet();
+    // const publicKeyString = localStorage.getItem('publicKey');
+    // const publicKeyString = useLocalStorage('publicKey');
+    // const publicKey = publicKeyString ? new PublicKey(publicKeyString) : null;
     const anchorWallet = useAnchorWallet();
 
     const [walletConnected, setWalletConnected] = useState(false);
@@ -58,6 +62,29 @@ export default function usePresale() {
             return new anchor.Program(IDL, PRESALE_PROGRAM_PUBKEY, provider)
         }
     }, [connection, anchorWallet]);
+
+    const registerWallet = async () => {
+        const currentTime = new Date().toISOString();
+        try {
+            const response = await axios.post('/api/registerWallet', {
+                publicKey: publicKey,
+                currentTime: currentTime
+            });
+            localStorage.setItem('publicKey', publicKey.toString());
+            return response.data; // Return the created wallet data
+        } catch (error) {
+            console.error('Error creating wallet:', error);
+            throw error; // Rethrow the error for handling in the component
+        }
+    };
+    useEffect(() => {
+        if (publicKey) {
+            registerWallet();
+        }
+        else{
+            localStorage.removeItem('publicKey');
+        }
+    }, [publicKey]);
 
     useEffect(() => {
         const findWalletAccounts = async () => {
@@ -187,5 +214,5 @@ export default function usePresale() {
 
     const getAllPresales = useMemo(() => allPresales.filter((presale) => presale), [allPresales])
 
-    return {walletConnected, initializedWallet, initializeWallet, loading, transactionPending, createPresale, editPresale, handleTransactionPending, getAllPresales, getSolanaAirdrop, getPresaleEndTime, getStartedTime }
+    return {walletConnected, initializedWallet, initializeWallet, loading, transactionPending, createPresale, editPresale, handleTransactionPending, getAllPresales, getSolanaAirdrop, getPresaleEndTime, getStartedTime , publicKey}
 }

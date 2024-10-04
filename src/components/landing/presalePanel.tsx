@@ -1,14 +1,30 @@
 import { useEffect, useState } from 'react';
 import usePresale from '../../hooks/usePresale';
 import Head from 'next/head';
+import axios from 'axios'
 
 const PresalePanel = () => {
+    const [solPrice, setSolPrice] = useState(0);
     const { getPresaleEndTime, getStartedTime } = usePresale();
     const presaleEndTime = getPresaleEndTime();
     const presaleStartTime = getStartedTime();
 
     const [timeRemaining, setTimeRemaining] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
     const [progress, setProgress] = useState(0);
+
+
+    useEffect(() => {
+        const fetchSolPrice = async () => {
+            try {
+                const response = await axios.get('https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd');
+                setSolPrice(response.data.solana.usd);
+            } catch (error) {
+                console.error("Error fetching SOL price:", error);
+            }
+        };
+
+        fetchSolPrice();
+    }, []);
 
     useEffect(() => {
         const calculateTimeRemaining = () => {
@@ -40,7 +56,8 @@ const PresalePanel = () => {
     }, [presaleEndTime, presaleStartTime]);
 
     return (
-        <div className="border-spacing-11 bg-gradient-to-b from-[#ffffff5d]  to-[#4ef7565d] my-5 flex flex-col items-center p-6 rounded-xl shadow-lg max-w-3xl mx-auto">
+        <div className="border-spacing-11 bg-gradient-to-b from-[#ffffff6e]  to-[#4ef75770] my-5 flex flex-col items-center sm:p-6 xs:p-0 rounded-xl shadow-lg max-w-3xl mx-auto">
+            {/* <div className="border-spacing-11 bg-gradient-to-b from-[#ffffff6e]  to-[#4ef75770] my-5 flex flex-col items-center p-6 rounded-xl shadow-lg max-w-3xl mx-auto"> */}
             <Head>
                 <meta name="description" content="Join the most promising meme coin of today!" />
                 <link rel="icon" href="/favicon.ico" />
@@ -104,7 +121,7 @@ const PresalePanel = () => {
             </div>
             <div className="mt-4 flex flex-col items-center w-full">
                 <label htmlFor="amount" className="block text-green-900 font-bold">
-                    Enter the amount in SOLANA, min. 0.2 SOL:
+                    Enter the amount in SOLANA, min. 0.25 SOL:
                 </label>
 
                 <div className="flex justify-end mt-1 w-full">
@@ -113,7 +130,7 @@ const PresalePanel = () => {
                         id="amount"
                         className="px-2 w-full py-1 rounded-l-lg border-2 border-yellow-400 bg-white text-green-900 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                         placeholder="0"
-                        min="0.2"
+                        min="0.25"
                     />
                     <button className="bg-yellow-400 text-white px-7  py- rounded-r-lg shadow-md hover:bg-yellow-500 transition duration-300">
                         SOL

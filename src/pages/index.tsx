@@ -63,7 +63,7 @@ function Home() {
 
       </Head>
       <AnimatedPage>
-        <div className='min-w-[374px]'>
+        <div className='min-w-[374px] '>
           <Navbar activePage='Home' isAdmin={isAdmin} />
           {!isAdmin && (
             <>
