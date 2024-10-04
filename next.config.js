@@ -4,13 +4,11 @@ const nextConfig = {
     images: {
         domains: ["img.clerk.com"],
     },
-    middleware: [
-        authMiddleware({
-            publicRoutes: ["/"],
-        }),
-    ],
+    // middleware: [
+    //     require('@clerk/nextjs').authMiddleware({
+    //         publicRoutes: ["/"],
+    //     }),
+    // ],
 };
-
-import {authMiddleware} from "@clerk/nextjs";
 
 module.exports = nextConfig;
