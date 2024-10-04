@@ -34,6 +34,7 @@
     "react-icons": "^4.7.1",
     "react-responsive-carousel": "^3.2.23",
     "react-spinners": "^0.13.8",
+    "react-use": "^17.5.1",
     "react-vertical-timeline-component": "^3.6.0",
     "swiper": "^11.1.14",
     "tailwindcss-textshadow": "^2.1.3"

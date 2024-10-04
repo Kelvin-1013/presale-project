@@ -5,7 +5,7 @@ import Modal from 'react-modal';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faGoogle} from '@fortawesome/free-brands-svg-icons';
 
-const SignupModal = ({isOpen,onRequestClose,email, username, setEmail,setUsername, airdropAction}) => {
+const SignupModal = ({isOpen,onRequestClose,email,username,setEmail,setUsername,airdropAction}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     airdropAction();
@@ -14,11 +14,11 @@ const SignupModal = ({isOpen,onRequestClose,email, username, setEmail,setUsernam
 
   const handleGoogleSignup = () => {
     console.log('Google signup initiated');
-    
+
   };
 
   return (
-    <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={modalStyles}>
+    <Modal className='z-50' isOpen={isOpen} onRequestClose={onRequestClose} style={modalStyles}>
       <h2 className="animated-heading">Join the $TMONK Troop!</h2>
       <button type="button" style={styles.googleButton} onClick={handleGoogleSignup}>
         <FontAwesomeIcon icon={faGoogle} style={styles.icon} />

@@ -1,18 +1,17 @@
-import {useConnection,useWallet} from '@solana/wallet-adapter-react';
+// import {useConnection,useWallet} from '@solana/wallet-adapter-react';
 import Image from "next/image";
 import React,{useState,useEffect} from "react";
 import {motion} from "framer-motion";
-import useAirdrop from "../../hooks/useAirdrop";
 import axios from 'axios';
 import SignupModal from '../auth/SignupModal';
 import NotificationModal from './NotificationModal';
-import {OrganizationSwitcher,SignedIn,UserButton} from "@clerk/nextjs";
+import usePresale from "../../hooks/usePresale";
 
 const ButtonAnimation = () => {
-    const {publicKey,sendTransaction} = useWallet();
+    // const {publicKey,sendTransaction} = useWallet();
+    const {publicKey} = usePresale();
     const [isOpen,setIsOpen] = useState(false);
     const [isAirdropSidebar,setAirdropSidebar] = useState(false);
-    const {isWalletConnected} = useAirdrop();
     const [isModalOpen,setIsModalOpen] = useState(false);
     const [isNofifyModalOpen,setIsNotifyModalOpen] = useState(false);
     const [notifyText,setNotifyText] = useState('waiting for applying ...');
@@ -49,7 +48,6 @@ const ButtonAnimation = () => {
             setIsNotifyModalOpen(false);
             setNotifyText('successfully applied.');
             alert('successfully applied.');
-            // setIsNotifyModalOpen(true);
             return response.data; // Return the created wallet data
         } catch(error) {
             airdropButton.disabled = false;
@@ -77,42 +75,12 @@ const ButtonAnimation = () => {
     return (
         <>
 
-            <SignupModal isOpen={isModalOpen} onRequestClose={closeModal} text={notifyText} setEmail={setEmail} setUsername={setUsername} username={username}  email ={email} airdropAction={airdropAction}/>
+            <SignupModal isOpen={isModalOpen} onRequestClose={closeModal} text={notifyText} setEmail={setEmail} setUsername={setUsername} username={username} email={email} airdropAction={airdropAction} />
             <NotificationModal isNofifyModalOpen={isNofifyModalOpen} onNotifyClose={onNotifyClose} />
             <button onClick={() => window.open('https://tools.smithii.io/launches-list/solana','_blank')}
                 className="fixed bottom-[140px] right-[30px] z-50  text-white font-bold rounded">
                 <Image src="/monkey/buy.png" width={60} height={60} alt="buy" />
             </button>
-            <SignedIn>
-                <div className="hidden z-[999] sm:block">
-                    <OrganizationSwitcher afterCreateOrganizationUrl="/" />
-                    signIn
-                </div>
-                <div className="block sm:hidden z-[999]">
-                    <OrganizationSwitcher
-                        afterCreateOrganizationUrl="/"
-                        appearance={{
-                            elements: {
-                                organizationSwitcherTriggerIcon: `hidden`,
-                                organizationPreviewTextContainer: `hidden`,
-                                organizationSwitcherTrigger: `pr-0`,
-                            },
-                        }}
-                    />
-                </div>
-                <UserButton
-                    afterSignOutUrl="/"
-                    appearance={{
-                        elements: {
-                            userButtonTrigger: {
-                                "&:focus": {
-                                    boxShadow: "#7857FF 0px 0px 0px 3px",
-                                },
-                            },
-                        },
-                    }}
-                >click here to signIn</UserButton>
-            </SignedIn>
             <div
                 className="fixed bottom-[140px] right-[30px] z-40 animate-ping"
             >

@@ -8,7 +8,6 @@ import AnimatedMenuToggle from '../animated/AnimatedMenuToggle';
 import { goToTop } from '../../utils/ScrollToTopOnLoad'
 import AnimatedOnViewTitleMd from '../animated/AnimatedOnViewTitleMd';
 import WalletMultiButtonDynamic from '../wallet/WalletMultiButtonDynamic';
-import { OrganizationSwitcher, SignedIn, UserButton } from "@clerk/nextjs";
 import Image from 'next/image';
 
 const DISCOVER_LINK = '/discover';
@@ -58,36 +57,7 @@ const BasicNavbar = (props) => {
             {!props.isAdmin &&
               (
                 <>
-                  <SignedIn>
-                    <div className="hidden z-[999] sm:block">
-                      <OrganizationSwitcher afterCreateOrganizationUrl="/" />
-                      signIn
-                    </div>
-                    <div className="block sm:hidden z-[999]">
-                      <OrganizationSwitcher
-                        afterCreateOrganizationUrl="/"
-                        appearance={{
-                          elements: {
-                            organizationSwitcherTriggerIcon: `hidden`,
-                            organizationPreviewTextContainer: `hidden`,
-                            organizationSwitcherTrigger: `pr-0`,
-                          },
-                        }}
-                      />
-                    </div>
-                    <UserButton
-                      afterSignOutUrl="/"
-                      appearance={{
-                        elements: {
-                          userButtonTrigger: {
-                            "&:focus": {
-                              boxShadow: "#7857FF 0px 0px 0px 3px",
-                            },
-                          },
-                        },
-                      }}
-                    >click here to signIn</UserButton>
-                  </SignedIn>
+
                   <AnimatedLi className={`${props.activePage === 'Home' ? 'font-handwritten  hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Home' onClick={() => { router.push('/'); goToTop(); }} />
                   <AnimatedLi className={`${props.activePage === 'Whitepapaer' ? 'font-handwritten  hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Whitepapaer' onClick={() => { window.open('https://publuu.com/flip-book/664981/1481321', '_blank'); goToTop(); }} />
                   <AnimatedLi
