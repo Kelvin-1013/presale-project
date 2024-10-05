@@ -18,55 +18,39 @@ const SignupModal = ({isOpen,onRequestClose,email,username,setEmail,setUsername,
   };
 
   return (
-    <Modal className='z-50' isOpen={isOpen} onRequestClose={onRequestClose} style={modalStyles}>
-      <h2 className="animated-heading">Join the $TMONK Troop!</h2>
-      <button type="button" style={styles.googleButton} onClick={handleGoogleSignup}>
-        <FontAwesomeIcon icon={faGoogle} style={styles.icon} />
-        Continue with Google
-      </button>
-      <div style={styles.or}>Or</div>
-      <form onSubmit={handleSubmit} style={styles.form}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          style={styles.input}
-        />
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-          style={styles.input}
-        />
-        {/* <label>
+    <div className='relative'>
+      <Modal className='z-50 absolute bg-[#a0a0a0bb]' isOpen={isOpen} onRequestClose={onRequestClose} style={modalStyles}>
+        <h2 className="animated-heading">Join the $TMONK Troop!</h2>
+        {/* <button type="button" style={styles.googleButton} onClick={handleGoogleSignup}>
+          <FontAwesomeIcon icon={faGoogle} style={styles.icon} />
+          Continue with Google
+        </button>
+        <div style={styles.or}>Or</div> */}
+        <form onSubmit={handleSubmit} style={styles.form}>
           <input
-            type="checkbox"
-            checked={termsAccepted}
-            onChange={(e) => setTermsAccepted(e.target.checked)}
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            style={styles.input}
           />
-          I accept the <a href="#">Terms & Conditions</a> and <a href="#">Risk Disclosure</a>
-        </label>
-        <label>
           <input
-            type="checkbox"
-            checked={privacyAccepted}
-            onChange={(e) => setPrivacyAccepted(e.target.checked)}
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+            style={styles.input}
           />
-          I acknowledge that my information will be used in accordance with the <a href="#">Privacy Policy</a> and <a href="#">Cookie Policy</a>
-        </label> */}
-        <button type="submit" style={styles.submitButton}>Apply airdrop</button>
-      </form>
-      <div style={styles.signInLink}>
-        Have an account? <a href="#">Sign in</a>
-      </div>
-      <p style={styles.riskWarning}>
-        All trading involves risk. Only risk capital you're prepared to lose.
-      </p>
-    </Modal>
+          <button type="submit" style={styles.submitButton}>Apply airdrop</button>
+        </form>
+        <p style={styles.riskWarning}>
+          All trading involves risk. Only risk capital you're prepared to lose.
+        </p>
+      </Modal>
+    </div>
+
   );
 };
 

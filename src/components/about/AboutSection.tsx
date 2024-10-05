@@ -22,7 +22,7 @@ const AboutSection = () => {
     return (
         <div className='w-full text-center bg-gray-100 text-cC'>
             <motion.div className='max-w-[1240px] mx-auto px-4 py-16 overflow-hidden'>
-                <AnimatedOnViewTitleLg className="mb-6 " text='Build Your BONK!' />
+                <AnimatedOnViewTitleLg className="mb-6 " text='Build your presale' />
                 <AnimatedOnViewP className='mb-8 text-black' text={topicText} />
                 <motion.div className='flex justify-center flex-row max-w-[1240px] flex-wrap overflow-hidden'>
                     {aboutElements}

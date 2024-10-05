@@ -12,7 +12,26 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 
 export default function usePresale() {
+    const [tokenPrice, setTokenPrice] = useState(0.0025);
+    const { connection } = useConnection();
+    const { publicKey } = useWallet();
+    const anchorWallet = useAnchorWallet();
+    const [walletConnected, setWalletConnected] = useState(false);
+    const [initializedWallet, setInitializedWallet] = useState(false);
+    const [nextPresaleIdentifier, setNextPresaleIdentifier] = useState(0);
+    const [myPresales, setMyPresales] = useState([]);
+    const [allPresales, setAllPresales] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [transactionPending, setTransactionPending] = useState(false);
+    const [walletBalance, setWalletBalance] = useState(0);
+    const program = useMemo(() => {
+        if (anchorWallet) {
+            const provider = new anchor.AnchorProvider(connection, anchorWallet, anchor.AnchorProvider.defaultOptions())
+            return new anchor.Program(IDL, PRESALE_PROGRAM_PUBKEY, provider)
+        }
+    }, [connection, anchorWallet]);
 
+    
     const handleTransactionPending = (pending: boolean) => {
         setTransactionPending(pending);
     }
@@ -30,38 +49,20 @@ export default function usePresale() {
                 2 * LAMPORTS_PER_SOL,
             );
             try{
-                const txId = await airdropSignature;     
-                console.log(`Airdrop Transaction Id: ${txId}`);        
+                const txId = await airdropSignature;
+                console.log(`Airdrop Transaction Id: ${txId}`);
                 console.log(`https://explorer.solana.com/tx/${txId}?cluster=devnet`)
                 return false
             }
             catch(err){
                 console.log(err);
                 return false
-            }    
+            }
         }
 
-    const { connection } = useConnection();
-    const { publicKey } = useWallet();
-    // const publicKeyString = localStorage.getItem('publicKey');
-    // const publicKeyString = useLocalStorage('publicKey');
-    // const publicKey = publicKeyString ? new PublicKey(publicKeyString) : null;
-    const anchorWallet = useAnchorWallet();
+        const buyToken =({walletAdress, solAmount}) => {
 
-    const [walletConnected, setWalletConnected] = useState(false);
-    const [initializedWallet, setInitializedWallet] = useState(false);
-    const [nextPresaleIdentifier, setNextPresaleIdentifier] = useState(0);
-    const [myPresales, setMyPresales] = useState([]);
-    const [allPresales, setAllPresales] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [transactionPending, setTransactionPending] = useState(false);
-
-    const program = useMemo(() => {
-        if (anchorWallet) {
-            const provider = new anchor.AnchorProvider(connection, anchorWallet, anchor.AnchorProvider.defaultOptions())
-            return new anchor.Program(IDL, PRESALE_PROGRAM_PUBKEY, provider)
         }
-    }, [connection, anchorWallet]);
 
     const registerWallet = async () => {
         const currentTime = new Date().toISOString();
@@ -77,9 +78,19 @@ export default function usePresale() {
             throw error; // Rethrow the error for handling in the component
         }
     };
+    const fetchWalletBalance = async () => {
+        try {
+                const balance = await connection.getBalance(new PublicKey(publicKey));
+                setWalletBalance(balance / LAMPORTS_PER_SOL); // Assuming the API returns { balance: <amount> }
+            } catch (error) {
+                console.error('Error fetching wallet balance:', error);
+            }
+    };
+
     useEffect(() => {
         if (publicKey) {
             registerWallet();
+            fetchWalletBalance();
         }
         else{
             localStorage.removeItem('publicKey');
@@ -174,7 +185,6 @@ export default function usePresale() {
                     })
                     .rpc()
                 toast.success('Successfully created a presale.')
-                
             } catch (error) {
                 console.log(error)
                 toast.error(error.toString())
@@ -202,7 +212,6 @@ export default function usePresale() {
                     })
                     .rpc()
                 toast.success('Successfully edited a presale.')
-                
             } catch (error) {
                 console.log(error)
                 toast.error(error.toString())
@@ -214,5 +223,5 @@ export default function usePresale() {
 
     const getAllPresales = useMemo(() => allPresales.filter((presale) => presale), [allPresales])
 
-    return {walletConnected, initializedWallet, initializeWallet, loading, transactionPending, createPresale, editPresale, handleTransactionPending, getAllPresales, getSolanaAirdrop, getPresaleEndTime, getStartedTime , publicKey}
+    return {walletConnected, initializedWallet, initializeWallet, loading, transactionPending, createPresale, editPresale, handleTransactionPending, getAllPresales, getSolanaAirdrop, getPresaleEndTime, getStartedTime , publicKey , walletBalance, tokenPrice , buyToken }
 }

@@ -21,15 +21,6 @@ const AuthPage = () => {
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            // make enable when I have credentials
-            // const result = await signIn('credentials', {
-            //     redirect: false,
-            //     email,
-            //     password,
-            // });
-            // if (result?.error) {
-            //     setError('Invalid credentials');
-            // } else {
             if (email === 'benjamintan1013@gmail.com' && password === 'everysecond') {
                 setAdminLoginState(true);
                 router.push('/');
@@ -39,12 +30,6 @@ const AuthPage = () => {
             setError('An error occurred during login');
         }
     };
-
-    const handleGoogleSignIn = () => {
-        //make enable when I have credential
-        // signIn('google', { callbackUrl: '/' });
-    };
-
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
             <div id="loginModal" className="p-8 bg-white rounded-lg shadow-md w-96">
@@ -80,14 +65,6 @@ const AuthPage = () => {
                         Login
                     </button>
                 </form>
-                <div className="mt-4">
-                    <button
-                        onClick={handleGoogleSignIn}
-                        className="w-full py-2 text-white transition duration-200 bg-red-500 rounded-lg hover:bg-red-600"
-                    >
-                        Sign in with Google
-                    </button>
-                </div>
             </div>
         </div>
     );

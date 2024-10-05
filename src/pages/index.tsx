@@ -9,37 +9,31 @@ import AboutSection from '../components/about/AboutSection';
 import { useRouter } from 'next/router';
 import DigiCertSeal from '../components/DigiCertSeal';
 import Roadmap from '../components/roadmap';
-import CarouselImage from "../components/carousel/carousel"
-import ButtonAnimation from "../components/buttonAnimation/Button"
-import AdminAdrop from '../components/admin/AdminAirdrop'
+import CarouselImage from "../components/carousel/carousel";
+import ButtonAnimation from "../components/buttonAnimation/Button";
+import AdminAdrop from '../components/admin/AdminAirdrop';
 import Landing from "../components/landing/index";
 
 function Home() {
-  const router = useRouter();
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     const storedIsAdmin = localStorage.getItem('isAdmin');
-    setIsAdmin(storedIsAdmin === 'true'); // convert string to boolean
+    setIsAdmin(storedIsAdmin === 'true'); // Convert string to boolean
   }, []);
 
-  useEffect(() => {
-    // alert(isAdmin);
-  }, [isAdmin]);
+  const handleStorageChange = () => {
+    const storedIsAdmin = localStorage.getItem('isAdmin');
+    setIsAdmin(storedIsAdmin === 'true');
+  };
 
   useEffect(() => {
-    window.addEventListener('storage', () => {
-      const storedIsAdmin = localStorage.getItem('isAdmin');
-      setIsAdmin(storedIsAdmin === 'true'); // convert string to boolean
-    });
-
+    window.addEventListener('storage', handleStorageChange);
     return () => {
-      window.removeEventListener('storage', () => {
-        const storedIsAdmin = localStorage.getItem('isAdmin');
-        setIsAdmin(storedIsAdmin === 'true'); // convert string to boolean
-      });
+      window.removeEventListener('storage', handleStorageChange);
     };
   }, []);
+
 
   return (
     <>
@@ -60,10 +54,9 @@ function Home() {
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
         <title>$TMONK !</title>
-
       </Head>
       <AnimatedPage>
-        <div className='min-w-[374px] '>
+        <div className='min-w-[374px]'>
           <Navbar activePage='Home' isAdmin={isAdmin} />
           {!isAdmin && (
             <>
@@ -81,8 +74,8 @@ function Home() {
               <AboutSection />
             </>
           )}
-          <Footer />
           <ScrollToTop />
+          <Footer />
         </div>
       </AnimatedPage>
     </>
