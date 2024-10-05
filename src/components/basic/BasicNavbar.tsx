@@ -29,7 +29,8 @@ const BasicNavbar = (props) => {
     setNav(!nav);
   }
   const SignOut = () => {
-    localStorage.setItem('admin', JSON.stringify(false));
+    localStorage.setItem('isAdmin', JSON.stringify(false));
+    router.push('/');
   }
   const router = useRouter();
   const [isOpen, toggleOpen] = useCycle(false, true);
@@ -87,7 +88,7 @@ const BasicNavbar = (props) => {
                   nothing for  admin yet.
                   <WalletMultiButtonDynamic />
                   <button onClick={() => { SignOut() }} className='items-center'>
-                    <Image src="/monkey/airdrop.png" width={40} height={40} alt="airdrop" />
+                    <Image src="/icon/logout.png" width={40} height={40} alt="signout" />
                   </button>
                 </div>)}
           </ul>
