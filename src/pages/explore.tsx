@@ -5,20 +5,19 @@ import PresaleSection from '../components/presales/PresaleSection';
 import ConnectWalletCard from '../components/wallet/ConnectWalletCard';
 import usePresale from '../hooks/usePresale'
 
-export default function discover() {
+export default function explore() {
 
-  const { walletConnected, getAllPresales, transactionPending } = usePresale(); 
+  const { walletConnected, getAllPresales, transactionPending } = usePresale();
 
   return (
     <BasicPage activePage={'Discover'}>
       {walletConnected ? (
-      <PresaleSection presales={getAllPresales}/>
+        <PresaleSection presales={getAllPresales} />
 
       ) : (
         <ConnectWalletCard />
       )
-      
-    }
+      }
 
     </BasicPage>
   )

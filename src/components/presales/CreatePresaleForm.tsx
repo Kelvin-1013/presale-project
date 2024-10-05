@@ -1,16 +1,21 @@
 import { PublicKey } from '@solana/web3.js';
-import React, {useState} from 'react'
-import AnimatedButton from '../animated/AnimatedButton'
+import React, { useState } from 'react';
+import AnimatedButton from '../animated/AnimatedButton';
 import AnimatedOnViewTitleMd from '../animated/AnimatedOnViewTitleMd';
 import usePresale from '../../hooks/usePresale';
-import { BONK_TOKEN_PUBKEY } from '../../constants';
+import { TMONK_TOKEN_PUBKEY } from '../../constants';
+import InputGroup from './InputGroup';
 
 export default function CreatePresaleForm() {
-    const {createPresale} = usePresale();
+    const { createPresale } = usePresale();
     const [presaleTokenAddress, setPresaleTokenAddress] = useState("");
     const [amountOfTokensForPresale, setAmountOfTokensForPresale] = useState(0);
     const [maxTokensPerWallet, setMaxTokensPerWallet] = useState(0);
     const [price, setPrice] = useState(0);
+    const [lpLaunchPrice, setLpLaunchPrice] = useState(0);
+    const [minTokensPerWallet, setMinBuy] = useState(0);
+    const [hardcap, setHardcap] = useState(0);
+    const [softcap, setSoftcap] = useState(0);
 
     const handlePresaleTokenAddressChange = (e) => {
         setPresaleTokenAddress(e.target.value);
@@ -24,51 +29,77 @@ export default function CreatePresaleForm() {
         setMaxTokensPerWallet(e.target.value);
     };
 
+    const handleMinTokensPerWalletChange = (e) => {
+        setMinBuy(e.target.value);
+    };
+
     const handlePriceChange = (e) => {
         setPrice(e.target.value);
+    };
+    const handleHardCap = (e) => {
+        setHardcap(e.target.value);
+    };
+    const handleSoftCap = (e) => {
+        setSoftcap(e.target.value);
+    };
+    const handleLpPrice = (e) => {
+        setLpLaunchPrice(e.target.value);
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const presaleTokenAddressPubkey = new PublicKey(presaleTokenAddress);
+        const tokenAccount = new PublicKey(presaleTokenAddress);
+        const quoteTokenAccount = TMONK_TOKEN_PUBKEY;
+        const tokenAmount = amountOfTokensForPresale;
         createPresale(
-            presaleTokenAddressPubkey, 
-            BONK_TOKEN_PUBKEY, 
-            amountOfTokensForPresale, 
-            maxTokensPerWallet, 
-            price)
-        
+            tokenAccount,
+            quoteTokenAccount,
+            tokenAmount,
+            price,
+            maxTokensPerWallet,
+            minTokensPerWallet,
+            lpLaunchPrice,
+            softcap,
+            hardcap
+        );
     };
-    
+    return (
+        <div className='flex flex-col'>
+            <form onSubmit={handleSubmit} >
+                <div className='flex px-3 mb-3 h-30 py-auto md:px-5 align-end mt-7'>
+                    <AnimatedOnViewTitleMd text={"Create Your Presale"} className={"mx-auto self-center text-black justify-center flex text-center"} />
+                </div>
+                <div className='w-[90vw] align-end  items-center flex flex-col bg-gray-200'>
+                    <div className='flex-col items-center justify-center flex-1 transition-colors rounded-2xl'>
+                        <div className='flex flex-col items-center px-3 py-2 md:p-3 md:px-5 lg:flex-row'>
+                            <InputGroup onChangeFunc={handlePresaleTokenAddressChange} itemLabel="Token Address:" placeholder="Connect your wallet Address" type="text" />
+                            <InputGroup onChangeFunc={handleAmountOfTokensForPresaleChange} type="number" itemLabel="Tokens Amounts:" placeholder="Input Tokne Amounts to presale" />
+                        </div>
+                    </div>
+                    <div className='flex-col items-center justify-center flex-1 transition-colors rounded-2xl'>
+                        <div className='flex flex-col items-center px-3 py-2 md:p-3 md:px-5 lg:flex-row'>
+                            <InputGroup onChangeFunc={handleLpPrice} type="number" itemLabel=" LP Launch Price:" placeholder=" token price in liquidity pool" />
+                            <InputGroup onChangeFunc={handlePriceChange} type="number" itemLabel="Price:" placeholder="token price" />
+                        </div>
+                    </div>
 
-  return (
-    <div className='max-w-[1240px] mx-auto px-4 py-16 items-center flex flex-col'>
-        <div className=' py-2 px-3 md:p-3 md:px-5  items-center flex flex-col rounded-3xl bg-cB' >
-            <div className='w-[80vw]  sm:w-[500px] md:w-[600px] lg:w-[900px] items-center flex-col bg-cA p-4 my-2 al mx-auto rounded-2xl transition-colors duration-300 justify-center'>
-                <AnimatedOnViewTitleMd text={"Create Your Presale"} className={"mx-auto self-center text-cB justify-center flex text-center" }/>
-                <form onSubmit={handleSubmit} className={"w-full"}>
-                    <div className='flex flex-col md:flex-row px-1 sm:px-3 md:px-5 align-middle justify-between my-5 leading-[1.5rem]'>
-                        <h1 className={"text-cB text-3xl py-auto self-center font-medium text-center" }>Presale Token Address:</h1>
-                        <input onChange={handlePresaleTokenAddressChange} type="text"  className={" h-10 flex w-[100%] sm:w-[90%] md:w-[60%] px-auto self-center md:self-start p-3 rounded-2xl bg-cC focus:outline-cB text-cB text-xl"}/>
+                    <div className='flex-col items-center justify-center flex-1 transition-colors rounded-2xl'>
+                        <div className='flex flex-col items-center px-3 py-2 md:p-3 md:px-5 lg:flex-row'>
+                            <InputGroup onChangeFunc={handleHardCap} type="number" itemLabel="Hard Cap:" placeholder="hard cap of presale" />
+                            <InputGroup onChangeFunc={handleSoftCap} type="number" itemLabel="Soft Cap:" placeholder="soft cap of presale" />
+                        </div>
                     </div>
-                    <div className='flex flex-col md:flex-row  px-3 sm:px-3 md:px-5 align-middle justify-between my-5'>
-                        <h1 className={"text-cB text-3xl py-auto self-center font-medium text-center " }>Amount of Tokens:</h1>
-                        <input onChange={handleAmountOfTokensForPresaleChange} type="text"  className={" h-10 flex w-[100%] sm:w-[90%] md:w-[60%] px-auto self-center md:self-start p-3 rounded-2xl bg-cC focus:outline-cB text-cB text-xl"}/>
+                    <div className='flex-col items-center justify-center flex-1 transition-colors rounded-2xl'>
+                        <div className='flex flex-col items-center px-3 py-2 md:p-3 md:px-5 lg:flex-row'>
+                            <InputGroup onChangeFunc={handleMaxTokensPerWalletChange} itemLabel="Maximum Buy:" type="number" placeholder="Input maxium amount of SOL." />
+                            <InputGroup onChangeFunc={handleMinTokensPerWalletChange} itemLabel="Minimum Buy:" type="number" placeholder="Input minimum amount of SOL." />
+                        </div>
                     </div>
-                    <div className='flex flex-col md:flex-row  px-3 sm:px-3 md:px-5 align-middle justify-between my-5 leading-[1.5rem]'>
-                        <h1 className={"text-cB text-3xl py-auto self-center font-medium text-center" }>Max Tokens Per Wallet:</h1>
-                        <input onChange={handleMaxTokensPerWalletChange} type="text"  className={" h-10 flex w-[100%] sm:w-[90%] md:w-[60%] px-auto self-center md:self-start p-3 rounded-2xl bg-cC focus:outline-cB text-cB text-xl" }/>
-                    </div>
-                    <div className='flex flex-col md:flex-row  px-3 sm:px-3 md:px-5 align-middle justify-between my-5 leading-[1.5rem]'>
-                        <h1 className={"text-cB text-3xl py-auto mx-auto lg:mx-0 self-center font-medium text-center" }>Price:</h1>
-                        <input onChange={handlePriceChange} type="text"  className={" h-10 flex w-[100%] sm:w-[90%] md:w-[60%] px-auto self-center md:self-start p-3 rounded-2xl bg-cC focus:outline-cB text-cB text-xl"}/>
-                    </div>
-                    <div className='flex h-30 py-auto px-3 md:px-5 align-end mt-7 mb-3'>
-                        <AnimatedButton type="submit" text={'Create'} className={"mx-auto"}/>
-                    </div>
-                </form>
-            </div>
+                </div>
+                <div className='flex px-3 mb-3 h-30 py-auto md:px-5 align-end mt-7'>
+                    <AnimatedButton type="submit" text={'Create'} className={"mx-auto bg-green-600 text-white"} />
+                </div>
+            </form>
         </div>
-    </div>
-  )
+    );
 }

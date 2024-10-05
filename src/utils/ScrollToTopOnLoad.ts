@@ -6,12 +6,9 @@ export const goToTop = () => {
       behavior: "smooth"
     });
   };
-  
   export default function ScrollToTopOnLoad() {
-    
     useEffect(() => {
         goToTop();
       }, []);
 
   }
-  

@@ -165,7 +165,16 @@ export default function usePresale() {
         }
     }
 
-    const createPresale = async (tokenAccount: PublicKey, quoteTokenAccount: PublicKey, tokenAmount: number, maxTokensPerWallet: number, price: number) => {
+    const createPresale = async (
+        tokenAccount: PublicKey,
+        quoteTokenAccount: PublicKey,
+        tokenAmount: number,
+        maxTokensPerWallet: number,
+        price: number,
+        minTokensPerWallet : number,
+        lpLaunchPrice : number,
+        softcap : number,
+        hardcap : number) => {
         let tokenAmountBN = new BN(tokenAmount);
         let maxTokensPerWalletBN = new BN(maxTokensPerWallet);
         let priceBN = new BN(price);

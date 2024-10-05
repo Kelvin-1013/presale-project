@@ -7,9 +7,6 @@ import { motion } from 'framer-motion';
 
 const AboutSection = () => {
 
-    //    const topicText =`Welcome to our revolutionary platform for token building, presale hosting, and buying.
-    //                  Our platform is designed to make the process of creating, hosting, and buying tokens seamless and efficient. With our DeFi, opensource programs, you can easily create your own tokens, host successful presales, and buy tokens from other projects with safety and ease.
-    //                  Join us now and be a part of the future of Solana!`;
     const topicText = `As admin, you can create presale your self and control that`;
     const aboutElements = aboutInfo.map(
         item => {

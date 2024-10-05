@@ -58,8 +58,8 @@ const BasicNavbar = (props) => {
               (
                 <>
 
-                  <AnimatedLi className={`${props.activePage === 'Whitepapaer' ? 'font-handwritten  hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Whitepapaer' onClick={() => { router.push('/'); goToTop(); }} />
-                  <AnimatedLi className={`${props.activePage === 'Whitepapaer' ? 'font-handwritten  hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Whitepapaer' onClick={() => { window.open('https://publuu.com/flip-book/664981/1481321', '_blank'); goToTop(); }} />
+                  <AnimatedLi className={`${props.activePage === 'Whitepapaer' ? 'font-handwritten  hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Home' onClick={() => { router.push('/'); goToTop(); }} />
+                  <AnimatedLi className={`${props.activePage === 'Whitepapaer' ? 'font-handwritten  hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Whitepaper' onClick={() => { window.open('https://publuu.com/flip-book/664981/1481321', '_blank'); goToTop(); }} />
                   <AnimatedLi
                     className={`${props.activePage === 'roadmap' ? 'font-handwritten  hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `}
                     text='Roadmap'
@@ -84,8 +84,7 @@ const BasicNavbar = (props) => {
                 </>)}
             {props.isAdmin &&
               (
-                <div className='font-handwritten  text-shadow-white '>
-                  nothing for  admin yet.
+                <div className='font-handwritten  text-shadow-white flex flex-row '>
                   <WalletMultiButtonDynamic />
                   <button onClick={() => { SignOut() }} className='items-center'>
                     <Image src="/icon/logout.png" width={40} height={40} alt="signout" />
