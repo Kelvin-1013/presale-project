@@ -16,7 +16,7 @@ const BasicFooter = () => {
   const router = useRouter();
 
   return (
-    <div className='flex flex-col justify-center py-16 text-center align-middle bg-green-200 text-cC'>
+    <div className='flex flex-col justify-center py-16 text-center align-middle bg-green-200 text-cC bottom-0'>
       <p className='text-2xl font-light text-green-900'>Copyright © 2024 - All right reserved</p>
       <div className='flex justify-center align-middle md:flex-row xs:flex-col'>
         <div className='flex:1'></div>

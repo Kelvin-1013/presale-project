@@ -1,9 +1,9 @@
 const aboutInfo = [
     {
         id: 0,
-        title: "Discover",
-        description: 'Discover upcoming presales to get in early!',
-        link: '/discover'
+        title: "Explore",
+        description: 'Explore current presale and updates the current presale!',
+        link: '/expore'
     },
     {
         id: 1,
@@ -11,7 +11,5 @@ const aboutInfo = [
         description: 'Create your own presale and get the funding you need!',
         link: '/create'
     },
-    
-  
 ]
 export default aboutInfo;

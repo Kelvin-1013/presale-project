@@ -4,9 +4,6 @@ import AnimatedButton from './AnimatedButton';
 import { useRouter } from 'next/router';
 import {goToTop} from '../../utils/ScrollToTopOnLoad'
 
-
-
-
 const cardAnimate = {
     offscreen:{ opacity:0, scale:0.5},
     onscreen:{
@@ -19,13 +16,9 @@ const cardAnimate = {
     }
     }
 
-
-
-
 const AnimatedTeamCard = (props) => {
 
     const router = useRouter();
-
 
     return (
         <motion.div className='flex m-3' key={props.id}
