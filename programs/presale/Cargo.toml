@@ -9,12 +9,16 @@ crate-type = ["cdylib", "lib"]
 name = "presale"
 
 [features]
-default = []
-cpi = ["no-entrypoint"]
 no-entrypoint = []
 no-idl = []
 no-log-ix-name = []
-idl-build = ["anchor-lang/idl-build"]
+cpi = ["no-entrypoint"]
+default = []
 
 [dependencies]
-anchor-lang = "0.30.1"
+solana-program = "<1.17.0"
+anchor-lang = {version = "0.29.0", features = ["init-if-needed"]}
+anchor-spl = "0.29.0"
+toml_datetime = "=0.6.1"
+ahash = "=0.8.6"
+mpl-token-metadata = { version="1.2.5", features = [ "no-entrypoint" ] }
