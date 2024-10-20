@@ -13,6 +13,8 @@ import CarouselImage from "../components/carousel/carousel";
 import ButtonAnimation from "../components/buttonAnimation/Button";
 import AdminAdrop from '../components/admin/AdminAirdrop';
 import Landing from "../components/landing/index";
+import Test from "../components/test/index";
+import 'keen-slider/keen-slider.min.css'
 
 function Home() {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -57,9 +59,11 @@ function Home() {
       </Head>
       <AnimatedPage>
         <div className='min-w-[374px]'>
-          <Navbar activePage='Home' isAdmin={isAdmin} />
+          <Navbar isAdmin={isAdmin} />
+          {/* <Navbar activePage='Home' isAdmin={isAdmin} /> */}
           {!isAdmin && (
             <>
+              {/* <Test/> */}
               <Landing />
               <ButtonAnimation />
               <CarouselImage />
@@ -69,10 +73,11 @@ function Home() {
             </>
           )}
           {isAdmin && (
-            <>
-              <AdminAdrop />
+            <div >
+              <h4 className='text-center text-orange-800 bg-gray-100 pt-36'> Now you are on admin mode </h4>
               <AboutSection />
-            </>
+              <AdminAdrop />
+            </div>
           )}
           <ScrollToTop />
           <Footer />

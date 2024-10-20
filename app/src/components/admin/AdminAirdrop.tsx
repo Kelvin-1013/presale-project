@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const  AdminAirdrop = () => {
+const AdminAirdrop = () => {
   const [airdropList, setAirdropList] = useState([]);
   const [selectedAirdrops, setSelectedAirdrops] = useState([]);
   const [error, setError] = useState(null);
@@ -40,19 +40,19 @@ const  AdminAirdrop = () => {
   };
 
   return (
-    <div className="mx-auto w-full p-4 pt-6 md:p-6 lg:p-12  bg-gray-100">
+    <div className="w-full px-4 mx-auto bg-gray-100 pt-60 md:p-6 lg:p-12">
       {error && (
-        <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
+        <div className="relative px-4 py-3 mb-4 text-red-700 bg-red-100 border border-red-400 rounded">
           {error}
         </div>
       )}
       <button
         onClick={handleAirdrop}
-        className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded mb-4"
+        className="px-4 py-2 mt-20 mb-4 font-bold text-white bg-orange-500 rounded hover:bg-orange-700"
       >
         Airdrop
       </button>
-      <table className="my-7 w-full text-center table-auto bg-white shadow-lg rounded-lg overflow-hidden">
+      <table className="w-full overflow-hidden text-center bg-white rounded-lg shadow-lg table-auto my-7">
         <thead className="bg-gray-200">
           <tr>
             <th className="px-4 py-2">#</th>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="448px" height="485px" viewBox="0 0 448 485" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <path d="M49,165.11031 L49,320.298789 C49,334.773416 56.725974,348.149238 69.2681818,355.386551 L203.731818,432.980466 C216.274026,440.217779 231.725974,440.217779 244.268182,432.980466 L378.731818,355.386551 C391.274026,348.149238 399,334.773416 399,320.298789 L399,165.11031 C399,150.635035 391.274026,137.259862 378.731818,130.0219 L244.268182,52.4279849 C231.725974,45.1906717 216.274026,45.1906717 203.731818,52.4279849 L69.2681818,130.0219 C56.725974,137.259862 49,150.635035 49,165.11031" id="path-1"></path>
+        <filter x="-20.1%" y="-18.0%" width="140.3%" height="136.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="1" operator="erode" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="0" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="24.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.19 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Fill-1">
+            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+            <use id="main" fill-rule="evenodd" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

@@ -9,7 +9,8 @@ function BasicPage(props) {
 
     <AnimatedPage>
       <div className='bg-gray-200 min-w-[374px] min-h-[100vh]'>
-        <Navbar activePage={props.activePage} />
+        <Navbar />
+        {/* <Navbar activePage={props.activePage} /> */}
         {props.children}
         {/* <AdminFooter /> */}
         <ScrollToTopButton />
