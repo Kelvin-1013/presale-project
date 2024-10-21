@@ -54,7 +54,6 @@ const CombinedNavbar = ({ activePage = 'Home', isAdmin = false }: { activePage?:
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' })
     }
-    handleNav()
   }
 
   return (
