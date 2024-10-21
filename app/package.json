@@ -25,6 +25,7 @@
     "bs58": "^4.0.1",
     "csstype": "^3.0.10",
     "framer-motion": "^8.5.0",
+    "keen-slider": "^6.8.6",
     "mongodb": "^6.9.0",
     "next": "latest",
     "next-auth": "^4.24.8",

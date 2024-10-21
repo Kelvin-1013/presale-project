@@ -59,22 +59,25 @@ const ExperienceCard = ({ experience }) => {
 
 const Experience = () => {
   return (
-    <div className="w-full mt-0 ">
-    {/* <div className="w-full mt-0 bg-gradient-to-r from-green-400 to-lime-500"> */}
-      <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}> Fort Knox, but for Bananas</p>
-        <h2 className={styles.sectionHeadText}>Roadmap</h2>
-      </motion.div>
+    <div className="w-full mt-0 bg-gradient-to-r from-green-400 to-yellow-400">
+      <div className="mx-auto">
+        {/* <div className="w-full mt-0 bg-gradient-to-r from-green-400 to-lime-500"> */}
+        <motion.div variants={textVariant()}>
+          {/* <p className={styles.sectionSubText}> Fort Knox, but for Bananas</p> */}
+          <h2 className={styles.sectionHeadText}>Roadmap</h2>
+        </motion.div>
 
-      <div className="flex flex-col mt-2 " id='roadmap-section'>
-        <VerticalTimeline>
-          {roadmap.map((roadmapStep, index) => (
-            <ExperienceCard key={index} experience={roadmapStep} />
-          ))}
-        </VerticalTimeline>
+        <div className="flex flex-col mt-2 " id='roadmap-section'>
+          <VerticalTimeline>
+            {roadmap.map((roadmapStep, index) => (
+              <ExperienceCard key={index} experience={roadmapStep} />
+            ))}
+          </VerticalTimeline>
+        </div>
       </div>
     </div>
   );
 };
 
-export default SectionWrapper(Experience, "work");
+export default Experience;
+// export default SectionWrapper(Experience, "work");
