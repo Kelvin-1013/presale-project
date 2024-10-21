@@ -1,118 +1,184 @@
 "use client"
-import React, { useState } from 'react';
-import { useRouter } from 'next/router';
-import AnimatedLi from '../animated/AnimatedLi';
-import { motion, LayoutGroup, useCycle } from 'framer-motion';
-import AnimatedLogo from '../animated/AnimatedLogo';
-import AnimatedMenuToggle from '../animated/AnimatedMenuToggle';
-import { goToTop } from '../../utils/ScrollToTopOnLoad'
-import AnimatedOnViewTitleMd from '../animated/AnimatedOnViewTitleMd';
-import WalletMultiButtonDynamic from '../wallet/WalletMultiButtonDynamic';
-import Image from 'next/image';
 
-const DISCOVER_LINK = '/discover';
-const CREATE_LINK = '/create';
-const PRESALE_LINK = '/presale';
-const nativeColors = [
-  '#FF69B4', // Color 1
-  '#33CC33', // Color 2
-  '#66CCCC', // Color 3
-  '#FFCC00', // Color 4
-  '#0099CC', // Color 5
-  '#FF99CC', // Color 6
-  '#CCCCCC', // Color 7
-];
+import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { motion, AnimatePresence } from 'framer-motion'
+import AnimatedLogo from '../animated/AnimatedLogo'
+import WalletMultiButtonDynamic from '../wallet/WalletMultiButtonDynamic'
+import AnimatedOnViewTitleMd from '../animated/AnimatedOnViewTitleMd'
+import { X, Menu } from 'lucide-react'
+import Settings from './Settings'
+import MarketPrice from './MarketPrice'
 
-const BasicNavbar = (props) => {
-  const [nav, setNav] = useState(false)
-  const handleNav = () => {
-    setNav(!nav);
+const CombinedNavbar = ({ activePage = 'Home', isAdmin = false }: { activePage?: string, isAdmin?: boolean }) => {
+  const [isOpen, setIsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [showMarketPrice, setShowMarketPrice] = useState(true)
+  const [isRTL, setIsRTL] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(false)
+  const router = useRouter()
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode)
+    // Add logic to actually change the theme
   }
-  const SignOut = () => {
-    localStorage.setItem('isAdmin', JSON.stringify(false));
-    router.push('/');
+  const toggleDirection = () => {
+    setIsRTL(!isRTL)
+    // Add logic to change the text direction
   }
-  const router = useRouter();
-  const [isOpen, toggleOpen] = useCycle(false, true);
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      setIsScrolled(currentScrollY > 10)
+      setShowMarketPrice(currentScrollY <= lastScrollY || currentScrollY === 0)
+      lastScrollY = currentScrollY
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const handleNav = () => setIsOpen(!isOpen)
+  const signOut = () => {
+    localStorage.setItem('isAdmin', JSON.stringify(false))
+    router.push('/')
+  }
+
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id)
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' })
+    }
+    handleNav()
+  }
 
   return (
-    <div className=' w-full h-[90px] bg-green-500 z-[2000] backdrop-blur-sm bg-opacity-60 px-1 sm:px-5 md:py-0' >
-      <div className='flex items-center justify-between h-full '>
-        <div className='flex items-center'>
-          <AnimatedLogo onClick={() => router.push('/')} className={' ml-2 sm:ml-0 pt-2 text-cB '} />
-          <AnimatedOnViewTitleMd
-            onClick={() => router.push('/')}
-            text={`Save planet!`}
-            delay={0.3}
-            className={' xl:text-5xl lg:text-3xl md:text-1xl sm:text-lg hidden lg:flex text-cB   hover:text-cC cursor-pointer'}
-            style={{
-              textDecoration: 'underline',
-              textDecorationThickness: '2px',
-              transition: 'text-decoration-color 0.5s ease-in-out',
-            }}
-          />
-        </div>
-        <div className='hidden md:flex'>
-          <ul className=' text-shadow-white font-handwritten  flex items-center gap-4 md:text-xl xl:text-6xl lg:text-4xl text-cB'>
-            {!props.isAdmin &&
-              (
-                <>
-
-                  <AnimatedLi className={`${props.activePage === 'Whitepapaer' ? 'font-handwritten  hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Home' onClick={() => { router.push('/'); goToTop(); }} />
-                  <AnimatedLi className={`${props.activePage === 'Whitepapaer' ? 'font-handwritten  hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `} text='Whitepaper' onClick={() => { window.open('https://publuu.com/flip-book/664981/1481321', '_blank'); goToTop(); }} />
-                  <AnimatedLi
-                    className={`${props.activePage === 'roadmap' ? 'font-handwritten  hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `}
-                    text='Roadmap'
-                    onClick={() => {
-                      const roadmapSection = document.getElementById('roadmap-section');
-                      if (roadmapSection) {
-                        roadmapSection.scrollIntoView({ behavior: 'smooth' });
-                      }
-                    }}
-                  />
-                  <AnimatedLi
-                    className={`${props.activePage === 'FAQ' ? 'hover:text-cB cursor-pointer border-b-2 text-[16px] sm:text-[24px]' : 'hover:text-cB cursor-pointer text-[16px] sm:text-[24px]'} `}
-                    text='FAQ'
-                    onClick={() => {
-                      const roadmapSection = document.getElementById('faq_id');
-                      if (roadmapSection) {
-                        roadmapSection.scrollIntoView({ behavior: 'smooth' });
-                      }
-                    }}
-                  />
-                  <WalletMultiButtonDynamic />
-                </>)}
-            {props.isAdmin &&
-              (
-                <div className='font-handwritten  text-shadow-white flex flex-row '>
-                  <WalletMultiButtonDynamic />
-                  <button onClick={() => { SignOut() }} className='items-center'>
-                    <Image src="/icon/logout.png" width={40} height={40} alt="signout" />
+    <>
+      <div className="fixed top-0 left-0 right-0 z-50">
+        <AnimatePresence>
+          {showMarketPrice && (
+            <motion.div
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -50 }}
+              transition={{ duration: 0.3 }}
+            >
+              <MarketPrice />
+            </motion.div>
+          )}
+        </AnimatePresence>
+        <header className={`flex items-center transition-all backdrop-blur-sm duration-300 ${isScrolled ? 'bg-green-700 shadow-md' : 'bg-[#349134a2]'}`}>
+          <div className="container px-4 mx-auto">
+            <div className="flex items-center justify-between h-[90px]">
+              <div className="flex items-center">
+                <AnimatedLogo onClick={() => router.push('/')} className="ml-2 sm:ml-0 pt-2 text-cB cursor-pointer" />
+                <AnimatedOnViewTitleMd
+                  onClick={() => router.push('/')}
+                  text={isAdmin ? `Your are on admin mode!` : `Save planet!`}
+                  delay={0.3}
+                  className="xl:text-5xl lg:text-3xl md:text-1xl sm:text-lg hidden lg:flex text-cB hover:text-cC cursor-pointer"
+                  style={{
+                    textDecoration: 'underline',
+                    textDecorationThickness: '2px',
+                    transition: 'text-decoration-color 0.5s ease-in-out',
+                  }}
+                />
+              </div>
+              <nav className="hidden md:flex items-center space-x-4">
+                {!isAdmin && (
+                  <>
+                    <Link href="/" className={`text-cB transition duration-300 hover:text-cC ${activePage === 'Home' ? 'border-b-2' : ''}`}>
+                      Home
+                    </Link>
+                    <Link href="https://publuu.com/flip-book/664981/1481321" target="_blank" className={`text-cB transition duration-300 hover:text-cC ${activePage === 'Whitepaper' ? 'border-b-2' : ''}`}>
+                      Whitepaper
+                    </Link>
+                    <button
+                      onClick={() => scrollToSection('roadmap-section')}
+                      className={`text-cB transition duration-300 hover:text-cC ${activePage === 'Roadmap' ? 'border-b-2' : ''}`}
+                    >
+                      Roadmap
+                    </button>
+                    <button
+                      onClick={() => scrollToSection('faq_id')}
+                      className={`text-cB transition duration-300 hover:text-cC ${activePage === 'FAQ' ? 'border-b-2' : ''}`}
+                    >
+                      FAQ
+                    </button>
+                  </>
+                )}
+                {isAdmin && (
+                  <button onClick={signOut} className="text-cB transition duration-300 hover:text-cC">
+                    Sign out
                   </button>
-                </div>)}
-          </ul>
-        </div>
+                )}
+                <WalletMultiButtonDynamic />
+                <Settings toggleDark={toggleDarkMode} toggleDir={toggleDirection} />
+              </nav>
 
-        <motion.div className='flex md:hidden' animate={isOpen ? "open" : "closed"}>
-          <WalletMultiButtonDynamic />
-          <AnimatedMenuToggle toggle={() => { handleNav(); toggleOpen(); }} />
-        </motion.div>
-        <LayoutGroup>
-          <motion.div className={nav ? `z-10 w-full font-handwritten  text-shadow-white bg-cA text-cC absolute top-[90px] left-0 flex justify-center text-center border-b-4` : `w-full bg-cA z-10 text-cC absolute top-20  left-0 flex justify-center text-center `} layout>
-            {nav &&
-              <motion.ul className="flex space-x-4 "> {/* Added flex and spacing for horizontal layout */}
-                <AnimatedLi className={'hover:text-cB  text-[#d431d4d3] cursor-pointer text-2xl flex items-center'} text='Home' onClick={() => { router.push('/'); goToTop(); }} />
-                <AnimatedLi className={'hover:text-cB  text-[#d431d4d3] cursor-pointer text-2xl flex items-center'} text='Whitepaper' onClick={() => { window.open('https://publuu.com/flip-book/664981/1481321'); goToTop(); }} />
-                <AnimatedLi className={'hover:text-cB  text-[#d431d4d3] cursor-pointer text-2xl flex items-center'} text='Buy' onClick={() => { window.open('https://tools.smithii.io/launches-list/solana', '_blank') }} />
-                <AnimatedLi className={'hover:text-cB  text-[#d431d4d3] cursor-pointer text-2xl flex items-center'} text='Signout' onClick={() => SignOut()} />
-                {/* <AnimatedLi className={'hover:text-cB cursor-pointer text-2xl flex items-center'} text='• presale' onClick={() => { router.push(PRESALE_LINK); goToTop(); }} /> */}
-              </motion.ul>
-            }
-          </motion.div>
-        </LayoutGroup>
+              <div className="flex items-center md:hidden">
+                <WalletMultiButtonDynamic />
+                <button onClick={handleNav} className="ml-4 text-cB">
+                  <Menu className="w-6 h-6" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </header>
       </div>
-    </div>
-  );
-};
 
-export default BasicNavbar;
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -100 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -100 }}
+            className="fixed inset-0 z-50 pt-20 bg-[#348f69c7]"
+          >
+            <button
+              onClick={handleNav}
+              className="absolute text-cB transition duration-300 top-4 right-4 hover:text-cC"
+            >
+              <X size={24} />
+            </button>
+            <div className="container px-4 mx-auto">
+              <nav className="flex flex-col items-center space-y-4">
+                {!isAdmin ? (
+                  <>
+                    <Link href="/" className="text-xl text-cB transition duration-300 hover:text-cC" onClick={handleNav}>
+                      Home
+                    </Link>
+                    <Link href="https://publuu.com/flip-book/664981/1481321" target="_blank" className="text-xl text-cB transition duration-300 hover:text-cC" onClick={handleNav}>
+                      Whitepaper
+                    </Link>
+                    <button
+                      className="text-xl text-cB transition duration-300 hover:text-cC"
+                      onClick={() => scrollToSection('roadmap-section')}
+                    >
+                      Roadmap
+                    </button>
+                    <button
+                      className="text-xl text-cB transition duration-300 hover:text-cC"
+                      onClick={() => scrollToSection('faq_id')}
+                    >
+                      FAQ
+                    </button>
+                  </>
+                ) : (
+                  <button onClick={() => { signOut(); handleNav(); }} className="text-xl text-cB transition duration-300 hover:text-cC">
+                    Sign out
+                  </button>
+                )}
+                <WalletMultiButtonDynamic />
+                <Settings />
+              </nav>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  )
+}
+
+export default CombinedNavbar
