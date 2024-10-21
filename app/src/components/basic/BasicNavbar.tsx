@@ -45,6 +45,10 @@ const CombinedNavbar = ({ activePage = 'Home', isAdmin = false }: { activePage?:
     router.push('/')
   }
 
+  const closeMarketPrice = () => {
+    setShowMarketPrice(false)
+  }
+
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id)
     if (section) {
@@ -64,13 +68,13 @@ const CombinedNavbar = ({ activePage = 'Home', isAdmin = false }: { activePage?:
               exit={{ opacity: 0, y: -50 }}
               transition={{ duration: 0.3 }}
             >
-              <MarketPrice />
+              <MarketPrice onClose={closeMarketPrice} />
             </motion.div>
           )}
         </AnimatePresence>
         <header className={`flex items-center transition-all backdrop-blur-sm duration-300 ${isScrolled ? 'bg-green-700 shadow-md' : 'bg-[#349134a2]'}`}>
           <div className="container px-4 mx-auto">
-            <div className="flex items-center justify-between h-[90px]">
+            <div className="flex items-center justify-between h-24">
               <div className="flex items-center">
                 <AnimatedLogo onClick={() => router.push('/')} className="ml-2 sm:ml-0 pt-2 text-cB cursor-pointer" />
                 <AnimatedOnViewTitleMd

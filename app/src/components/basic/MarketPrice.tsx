@@ -4,6 +4,7 @@ import React from 'react'
 import Image from 'next/image'
 import { useKeenSlider } from 'keen-slider/react'
 import 'keen-slider/keen-slider.min.css'
+import { X } from 'lucide-react'
 
 const marketList = [
   {
@@ -20,23 +21,9 @@ const marketList = [
     status: 'up',
     percent: 3,
   },
-  // {
-  //   logo: '/favicon/android-chrome-192x192.png',
-  //   name: '3 ticket',
-  //   price: 1.45,
-  //   status: 'up',
-  //   percent: 8,
-  // },
-  // {
-  //   logo: '/favicon/android-chrome-192x192.png',
-  //   name: '4 ticket',
-  //   price: 22.34,
-  //   status: 'down',
-  //   percent: 3,
-  // },
 ]
 
-export default function MarketPrice() {
+export default function MarketPrice({ onClose }: { onClose: () => void }) {
   const [sliderRef] = useKeenSlider(
     {
       loop: true,
@@ -116,7 +103,14 @@ export default function MarketPrice() {
   };
 
   return (
-    <div className="py-2 bg-black bg-opacity-50">
+    <div className="py-2 bg-black bg-opacity-50 relative">
+      <button
+        onClick={onClose}
+        className="absolute right-2 top-2 text-white hover:text-gray-300 transition-colors duration-200 z-10"
+        aria-label="Close market price"
+      >
+        <X size={20} />
+      </button>
       <div ref={sliderRef} className="keen-slider">
         {marketList.map((item, index) => (
           <div key={index} className="keen-slider__slide">
