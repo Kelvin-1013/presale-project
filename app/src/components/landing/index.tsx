@@ -1,78 +1,32 @@
-// components/ParticlesBackground.js
-import Particles from 'react-particles';
-import { useCallback } from 'react';
-import { loadFull } from 'tsparticles';
+// pages/index.js
+import Head from 'next/head';
+import SaleNewsMd from './saleNewsMd';
+import PresalePanel from './presalePanel';
+import SaleNews from './saleNews';
+import ParticlesBackground from './particlesBackground'
 
-const particleOptions = {
-  particles: {
-    number: {
-      value: 80,
-      density: {
-        enable: true,
-        value_area: 800,
-      },
-    },
-    color: {
-      value: '#ffffff',
-    },
-    shape: {
-      type: 'circle',
-      stroke: {
-        width: 0,
-        color: '#000000',
-      },
-    },
-    opacity: {
-      value: 0.5,
-      random: false,
-    },
-    size: {
-      value: 3,
-      random: true,
-    },
-    line_linked: {
-      enable: true,
-      distance: 150,
-      color: '#ffffff',
-      opacity: 0.4,
-      width: 1,
-    },
-    move: {
-      enable: true,
-      speed: 1,
-      direction: 'none',
-      out_mode: 'out',
-    },
-  },
-  interactivity: {
-    detect_on: 'canvas',
-    events: {
-      onhover: {
-        enable: true,
-        mode: 'repulse',
-      },
-      onclick: {
-        enable: true,
-        mode: 'push',
-      },
-    },
-  },
-  retina_detect: true,
-};
-
-const ParticlesBackground = () => {
-  const particlesInit = useCallback(async (engine) => {
-    await loadFull(engine);
-  }, []);
-
+export default function page() {
   return (
-    <Particles
-      id="tsparticles"
-      init={particlesInit}
-      options={particleOptions}
-      className="absolute inset-0 z-0" // Ensure it's behind other elements
-    />
+    <div className="landing-page min-h-[95vh] flex flex-col items-center justify-center bg-gradient-to-r  text-white">
+      <Head>
+        <title>$TMONK-PreSale</title>
+        <meta name="description" content="Join the most promising meme coin of today!" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className="md:hidden">
+        <SaleNewsMd />
+      </div>
+      <div className="relative">
+        <ParticlesBackground />
+        <div className='flex items-center justify-between md:flex-row md:space-x-10 sm:m-0'>
+          <div className="hidden md:flex">
+            <SaleNews />
+          </div>
+          <div className='flex flex-col items-center mx-auto '>
+            <PresalePanel />
+          </div>
+        </div>
+      </div>
+    </div>
   );
-};
-
-export default ParticlesBackground;
+}

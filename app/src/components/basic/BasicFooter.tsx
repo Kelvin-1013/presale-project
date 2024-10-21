@@ -2,9 +2,8 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { FaTwitterSquare, FaGithub, FaDiscord, FaInstagram, FaTelegram } from "react-icons/fa";
-import CountUp from 'react-countup'; // Make sure to install react-countup
-import XIcon from "./xicon.png";
-import Subscribe from './SubscribeForm';
+import XIcon from "./xicon.png"
+import Subscribe from './SubscribeForm'
 
 const TWITTER_LINK = 'https://twitter.com/@TMONK777';
 const GITHUB_LINK = 'https://github.com/TowerTransition';
@@ -15,22 +14,9 @@ const TELEGRAM_LINK = 'https://t.me/+gcK4YOe5sXZjZWY5';
 
 const BasicFooter = () => {
   const router = useRouter();
-  const play = true; // Set this based on your conditions
-
-  const countup = (val, isPlay) => (
-    <span>
-      {isPlay ? <CountUp end={val} /> : 0}
-    </span>
-  );
 
   return (
     <div className='bottom-0 flex flex-col justify-center py-16 text-center align-middle bg-gradient-to-r from-green-400 to-yellow-400 text-cC'>
-      <h2 className='text-4xl font-bold text-white'>
-        {countup(2, play)}&nbsp;{countup(234, play)}&nbsp;{countup(567, play)}
-      </h2>
-      <h2 className='text-4xl font-bold text-white'>
-      Users and Counting
-      </h2>
       <p className='text-2xl font-light text-green-900'>Copyright © 2024 - All right reserved</p>
       <div className='flex justify-center align-middle md:flex-row xs:flex-col'>
         <div className='flex:1'></div>
@@ -40,6 +26,7 @@ const BasicFooter = () => {
           <FaDiscord size={50} className='mx-6 text-indigo-600 transition-all duration-300 cursor-pointer hover:text-indigo-800 hover:scale-90' onClick={() => window.open(DISCORD_LINK, "_blank")} />
           <FaInstagram size={50} className='mx-6 text-pink-500 transition-all duration-300 cursor-pointer hover:text-pink-700 hover:scale-90' onClick={() => window.open(INSTAGRAM_LINK, "_blank")} />
           <FaTelegram size={50} className='mx-6 text-blue-400 transition-all duration-300 cursor-pointer hover:text-blue-600 hover:scale-90' onClick={() => window.open(TELEGRAM_LINK, "_blank")} />
+          {/* <SiTwitter size={50} className='mx-6 mt-4 text-green-500 transition-all duration-300 cursor-pointer hover:text-green-700' onClick={() => window.open(TREE_LINK, "_blank")} /> */}
         </div>
         <div className='flex:1'>
           <Subscribe />
@@ -48,5 +35,4 @@ const BasicFooter = () => {
     </div>
   );
 }
-
 export default BasicFooter;

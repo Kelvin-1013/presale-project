@@ -164,44 +164,43 @@ export default function usePresale() {
             }
         }
     }
+
     const createPresale = async (
         tokenAccount: PublicKey,
         quoteTokenAccount: PublicKey,
         tokenAmount: number,
-        lpLaunchPrice : number,
-        price: number,
         maxTokensPerWallet: number,
+        price: number,
         minTokensPerWallet : number,
+        lpLaunchPrice : number,
         softcap : number,
-        hardcap : number
-    ) => {
-            alert("create presale is called.");
-        // let tokenAmountBN = new BN(tokenAmount);
-        // let maxTokensPerWalletBN = new BN(maxTokensPerWallet);
-        // let priceBN = new BN(price);
-        // if (program && publicKey) {
-        //     try {
-        //         setTransactionPending(true)
-        //         const [walletPDA, walletBump] = findProgramAddressSync([utf8.encode(WALLET_SEED), publicKey.toBuffer()], program.programId)
-        //         const [presalePDA, presaleBump] = findProgramAddressSync([utf8.encode(PRESALE_SEED), publicKey.toBuffer(), Uint8Array.from([nextPresaleIdentifier])], program.programId)
+        hardcap : number) => {
+        let tokenAmountBN = new BN(tokenAmount);
+        let maxTokensPerWalletBN = new BN(maxTokensPerWallet);
+        let priceBN = new BN(price);
+        if (program && publicKey) {
+            try {
+                setTransactionPending(true)
+                const [walletPDA, walletBump] = findProgramAddressSync([utf8.encode(WALLET_SEED), publicKey.toBuffer()], program.programId)
+                const [presalePDA, presaleBump] = findProgramAddressSync([utf8.encode(PRESALE_SEED), publicKey.toBuffer(), Uint8Array.from([nextPresaleIdentifier])], program.programId)
 
-        //         await program.methods
-        //             .createPresale(tokenAccount, quoteTokenAccount, tokenAmountBN, maxTokensPerWalletBN, priceBN)
-        //             .accounts({
-        //                 walletDetails: walletPDA,
-        //                 presaleDetails: presalePDA,
-        //                 authority: publicKey,
-        //                 systemProgram: SystemProgram.programId,
-        //             })
-        //             .rpc()
-        //         toast.success('Successfully created a presale.')
-        //     } catch (error) {
-        //         console.log(error)
-        //         toast.error(error.toString())
-        //     } finally {
-        //         setTransactionPending(false)
-        //     }
-        // }
+                await program.methods
+                    .createPresale(tokenAccount, quoteTokenAccount, tokenAmountBN, maxTokensPerWalletBN, priceBN)
+                    .accounts({
+                        walletDetails: walletPDA,
+                        presaleDetails: presalePDA,
+                        authority: publicKey,
+                        systemProgram: SystemProgram.programId,
+                    })
+                    .rpc()
+                toast.success('Successfully created a presale.')
+            } catch (error) {
+                console.log(error)
+                toast.error(error.toString())
+            } finally {
+                setTransactionPending(false)
+            }
+        }
     }
 
     const editPresale = async (tokenAccount: PublicKey, quoteTokenAccount: PublicKey, tokenAmount: number, maxTokensPerWallet: number, price: number, presaleIdentifier: number) => {

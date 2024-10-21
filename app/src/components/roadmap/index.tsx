@@ -59,8 +59,8 @@ const ExperienceCard = ({ experience }) => {
 
 const Experience = () => {
   return (
-    <div className=" w-full mt-0">
-    {/* <div className=" w-full mt-0 bg-gradient-to-r from-green-400 to-lime-500"> */}
+    <div className="w-full mt-0 ">
+    {/* <div className="w-full mt-0 bg-gradient-to-r from-green-400 to-lime-500"> */}
       <motion.div variants={textVariant()}>
         <p className={styles.sectionSubText}> Fort Knox, but for Bananas</p>
         <h2 className={styles.sectionHeadText}>Roadmap</h2>
