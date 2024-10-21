@@ -76,12 +76,12 @@ const CombinedNavbar = ({ activePage = 'Home', isAdmin = false }: { activePage?:
           <div className="container px-4 mx-auto">
             <div className="flex items-center justify-between h-24">
               <div className="flex items-center">
-                <AnimatedLogo onClick={() => router.push('/')} className="ml-2 sm:ml-0 pt-2 text-cB cursor-pointer" />
+                <AnimatedLogo onClick={() => router.push('/')} className="ml-2 sm:ml-0 pt-2 text-white hover:text-purple-600 cursor-pointer" />
                 <AnimatedOnViewTitleMd
                   onClick={() => router.push('/')}
                   text={isAdmin ? `Your are on admin mode!` : `Save planet!`}
                   delay={0.3}
-                  className="xl:text-5xl lg:text-3xl md:text-1xl sm:text-lg hidden lg:flex text-cB hover:text-cC cursor-pointer"
+                  className="xl:text-5xl lg:text-3xl md:text-1xl sm:text-lg hidden lg:flex text-white hover:text-purple-600  cursor-pointer"
                   style={{
                     textDecoration: 'underline',
                     textDecorationThickness: '2px',
@@ -92,28 +92,28 @@ const CombinedNavbar = ({ activePage = 'Home', isAdmin = false }: { activePage?:
               <nav className="hidden md:flex items-center space-x-4">
                 {!isAdmin && (
                   <>
-                    <Link href="/" className={`text-cB transition duration-300 hover:text-cC ${activePage === 'Home' ? 'border-b-2' : ''}`}>
+                    <Link href="/" className={`text-white hover:text-purple-600 transition duration-300  ${activePage === 'Home' ? 'border-b-2' : ''}`}>
                       Home
                     </Link>
-                    <Link href="https://publuu.com/flip-book/664981/1481321" target="_blank" className={`text-cB transition duration-300 hover:text-cC ${activePage === 'Whitepaper' ? 'border-b-2' : ''}`}>
+                    <Link href="https://publuu.com/flip-book/664981/1481321" target="_blank" className={`text-white hover:text-purple-600 transition duration-300  ${activePage === 'Whitepaper' ? 'border-b-2' : ''}`}>
                       Whitepaper
                     </Link>
                     <button
                       onClick={() => scrollToSection('roadmap-section')}
-                      className={`text-cB transition duration-300 hover:text-cC ${activePage === 'Roadmap' ? 'border-b-2' : ''}`}
+                      className={`text-white hover:text-purple-600 transition duration-300  ${activePage === 'Roadmap' ? 'border-b-2' : ''}`}
                     >
                       Roadmap
                     </button>
                     <button
                       onClick={() => scrollToSection('faq_id')}
-                      className={`text-cB transition duration-300 hover:text-cC ${activePage === 'FAQ' ? 'border-b-2' : ''}`}
+                      className={`text-white hover:text-purple-600 transition duration-300  ${activePage === 'FAQ' ? 'border-b-2' : ''}`}
                     >
                       FAQ
                     </button>
                   </>
                 )}
                 {isAdmin && (
-                  <button onClick={signOut} className="text-cB transition duration-300 hover:text-cC">
+                  <button onClick={signOut} className="text-white hover:text-purple-600 transition duration-300 ">
                     Sign out
                   </button>
                 )}
@@ -123,7 +123,7 @@ const CombinedNavbar = ({ activePage = 'Home', isAdmin = false }: { activePage?:
 
               <div className="flex items-center md:hidden">
                 <WalletMultiButtonDynamic />
-                <button onClick={handleNav} className="ml-4 text-cB">
+                <button onClick={handleNav} className="ml-4 text-white hover:text-purple-600">
                   <Menu className="w-6 h-6" />
                 </button>
               </div>
@@ -142,7 +142,7 @@ const CombinedNavbar = ({ activePage = 'Home', isAdmin = false }: { activePage?:
           >
             <button
               onClick={handleNav}
-              className="absolute text-cB transition duration-300 top-4 right-4 hover:text-cC"
+              className="absolute text-white hover:text-purple-600 transition duration-300 top-4 right-4 "
             >
               <X size={24} />
             </button>
@@ -150,27 +150,27 @@ const CombinedNavbar = ({ activePage = 'Home', isAdmin = false }: { activePage?:
               <nav className="flex flex-col items-center space-y-4">
                 {!isAdmin ? (
                   <>
-                    <Link href="/" className="text-xl text-cB transition duration-300 hover:text-cC" onClick={handleNav}>
+                    <Link href="/" className="text-xl text-white hover:text-purple-600 transition duration-300 " onClick={handleNav}>
                       Home
                     </Link>
-                    <Link href="https://publuu.com/flip-book/664981/1481321" target="_blank" className="text-xl text-cB transition duration-300 hover:text-cC" onClick={handleNav}>
+                    <Link href="https://publuu.com/flip-book/664981/1481321" target="_blank" className="text-xl text-white hover:text-purple-600 transition duration-300 " onClick={handleNav}>
                       Whitepaper
                     </Link>
                     <button
-                      className="text-xl text-cB transition duration-300 hover:text-cC"
+                      className="text-xl text-white hover:text-purple-600 transition duration-300 "
                       onClick={() => scrollToSection('roadmap-section')}
                     >
                       Roadmap
                     </button>
                     <button
-                      className="text-xl text-cB transition duration-300 hover:text-cC"
+                      className="text-xl text-white hover:text-purple-600 transition duration-300 "
                       onClick={() => scrollToSection('faq_id')}
                     >
                       FAQ
                     </button>
                   </>
                 ) : (
-                  <button onClick={() => { signOut(); handleNav(); }} className="text-xl text-cB transition duration-300 hover:text-cC">
+                  <button onClick={() => { signOut(); handleNav(); }} className="text-xl text-white hover:text-purple-600 transition duration-300 ">
                     Sign out
                   </button>
                 )}
