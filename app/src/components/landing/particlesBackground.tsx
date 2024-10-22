@@ -9,6 +9,8 @@ import type { ISourceOptions } from "tsparticles-engine"
 
 export default function ParticlesBackground() {
   const pathname = usePathname()
+  const str = "tsparticles";
+
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadFull(engine)
   }, [])
@@ -100,20 +102,21 @@ export default function ParticlesBackground() {
     detectRetina: true,
   }
 
+  const props: any = {
+    id: str,
+    init: particlesInit, // Pass the function directly
+    options: particlesOptions,
+  }
+
+  interface CropperFix extends React.Component { }
+
+  const Particle = (Particles as any) as {
+    new(): CropperFix;
+  };
+
   return (
     <div className="absolute inset-0 w-full h-full overflow-hidden -z-50">
-      {(Particles as any)({
-        id: "tsparticles",
-        init: { particlesInit },
-        options: { particlesOptions }
-      })}
+      <Particle {...props} />
     </div>
-    //   <div className="absolute inset-0 w-full h-full overflow-hidden -z-50">
-    //   <Particles
-    //     id="tsparticles"
-    //     init={particlesInit}
-    //     options={particlesOptions}
-    //   />
-    // </div>
   )
 }

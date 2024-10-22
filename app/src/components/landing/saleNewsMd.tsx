@@ -108,7 +108,7 @@ export default function App() {
                                     className="rounded-lg object-cover"
                                 />
                             </div>
-                            <div className="absolute inset-0 flex flex-col justify-center items-center inset-1 z-10 text-white">
+                            <div className="absolute inset-0 flex flex-col justify-center items-center z-10 text-white">
                                 <p className="text-lg xl:text-base md:text-sm lg:text-base  text-[#831d61]">Why should you enter?</p>
                                 <p className="text-sm xl:text-xs lg:text-xs md:text-xs  text-[#2c6317]"> Having fun creating memes</p>
                                 <p className="text-sm xl:text-xs lg:text-xs md:text-xs  text-[#2c6317]">Be part of real-world mission.</p>
@@ -127,7 +127,7 @@ export default function App() {
                                     className="rounded-lg object-cover"
                                 />
                             </div>
-                            <div className="absolute inset-0 flex flex-col justify-center items-center inset-1 z-10 text-white">
+                            <div className="absolute inset-0 flex flex-col justify-center items-center z-10 text-white">
                                 <p className="text-lg xl:text-base md:text-sm lg:text-base  text-[#831d61]">Why should you enter?</p>
                                 <p className="text-sm xl:text-xs lg:text-xs md:text-xs  text-[#2c6317]"> Having fun creating memes</p>
                                 <p className="text-sm xl:text-xs lg:text-xs md:text-xs  text-[#2c6317]">Be part of real-world mission.</p>
@@ -146,7 +146,7 @@ export default function App() {
                                     className="rounded-lg object-cover"
                                 />
                             </div>
-                            <div className="absolute inset-0 flex flex-col justify-center items-center inset-1 z-10 text-white">
+                            <div className="absolute inset-0 flex flex-col justify-center items-center z-10 text-white">
                                 <p className="text-lg xl:text-base md:text-sm lg:text-base  text-[#831d61]">Why should you enter?</p>
                                 <p className="text-sm xl:text-xs lg:text-xs md:text-xs  text-[#2c6317]"> Having fun creating memes</p>
                                 <p className="text-sm xl:text-xs lg:text-xs md:text-xs  text-[#2c6317]">Be part of real-world mission.</p>
@@ -165,7 +165,7 @@ export default function App() {
                                     className="rounded-lg object-cover"
                                 />
                             </div>
-                            <div className="absolute inset-0 flex flex-col justify-center items-center inset-1 z-10 text-white">
+                            <div className="absolute inset-0 flex flex-col justify-center items-center z-10 text-white">
                                 <p className="text-lg xl:text-base md:text-sm lg:text-base  text-[#831d61]">Why should you enter?</p>
                                 <p className="text-sm xl:text-xs lg:text-xs md:text-xs  text-[#2c6317]"> Having fun creating memes</p>
                                 <p className="text-sm xl:text-xs lg:text-xs md:text-xs  text-[#2c6317]">Be part of real-world mission.</p>
@@ -184,7 +184,7 @@ export default function App() {
                                     className="rounded-lg object-cover"
                                 />
                             </div>
-                            <div className="absolute inset-0 flex flex-col justify-center items-center inset-1 z-10 text-white">
+                            <div className="absolute inset-0 flex flex-col justify-center items-center z-10 text-white">
                                 <p className="text-lg xl:text-base md:text-sm lg:text-base  text-[#831d61]">Why should you enter?</p>
                                 <p className="text-sm xl:text-xs lg:text-xs md:text-xs  text-[#2c6317]"> Having fun creating memes</p>
                                 <p className="text-sm xl:text-xs lg:text-xs md:text-xs  text-[#2c6317]">Be part of real-world mission.</p>
@@ -203,7 +203,7 @@ export default function App() {
                                     className="rounded-lg object-cover"
                                 />
                             </div>
-                            <div className="absolute inset-0 flex flex-col justify-center items-center inset-1 z-10 text-white">
+                            <div className="absolute inset-0 flex flex-col justify-center items-center z-10 text-white">
                                 <p className="text-lg xl:text-base md:text-sm lg:text-base  text-[#831d61]">Why should you enter?</p>
                                 <p className="text-sm xl:text-xs lg:text-xs md:text-xs  text-[#2c6317]"> Having fun creating memes</p>
                                 <p className="text-sm xl:text-xs lg:text-xs md:text-xs  text-[#2c6317]">Be part of real-world mission.</p>
@@ -222,7 +222,7 @@ export default function App() {
                                     className="rounded-lg object-cover"
                                 />
                             </div>
-                            <div className="absolute inset-0 flex flex-col justify-center items-center inset-1 z-10 text-white">
+                            <div className="absolute inset-0 flex flex-col justify-center items-center z-10 text-white">
                                 <p className="text-lg xl:text-base md:text-sm lg:text-base  text-[#831d61]">Why should you enter?</p>
                                 <p className="text-sm xl:text-xs lg:text-xs md:text-xs  text-[#2c6317]"> Having fun creating memes</p>
                                 <p className="text-sm xl:text-xs lg:text-xs md:text-xs  text-[#2c6317]">Be part of real-world mission.</p>
@@ -241,7 +241,7 @@ export default function App() {
                                     className="rounded-lg object-cover"
                                 />
                             </div>
-                            <div className="absolute inset-0 flex flex-col justify-center items-center inset-1 z-10 text-white">
+                            <div className="absolute inset-0 flex flex-col justify-center items-center z-10 text-white">
                                 <p className="text-lg xl:text-base md:text-sm lg:text-base  text-[#831d61]">Why should you enter?</p>
                                 <p className="text-sm xl:text-xs lg:text-xs md:text-xs  text-[#2c6317]"> Having fun creating memes</p>
                                 <p className="text-sm xl:text-xs lg:text-xs md:text-xs  text-[#2c6317]">Be part of real-world mission.</p>
@@ -260,7 +260,7 @@ export default function App() {
                                     className="rounded-lg object-cover"
                                 />
                             </div>
-                            <div className="absolute inset-0 flex flex-col justify-center items-center inset-1 z-10 text-white">
+                            <div className="absolute inset-0 flex flex-col justify-center items-center z-10 text-white">
                                 <p className="text-lg xl:text-base md:text-sm lg:text-base  text-[#831d61]">Why should you enter?</p>
                                 <p className="text-sm xl:text-xs lg:text-xs md:text-xs  text-[#2c6317]"> Having fun creating memes</p>
                                 <p className="text-sm xl:text-xs lg:text-xs md:text-xs  text-[#2c6317]">Be part of real-world mission.</p>
@@ -279,7 +279,7 @@ export default function App() {
                                     className="rounded-lg object-cover"
                                 />
                             </div>
-                            <div className="absolute inset-0 flex flex-col justify-center items-center inset-1 z-10 text-white">
+                            <div className="absolute inset-0 flex flex-col justify-center items-center z-10 text-white">
                                 <p className="text-lg xl:text-base md:text-sm lg:text-base  text-[#831d61]">Why should you enter?</p>
                                 <p className="text-sm xl:text-xs lg:text-xs md:text-xs  text-[#2c6317]"> Having fun creating memes</p>
                                 <p className="text-sm xl:text-xs lg:text-xs md:text-xs  text-[#2c6317]">Be part of real-world mission.</p>
