@@ -72,7 +72,7 @@ const CombinedNavbar = ({ activePage = 'Home', isAdmin = false }: { activePage?:
             </motion.div>
           )}
         </AnimatePresence>
-        <header className={`flex items-center transition-all backdrop-blur-sm duration-300 ${isScrolled ? 'bg-green-700 shadow-md' : 'bg-[#349134a2]'}`}>
+        <header className={`flex items-center transition-all backdrop-blur-sm duration-300 ${isScrolled ? 'bg-green-700 shadow-md' : 'bg-[#54b354be]'}`}>
           <div className="container px-4 mx-auto">
             <div className="flex items-center justify-between h-24">
               <div className="flex items-center">
@@ -175,7 +175,7 @@ const CombinedNavbar = ({ activePage = 'Home', isAdmin = false }: { activePage?:
                   </button>
                 )}
                 <WalletMultiButtonDynamic />
-                <Settings />
+                <Settings toggleDark={toggleDarkMode} toggleDir={toggleDirection} />
               </nav>
             </div>
           </motion.div>

@@ -73,7 +73,7 @@ export default function CreatePresaleForm() {
                     <div className='flex-col items-center justify-center flex-1 transition-colors rounded-2xl'>
                         <div className='flex flex-col items-center px-3 py-2 md:p-3 md:px-5 lg:flex-row'>
                             <InputGroup onChangeFunc={handlePresaleTokenAddressChange} itemLabel="Token Address:" placeholder="Connect your wallet Address" type="text" />
-                            <InputGroup onChangeFunc={handleAmountOfTokensForPresaleChange} type="number" itemLabel="Tokens Amounts:" placeholder="Input Tokne Amounts to presale" />
+                            <InputGroup onChangeFunc={handleAmountOfTokensForPresaleChange} type="number" itemLabel="Tokens Amounts:" placeholder="Input Token Amounts to presale" />
                         </div>
                     </div>
                     <div className='flex-col items-center justify-center flex-1 transition-colors rounded-2xl'>
