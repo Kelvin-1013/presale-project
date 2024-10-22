@@ -110,7 +110,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 90vh;
-  background-image: url("/monkey/landing-bg.png");
+  background-image: url("/monkey/landing-bg.webp");
   background-size: cover;
   background-position: center;
 }

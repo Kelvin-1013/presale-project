@@ -35,7 +35,7 @@ export default function App() {
                         <div className="relative w-full rounded-lg p-2 my-5">
                             <div className="relative w-full h-36"> {/* Reduced height for images (70% of h-52) */}
                                 <Image
-                                    src="/monkey/anouncement_panel.png"
+                                    src="/monkey/anouncement_panel.webp"
                                     alt="Panel Background"
                                     width={238} // 70% of 340
                                     height={210} // 70% of 300
@@ -55,7 +55,7 @@ export default function App() {
                         <div className="relative w-full rounded-lg p-2 my-5">
                             <div className="relative w-full h-36"> {/* Reduced height for images (70% of h-52) */}
                                 <Image
-                                    src="/monkey/anouncement_panel.png"
+                                    src="/monkey/anouncement_panel.webp"
                                     alt="Panel Background"
                                     fill
                                     className="rounded-lg object-cover"
@@ -102,7 +102,7 @@ export default function App() {
                         <div className="relative w-full rounded-lg">
                             <div className="relative w-full h-36"> {/* Reduced height for images */}
                                 <Image
-                                    src="/monkey/anouncement_card.png"
+                                    src="/monkey/anouncement_card.webp"
                                     alt="Panel Background"
                                     fill
                                     className="rounded-lg object-cover"
@@ -121,7 +121,7 @@ export default function App() {
                         <div className="relative w-full rounded-lg">
                             <div className="relative w-full h-36"> {/* Reduced height for images */}
                                 <Image
-                                    src="/monkey/anouncement_card.png"
+                                    src="/monkey/anouncement_card.webp"
                                     alt="Panel Background"
                                     fill
                                     className="rounded-lg object-cover"
@@ -140,7 +140,7 @@ export default function App() {
                         <div className="relative w-full rounded-lg">
                             <div className="relative w-full h-36"> {/* Reduced height for images */}
                                 <Image
-                                    src="/monkey/anouncement_card.png"
+                                    src="/monkey/anouncement_card.webp"
                                     alt="Panel Background"
                                     fill
                                     className="rounded-lg object-cover"
@@ -159,7 +159,7 @@ export default function App() {
                         <div className="relative w-full rounded-lg">
                             <div className="relative w-full h-36"> {/* Reduced height for images */}
                                 <Image
-                                    src="/monkey/anouncement_card.png"
+                                    src="/monkey/anouncement_card.webp"
                                     alt="Panel Background"
                                     fill
                                     className="rounded-lg object-cover"
@@ -178,7 +178,7 @@ export default function App() {
                         <div className="relative w-full rounded-lg">
                             <div className="relative w-full h-36"> {/* Reduced height for images */}
                                 <Image
-                                    src="/monkey/anouncement_card.png"
+                                    src="/monkey/anouncement_card.webp"
                                     alt="Panel Background"
                                     fill
                                     className="rounded-lg object-cover"
@@ -197,7 +197,7 @@ export default function App() {
                         <div className="relative w-full rounded-lg">
                             <div className="relative w-full h-36"> {/* Reduced height for images */}
                                 <Image
-                                    src="/monkey/anouncement_card.png"
+                                    src="/monkey/anouncement_card.webp"
                                     alt="Panel Background"
                                     fill
                                     className="rounded-lg object-cover"
@@ -216,7 +216,7 @@ export default function App() {
                         <div className="relative w-full rounded-lg">
                             <div className="relative w-full h-36"> {/* Reduced height for images */}
                                 <Image
-                                    src="/monkey/anouncement_card.png"
+                                    src="/monkey/anouncement_card.webp"
                                     alt="Panel Background"
                                     fill
                                     className="rounded-lg object-cover"
@@ -235,7 +235,7 @@ export default function App() {
                         <div className="relative w-full rounded-lg">
                             <div className="relative w-full h-36"> {/* Reduced height for images */}
                                 <Image
-                                    src="/monkey/anouncement_card.png"
+                                    src="/monkey/anouncement_card.webp"
                                     alt="Panel Background"
                                     fill
                                     className="rounded-lg object-cover"
@@ -254,7 +254,7 @@ export default function App() {
                         <div className="relative w-full rounded-lg">
                             <div className="relative w-full h-36"> {/* Reduced height for images */}
                                 <Image
-                                    src="/monkey/anouncement_card.png"
+                                    src="/monkey/anouncement_card.webp"
                                     alt="Panel Background"
                                     fill
                                     className="rounded-lg object-cover"
@@ -273,7 +273,7 @@ export default function App() {
                         <div className="relative w-full rounded-lg">
                             <div className="relative w-full h-36"> {/* Reduced height for images */}
                                 <Image
-                                    src="/monkey/anouncement_card.png"
+                                    src="/monkey/anouncement_card.webp"
                                     alt="Panel Background"
                                     fill
                                     className="rounded-lg object-cover"

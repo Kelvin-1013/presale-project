@@ -74,22 +74,22 @@ export default function ParticlesBackground() {
         type: "image",
         image: [
           {
-            src: "/monkey/cuty-monkey-1.png",
+            src: "/monkey/cuty-monkey-1.webp",
             width: 32,
             height: 32,
           },
           {
-            src: "/monkey/cuty-monkey-2.png",
+            src: "/monkey/cuty-monkey-2.webp",
             width: 32,
             height: 32,
           },
           {
-            src: "/monkey/cuty-monkey-3.png",
+            src: "/monkey/cuty-monkey-3.webp",
             width: 32,
             height: 32,
           },
           {
-            src: "/monkey/thinking monkey.png",
+            src: "/monkey/thinking monkey.webp",
             width: 32,
             height: 32,
           },
