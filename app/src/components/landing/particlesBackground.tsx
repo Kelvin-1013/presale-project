@@ -12,7 +12,7 @@ export default function ParticlesBackground() {
   const str = "tsparticles";
 
   const particlesInit = useCallback(async (engine: Engine) => {
-    await loadFull(engine)
+    await loadFull(engine as any)
   }, [])
 
   if (pathname !== '/') return null
