@@ -20,9 +20,9 @@ const CarouselImage = () => {
     };
 
     const data = [
-        {url: "monkey/1.png",title: "Transforming Our Trading"},
-        {url: "monkey/2.png",title: "Transforming Our Trading"},
-        {url: "monkey/3.png",title: "Transforming Our Trading"},
+        {url: "monkey/1.webp",title: "Transforming Our Trading"},
+        {url: "monkey/2.webp",title: "Transforming Our Trading"},
+        {url: "monkey/3.webp",title: "Transforming Our Trading"},
     ];
 
     const handleJoinCommunity = (event) => {

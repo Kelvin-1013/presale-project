@@ -19,7 +19,7 @@ export default function App() {
                     <SwiperSlide>
                         <div className="relative w-30 rounded-lg p-2 my-5">
                             <Image
-                                src="/monkey/anouncement_panel.png"
+                                src="/monkey/anouncement_panel.webp"
                                 alt="Panel Background"
                                 width={600}
                                 height={300}
@@ -38,7 +38,7 @@ export default function App() {
                     <SwiperSlide>
                         <div className="relative w-30 rounded-lg p-2 my-5">
                             <Image
-                                src="/monkey/anouncement_panel.png"
+                                src="/monkey/anouncement_panel.webp"
                                 alt="Panel Background"
                                 width={600}
                                 height={300}
@@ -70,7 +70,7 @@ export default function App() {
                 <SwiperSlide>
                     <div className="relative w-full rounded-lg ">
                         <Image
-                            src="/monkey/anouncement_card.png"
+                            src="/monkey/anouncement_card.webp"
                             alt="Panel Background"
                             width={600}
                             height={300}
@@ -88,7 +88,7 @@ export default function App() {
                 <SwiperSlide>
                     <div className="relative w-full rounded-lg ">
                         <Image
-                            src="/monkey/anouncement_card.png"
+                            src="/monkey/anouncement_card.webp"
                             alt="Panel Background"
                             width={600}
                             height={300}
@@ -106,7 +106,7 @@ export default function App() {
                 <SwiperSlide>
                     <div className="relative w-full rounded-lg ">
                         <Image
-                            src="/monkey/anouncement_card.png"
+                            src="/monkey/anouncement_card.webp"
                             alt="Panel Background"
                             width={600}
                             height={300}
@@ -124,7 +124,7 @@ export default function App() {
                 <SwiperSlide>
                     <div className="relative w-full rounded-lg ">
                         <Image
-                            src="/monkey/anouncement_card.png"
+                            src="/monkey/anouncement_card.webp"
                             alt="Panel Background"
                             width={600}
                             height={300}
@@ -142,7 +142,7 @@ export default function App() {
                 <SwiperSlide>
                     <div className="relative w-full rounded-lg ">
                         <Image
-                            src="/monkey/anouncement_card.png"
+                            src="/monkey/anouncement_card.webp"
                             alt="Panel Background"
                             width={600}
                             height={300}

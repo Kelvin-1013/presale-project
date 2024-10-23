@@ -79,12 +79,12 @@ const ButtonAnimation = () => {
             <NotificationModal isNofifyModalOpen={isNofifyModalOpen} onNotifyClose={onNotifyClose} />
             <button onClick={() => window.open('https://tools.smithii.io/launches-list/solana','_blank')}
                 className="fixed bottom-[140px] right-[30px] z-50  text-white font-bold rounded">
-                <Image src="/monkey/buy.png" width={60} height={60} alt="buy" />
+                <Image src="/monkey/buy.webp" width={60} height={60} alt="buy" />
             </button>
             <div
                 className="fixed bottom-[140px] right-[30px] z-40 animate-ping"
             >
-                <Image src="/monkey/buy.png" width={60} height={60} alt="buy" />
+                <Image src="/monkey/buy.webp" width={60} height={60} alt="buy" />
             </div>
 
             <button
@@ -92,7 +92,7 @@ const ButtonAnimation = () => {
                 onClick={airdropTriggered}
                 id='airdrop'
             >
-                <Image src="/monkey/airdrop.png" width={60} height={60} alt="airdrop" />
+                <Image src="/monkey/airdrop.webp" width={60} height={60} alt="airdrop" />
             </button>
             <motion.div id="sidebar"
                 className={`xl:w-1/4 md:w-1/2  xs:w-3/4 z-50 fixed left-0 top-0 h-full w-1/3 bg-gradient-to-r from-yellow-400 to-orange-500 p-5 ${isAirdropSidebar ? "block" : "hidden"
