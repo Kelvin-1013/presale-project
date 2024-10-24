@@ -7,13 +7,13 @@ import ParticlesBackground from './particlesBackground'
 
 export default function page() {
   return (
-    <div className="landing-page min-h-[95vh] mt-24 flex flex-col items-center justify-center bg-gradient-to-r  text-white">
+    <div className="landing-page min-h-[95vh] mt-24  flex flex-col items-center justify-center bg-gradient-to-r  text-white">
       <Head>
         <title>$TMONK-PreSale</title>
         <meta name="description" content="Join the most promising meme coin of today!" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="md:hidden">
+      <div className="mt-8 md:hidden">
         <SaleNewsMd />
       </div>
       <div className="relative">
