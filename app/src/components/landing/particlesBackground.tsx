@@ -84,7 +84,7 @@ export default function ParticlesBackground() {
             height: 32,
           },
           {
-            src: "/monkey/cuty-monkey-3.webp",
+            src: "http://app.tmonk.net/monkey/cuty-monkey-1.webp",
             width: 32,
             height: 32,
           },
