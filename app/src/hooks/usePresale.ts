@@ -31,7 +31,6 @@ export default function usePresale() {
         }
     }, [connection, anchorWallet]);
 
-    
     const handleTransactionPending = (pending: boolean) => {
         setTransactionPending(pending);
     }
@@ -138,57 +137,33 @@ export default function usePresale() {
         }
     }, [publicKey, program]);
 
-    const initializeWallet = async () => {
-        if (program && publicKey) {
-            try {
-                setTransactionPending(true)
-                const [walletPDA, walletBump] = findProgramAddressSync([Buffer.from(WALLET_SEED), publicKey.toBuffer()], program.programId)
-
-                const tx = await program.methods
-                    .initializeWallet( )
-                    .accounts({
-                        walletDetails: walletPDA,
-                        authority: publicKey,
-                        systemProgram: SystemProgram.programId,
-                    })
-                    .rpc();
-                setInitializedWallet(true)
-                toast.success('Successfully initialized user.')
-                return false
-            } catch (error) {
-                console.log(error)
-                toast.error(error.toString())
-                return false
-            } finally {
-                setTransactionPending(false)
-            }
-        }
-    }
-
     const createPresale = async (
         tokenAccount: PublicKey,
-        quoteTokenAccount: PublicKey,
-        tokenAmount: number,
-        maxTokensPerWallet: number,
         price: number,
+        maxTokensPerWallet: number,
         minTokensPerWallet : number,
-        lpLaunchPrice : number,
         softcap : number,
         hardcap : number) => {
-        let tokenAmountBN = new BN(tokenAmount);
         let maxTokensPerWalletBN = new BN(maxTokensPerWallet);
+        let minTokensPerWalletBN = new BN(minTokensPerWallet);
         let priceBN = new BN(price);
+        let softcapBN = new BN(softcap);
+        let hardcapBN = new BN(hardcap);
         if (program && publicKey) {
             try {
                 setTransactionPending(true)
-                const [walletPDA, walletBump] = findProgramAddressSync([utf8.encode(WALLET_SEED), publicKey.toBuffer()], program.programId)
-                const [presalePDA, presaleBump] = findProgramAddressSync([utf8.encode(PRESALE_SEED), publicKey.toBuffer(), Uint8Array.from([nextPresaleIdentifier])], program.programId)
-
+                const [presaleInfo, presaleBump] = findProgramAddressSync([utf8.encode(PRESALE_SEED), publicKey.toBuffer()], program.programId)
                 await program.methods
-                    .createPresale(tokenAccount, quoteTokenAccount, tokenAmountBN, maxTokensPerWalletBN, priceBN)
+                    .createPresale(
+                        tokenAccount,
+                        priceBN,
+                        maxTokensPerWalletBN,
+                        minTokensPerWalletBN,
+                        softcapBN,
+                        hardcapBN
+                )
                     .accounts({
-                        walletDetails: walletPDA,
-                        presaleDetails: presalePDA,
+                        presaleInfo: presaleInfo,
                         authority: publicKey,
                         systemProgram: SystemProgram.programId,
                     })
@@ -231,6 +206,6 @@ export default function usePresale() {
     }
 
     const getAllPresales = useMemo(() => allPresales.filter((presale) => presale), [allPresales])
-
-    return {walletConnected, initializedWallet, initializeWallet, loading, transactionPending, createPresale, editPresale, handleTransactionPending, getAllPresales, getSolanaAirdrop, getPresaleEndTime, getStartedTime , publicKey , walletBalance, tokenPrice , buyToken }
+//getMintedTokenAddress,
+    return { walletConnected, initializedWallet, loading, transactionPending, createPresale, editPresale, handleTransactionPending, getAllPresales, getSolanaAirdrop, getPresaleEndTime, getStartedTime , publicKey , walletBalance, tokenPrice , buyToken }
 }

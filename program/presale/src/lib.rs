@@ -16,7 +16,6 @@ pub mod presale {
     pub fn create_presale(
         ctx: Context<CreatePresale>,
         token_mint_address: Pubkey,
-        // quote_token_mint_address: Pubkey,
         softcap_amount: u64,
         hardcap_amount: u64,
         max_token_amount_per_address: u64,
@@ -28,14 +27,12 @@ pub mod presale {
         return create_presale::create_presale(
             ctx,
             token_mint_address,
-            // quote_token_mint_address,
             softcap_amount,
             hardcap_amount,
             max_token_amount_per_address,
             price_per_token,
             start_time,
             end_time,
-            // identifier,
         );
     }
 

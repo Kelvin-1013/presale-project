@@ -17,7 +17,7 @@ const AboutSection = () => {
     )
 
     return (
-        <div className='w-full text-center bg-gray-100 text-cC'>
+        <div className='w-full text-center bg-gray-100 text-cC mt-12'>
             <motion.div className='max-w-[1240px] mx-auto px-4 py-16 overflow-hidden'>
                 <AnimatedOnViewTitleLg className="mb-6 " text='Build your presale' />
                 <AnimatedOnViewP className='mb-8 text-black' text={topicText} />

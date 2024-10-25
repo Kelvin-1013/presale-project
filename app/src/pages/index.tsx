@@ -69,10 +69,10 @@ function Home() {
             </>
           )}
           {isAdmin && (
-            <>
-              <AdminAdrop />
+            <div className='mt-24'>
               <AboutSection />
-            </>
+              <AdminAdrop />
+            </div>
           )}
           <ScrollToTop />
           <Footer />

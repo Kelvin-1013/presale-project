@@ -1,12 +1,10 @@
 use anchor_lang::system_program;
-// use solana_program::program::invoke;
 
 use {
     anchor_lang::prelude::*,
     anchor_spl::{associated_token, token},
 };
 
-// use solana_program::rent::Rent;
 
 use crate::constants::{PRESALE_SEED, PRESALE_VAULT, RENT_MINIMUM};
 use crate::state::PresaleInfo;
@@ -113,7 +111,6 @@ pub struct DepositToken<'info> {
     /// CHECK:
     #[account(mut)]
     pub admin: AccountInfo<'info>,
-
     pub rent: Sysvar<'info, Rent>,
     pub system_program: Program<'info, System>,
     pub token_program: Program<'info, token::Token>,

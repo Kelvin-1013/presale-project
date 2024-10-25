@@ -27,7 +27,7 @@ const CarouselImage = () => {
 
     const handleJoinCommunity = (event) => {
         event.stopPropagation();
-        window.open('https://discord.com/invite/2aNj737F',"_blank");
+        window.open('https://discord.gg/XPFpj5PQFm',"_blank");
     };
 
     return (
